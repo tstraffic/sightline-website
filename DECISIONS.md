@@ -14,3 +14,6 @@
 - On-dark primary CTA = Drawing Paper ground + Aubergine text (oxide never a button fill; aubergine-on-aubergine invisible). Light-ground primaries are Aubergine.
 - Brand-pack logo SVGs not yet copied into /public — Phase 1 (design set) decides placement; nav uses the inline mark geometry from the approved icon.
 - Footer contact details left as TODO(content) — address/phone/email for the new site not in the content pack.
+- Saadat likes the live site's Team page and wants it carried into the new build; its published content (5 profiles, qualification register incl. PI insurance line, hiring section) imported verbatim to `content/pages/team.ts` with provenance = live-site /team — treated as client-approved because the client already published it, substantially closing D6 (remaining: NER/CPEng, prequal strip, T&S-mention stance).
+- D3 evidence from live team page: "RSA registration in progress" (Savanah) confirms no in-house accredited RSA auditor yet — page 08 auditor claims stay gated; the in-progress line itself may be stated.
+- Team page placement in the new sitemap (own /team URL vs inside /about vs 8th nav item) — Saadat's call, question raised 4 Aug 2026.
