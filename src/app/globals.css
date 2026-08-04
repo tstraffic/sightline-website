@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/*
+  Sightline design tokens — Oxide Mark / Technical Editorial (04-brand.md).
+  The six brand colours and two typefaces are defined ONCE here; components
+  use the generated utilities (bg-aubergine, text-carbon, font-mono, …) and
+  never raw hex. Surface weighting guide: Drawing Paper ~62% · Aubergine ~20%
+  · Mineral Dust ~13% · Oxide ~5% (accent only — links, rules, active states).
+*/
+@theme {
+  --color-aubergine: #3e2632;
+  --color-oxide: #a34652;
+  --color-carbon: #24272a;
+  --color-survey: #657278;
+  --color-dust: #e5e1de;
+  --color-paper: #f8f6f2;
+
+  --font-sans: var(--font-hanken), "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "Consolas", monospace;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-carbon);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Brand type discipline: no 700, no italics (04-brand.md). Headings are 500. */
+h1, h2, h3, h4, strong, b {
+  font-weight: 500;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-oxide);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-dust);
+  color: var(--color-carbon);
+}
