@@ -1,5 +1,20 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Phase 1
+
+- Official brand-pack lockups adopted: primary horizontal in the header (light ground), reversed in the footer (aubergine), app tile as the web icon; the interim inline BrandMark component removed.
+- Hero diagram: detailed TGS-extract treatment (cone taper w/ AS 1742.3 Fig 4.9 annotation, hatched work zone, chainage per the approved cover, lane dimension, north point, scale bar, paper stamp w/ oxide corners) at Saadat's request ("more detailed and engineering-looking"); simpler cover-literal version retrievable from git history.
+- StatsBand renders on the homepage with `designPreview` showing candidate figures + an explicit "awaiting verification" tag — remove the prop or verify stats before launch; production renders verified figures only. TODO(verify:stats).
+- Stats labels derive from verified.ts notes (first sentence only) so copy stays single-sourced.
+- Eyebrow on aubergine uses Oxide, mirroring the locked capability cover exactly (contrast note logged for the Phase 3 WCAG pass — decorative mono caps, not body text).
+- Voice fix 1 rewrite avoids duplicating the page's closing internal-link line ("same engineers…") — the concrete "by whom" moved to "designed by traffic engineers to the site's actual geometry".
+- 4th pillar card copy written from the Approvals landing intro per 05-migration-map, phrased without "STA" to avoid a V1-flagged term in newly written copy.
+- Practice-landing service cards use each page's Rev 3 opening line as its one-liner — no invented blurbs; page 08 excluded from the card grid while it is a hidden draft.
+- Contact "what we need from you" table carries the technical-table treatment with real information (the three scoping inputs from Rev 3's closing CTA line, expanded honestly).
+- Contact form: front-end validation + honeypot only in Phase 1; submission handler, confirmation email and internal routing are Phase 2 — surfaced in the form's stub message.
+- Practice pages 2/3, /approvals, /sectors and remaining sector pages are Phase 2 — their nav/tile links 404 in this preview by design.
+- Mobile: hero diagram hidden below `sm` (keeps the aubergine hero compact); stats collapse 4→2→1 columns; pillar cards stack.
+
 ## Phase 0
 
 - Scaffolded manually (not create-next-app) because the repo root already holds /content and CLAUDE.md; project root = pack root so `/content` stays the single source tree.

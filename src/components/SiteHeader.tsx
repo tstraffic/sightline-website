@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { NAV, CTA } from "@/lib/nav";
-import { BrandMark } from "./BrandMark";
 
 /**
  * Seven-item nav per 00-INSTRUCTIONS with the Engineering Services dropdown.
@@ -18,14 +17,16 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-carbon/20 bg-paper">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-5">
-        <Link href="/" className="flex items-center gap-3 no-underline" aria-label="Sightline Traffic Engineers — home">
-          <BrandMark className="h-8 w-8" />
-          <span className="leading-tight">
-            <span className="block text-[1.05rem] font-medium text-carbon">Sightline</span>
-            <span className="block font-mono text-[0.55rem] uppercase tracking-[0.28em] text-survey">
-              Traffic engineers
-            </span>
-          </span>
+        <Link href="/" className="flex items-center no-underline" aria-label="Sightline Traffic Engineers — home">
+          {/* Primary horizontal lockup on light grounds; reversed variant lives in the footer */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/Sightline_Logo_Horizontal_Primary.svg"
+            alt="Sightline Traffic Engineers"
+            width={195}
+            height={48}
+            className="h-12 w-auto"
+          />
         </Link>
 
         <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Main">

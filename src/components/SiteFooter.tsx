@@ -7,8 +7,16 @@ export function SiteFooter() {
     <footer className="bg-aubergine text-paper">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
-          <p className="text-[1.05rem] font-medium">Sightline Traffic Engineers</p>
-          <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-dust/80">
+          {/* Reversed lockup on the aubergine ground */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/Sightline_Logo_Horizontal_Reversed.svg"
+            alt="Sightline Traffic Engineers"
+            width={195}
+            height={48}
+            className="h-12 w-auto"
+          />
+          <p className="mt-3 font-mono text-[0.62rem] uppercase tracking-[0.28em] text-dust/80">
             Designed to standard.
           </p>
           <p className="mt-5 max-w-xs text-[0.9rem] leading-relaxed text-dust">
