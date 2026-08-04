@@ -1,82 +1,67 @@
 import Link from "next/link";
 import type { ServicePageData, PageSection } from "@content/pages/types";
-import { CTA } from "@/lib/nav";
+import { TitleBlockCta } from "./TitleBlockCta";
 
 /**
- * Individual service page template (template 3 of 8, 00-INSTRUCTIONS).
- * Phase 0 wiring version — Phase 1 delivers the approved design treatment.
- * Renders content only; all copy comes from /content/pages data.
+ * Individual service page template — Title Block treatment. Renders content
+ * only; all copy comes from /content/pages data. FAQPage JSON-LD included.
  */
 export function ServicePage({ data }: { data: ServicePageData }) {
   return (
     <article>
       <FaqJsonLd data={data} />
 
-      {/* Page head — controlled Aubergine section */}
-      <header className="bg-aubergine text-paper">
-        <div className="mx-auto max-w-6xl px-5 py-16">
-          <p className="font-mono text-[0.66rem] uppercase tracking-[0.22em] text-dust/80">
-            {data.practice.label} · Page {data.pageNo}
-          </p>
-          <h1 className="mt-4 max-w-3xl text-balance text-3xl leading-tight md:text-4xl">
-            {data.title}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-dust">{data.opener}</p>
+      <div className="pagehead">
+        <div className="dwgno">
+          <Link href={data.practice.href} className="no-underline hover:underline">
+            {data.practice.label}
+          </Link>{" "}
+          · Page {data.pageNo}
         </div>
-      </header>
+        <h1>{data.title}</h1>
+        <p className="sub">{data.opener}</p>
+      </div>
 
-      <div className="mx-auto max-w-3xl px-5 py-14">
-        <p className="text-[1.05rem] leading-relaxed">{data.intro}</p>
+      <section className="section">
+        <div className="pad">
+          <p className="max-w-[62ch] text-[1.05rem] leading-relaxed">{data.intro}</p>
+        </div>
 
         {data.sections.map((s, i) => (
           <Section key={i} section={s} />
         ))}
+      </section>
 
-        {data.faqs.length > 0 && (
-          <section className="mt-14" aria-labelledby="faqs">
-            <h2 id="faqs" className="text-xl">
-              Frequently asked questions
-            </h2>
-            <div className="mt-4 border-t border-carbon/15">
-              {data.faqs.map((f) => (
-                <details key={f.q} className="group border-b border-carbon/15">
-                  <summary className="cursor-pointer list-none py-4 pr-8 font-medium marker:hidden">
-                    <span className="mr-3 font-mono text-oxide" aria-hidden="true">
-                      +
-                    </span>
-                    {f.q}
-                  </summary>
-                  <p className="pb-5 pl-7 leading-relaxed text-survey">{f.a}</p>
-                </details>
-              ))}
-            </div>
-          </section>
-        )}
+      {data.faqs.length > 0 && (
+        <section className="section" aria-labelledby="faqs">
+          <div className="sec-head">
+            <span className="sec-num">FAQ</span>
+            <h2 id="faqs">Common questions</h2>
+          </div>
+          <div className="faq">
+            {data.faqs.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
-        {data.closingLine && (
-          <p className="mt-12 border-l-2 border-oxide pl-4 text-[1.02rem]">
+      {data.closingLine && (
+        <div className="pad section !py-7">
+          <p className="max-w-[62ch] border-l-2 border-oxide pl-4 text-[1rem]">
             <Link href={data.practice.href}>{data.closingLine}</Link>
           </p>
-        )}
-      </div>
-
-      {/* Closing CTA — one primary action per visual field */}
-      <section className="bg-dust/60">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-5 py-12">
-          <div>
-            <h2 className="text-xl">{CTA.contactLine}</h2>
-            <p className="mt-1 text-survey">
-              Site address, plans and a description of the works is usually enough to scope it.
-            </p>
-          </div>
-          <Link
-            href={CTA.primary.href}
-            className="bg-aubergine px-6 py-3.5 font-medium text-paper no-underline hover:bg-[#4c2f3d]"
-          >
-            {CTA.primary.label} →
-          </Link>
         </div>
-      </section>
+      )}
+
+      <TitleBlockCta
+        label={data.practice.label}
+        heading="Send us the drawings. We'll tell you what you need."
+        notes={["1. Site address", "2. Plans, if they exist", "3. A description of the works"]}
+      />
     </article>
   );
 }
@@ -84,69 +69,69 @@ export function ServicePage({ data }: { data: ServicePageData }) {
 function Section({ section }: { section: PageSection }) {
   switch (section.kind) {
     case "paragraph":
-      return <p className="mt-6 leading-relaxed">{section.text}</p>;
+      return (
+        <div className="pad !pt-0">
+          <p className="max-w-[62ch] leading-relaxed">{section.text}</p>
+        </div>
+      );
     case "bullets":
       return (
-        <section className="mt-10">
+        <div className="pad !pt-0">
           {section.heading && <h2 className="text-xl">{section.heading}</h2>}
-          <ul className="mt-4 space-y-3">
+          <ul className="dashlist mt-3 max-w-[68ch]">
             {section.items.map((it, i) => (
-              <li key={i} className="flex gap-3">
-                <span className="mt-2 h-0.5 w-4 flex-none bg-oxide" aria-hidden="true" />
-                <span className="leading-relaxed">
+              <li key={i}>
+                <p>
                   {it.lead && <strong>{it.lead} — </strong>}
                   {it.text}
-                </span>
+                </p>
               </li>
             ))}
           </ul>
-        </section>
+        </div>
       );
     case "numbered":
       return (
-        <section className="mt-10">
+        <div className="pad !pt-0">
           {section.heading && <h2 className="text-xl">{section.heading}</h2>}
-          <ol className="mt-4 space-y-4">
+          <ol className="method mt-3 max-w-[70ch]">
             {section.steps.map((step, i) => (
-              <li key={i} className="flex gap-4">
-                <span className="font-mono text-[0.8rem] text-oxide">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="leading-relaxed">{step}</span>
+              <li key={i}>
+                <span className="no">{String(i + 1).padStart(2, "0")}</span>
+                <p>{step}</p>
               </li>
             ))}
           </ol>
-        </section>
+        </div>
       );
     case "table":
       return (
-        <section className="mt-10">
-          {section.heading && <h2 className="text-xl">{section.heading}</h2>}
-          <div className="mt-4 overflow-x-auto">
-            <table className="w-full border-collapse text-[0.95rem]">
+        <div className="!pt-0">
+          {section.heading && (
+            <div className="pad !py-0">
+              <h2 className="text-xl">{section.heading}</h2>
+            </div>
+          )}
+          <div className="tablewrap mt-3">
+            <table className="register">
               <thead>
                 <tr>
                   {section.columns.map((c) => (
-                    <th
-                      key={c}
-                      className="bg-dust px-4 py-2.5 text-left font-mono text-[0.62rem] uppercase tracking-[0.18em] text-survey"
-                    >
-                      {c}
-                    </th>
+                    <th key={c}>{c}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {section.rows.map((r, i) => (
-                  <tr key={i} className="border-b border-carbon/10">
-                    <td className="px-4 py-3 font-medium">{r[0]}</td>
-                    <td className="px-4 py-3 text-survey">{r[1]}</td>
+                  <tr key={i}>
+                    <td className="ttl">{r[0]}</td>
+                    <td className="des">{r[1]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        </section>
+        </div>
       );
   }
 }
@@ -164,9 +149,6 @@ function FaqJsonLd({ data }: { data: ServicePageData }) {
     })),
   };
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
   );
 }

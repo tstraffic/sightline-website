@@ -61,6 +61,23 @@ export const HOME = {
       href: "/approvals",
     },
   ],
+  decoder: {
+    // Concept + first paragraph carried from the live site (client-published);
+    // expanded content at Saadat's request ("i like the decode my condition,
+    // i just wanted more content"). Claims kept safe: free, no obligation,
+    // same-business-day reply (published on the live site).
+    heading: "Not sure what your condition is asking for? Paste it. We'll tell you.",
+    body: [
+      "Half the enquiries we get start with a condition of consent nobody can parse. Send the wording and a traffic engineer will reply the same business day with what it actually requires — and just as importantly, what it doesn't.",
+      "Conditions rarely name a single document. The same clause can be asking for a construction traffic management plan, a traffic guidance scheme, or both — and ordering the wrong one costs weeks. We read the wording against the consent authority's own requirements and tell you the shortest compliant path.",
+    ],
+    points: [
+      { lead: "What you send", text: "The condition wording, the site address, and anything council attached to it" },
+      { lead: "What you get back", text: "The document or documents the condition is actually asking for, what each covers, and a fixed fee if you want us to prepare them" },
+      { lead: "What it costs", text: "Nothing — no fee, no obligation, no hourly surprises later" },
+    ],
+    formTitle: "Decode my condition — free",
+  },
   sectors: {
     heading: "Same engineering. Different problem to solve.",
     tiles: [

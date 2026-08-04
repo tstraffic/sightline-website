@@ -3,58 +3,49 @@
 import Link from "next/link";
 import { useState } from "react";
 import { NAV, CTA } from "@/lib/nav";
+import { SITE } from "@content/site";
 
 /**
- * Seven-item nav per 00-INSTRUCTIONS with the Engineering Services dropdown.
- * Draft-gated items are filtered out until approved. Dropdown is keyboard
- * navigable: button toggles on click/Enter, links are real anchors.
+ * Title Block nav: bordered brand cell, mono uppercase links, Engineering
+ * Services dropdown, phone cell, aubergine CTA cell, mobile MENU panel.
+ * Draft-gated and footer-only items are excluded from the header.
  */
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+  const [drop, setDrop] = useState(false);
   const items = NAV.filter((i) => !i.draft && !i.footerOnly);
+  const flat = items.flatMap((i) => (i.children ? i.children : [i]));
 
   return (
-    <header className="sticky top-0 z-50 border-b border-carbon/20 bg-paper">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-5">
-        <Link href="/" className="flex items-center no-underline" aria-label="Sightline Traffic Engineers — home">
-          {/* Primary horizontal lockup on light grounds; reversed variant lives in the footer */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/brand/Sightline_Logo_Horizontal_Primary.svg"
-            alt="Sightline Traffic Engineers"
-            width={195}
-            height={48}
-            className="h-12 w-auto"
-          />
-        </Link>
+    <nav className="nav" aria-label="Main">
+      <Link className="nav-brand" href="/" aria-label="Sightline Traffic Engineers — home">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/brand/Sightline_Logo_Horizontal_Primary.svg"
+          alt="Sightline Traffic Engineers"
+          width={179}
+          height={44}
+        />
+      </Link>
 
-        <nav className="ml-auto hidden items-center gap-1 lg:flex" aria-label="Main">
-          {items.map((item) =>
+      <div className="nav-links">
+        {items
+          .filter((i) => i.href !== "/")
+          .map((item) =>
             item.children ? (
               <div
                 key={item.label}
-                className="relative"
-                onMouseEnter={() => setDropdown(true)}
-                onMouseLeave={() => setDropdown(false)}
+                className="nav-drop"
+                onMouseEnter={() => setDrop(true)}
+                onMouseLeave={() => setDrop(false)}
               >
-                <button
-                  type="button"
-                  aria-expanded={dropdown}
-                  onClick={() => setDropdown((v) => !v)}
-                  className="cursor-pointer px-3 py-2 text-[0.92rem] text-carbon hover:text-oxide"
-                >
-                  {item.label} <span aria-hidden="true" className="text-survey">▾</span>
+                <button type="button" aria-expanded={drop} onClick={() => setDrop((v) => !v)}>
+                  {item.label} ▾
                 </button>
-                {dropdown && (
-                  <div className="absolute left-0 top-full w-72 border border-carbon/20 bg-paper py-1 shadow-sm">
+                {drop && (
+                  <div className="nav-drop-panel">
                     {item.children.map((c) => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        className="block px-4 py-2.5 text-[0.9rem] text-carbon no-underline hover:bg-dust"
-                        onClick={() => setDropdown(false)}
-                      >
+                      <Link key={c.href} href={c.href} onClick={() => setDrop(false)}>
                         {c.label}
                       </Link>
                     ))}
@@ -62,55 +53,43 @@ export function SiteHeader() {
                 )}
               </div>
             ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-3 py-2 text-[0.92rem] text-carbon no-underline hover:text-oxide"
-              >
+              <Link key={item.href} href={item.href}>
                 {item.label}
               </Link>
             ),
           )}
-          <Link
-            href={CTA.primary.href}
-            className="ml-3 bg-aubergine px-5 py-2.5 text-[0.9rem] font-medium text-paper no-underline hover:bg-[#4c2f3d]"
-          >
-            {CTA.primary.label}
-          </Link>
-        </nav>
-
-        <button
-          type="button"
-          className="ml-auto border border-carbon/30 px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-widest lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          Menu
-        </button>
       </div>
 
-      {open && (
-        <nav id="mobile-nav" className="border-t border-carbon/20 bg-paper lg:hidden" aria-label="Main (mobile)">
-          {items.flatMap((item) => (item.children ? item.children : [item])).map((i) => (
-            <Link
-              key={i.href + i.label}
-              href={i.href}
-              className="block border-b border-carbon/10 px-5 py-3 text-carbon no-underline"
-              onClick={() => setOpen(false)}
-            >
-              {i.label}
-            </Link>
-          ))}
-          <Link
-            href={CTA.primary.href}
-            className="m-4 block bg-aubergine px-5 py-3 text-center font-medium text-paper no-underline"
-            onClick={() => setOpen(false)}
-          >
-            {CTA.primary.label}
-          </Link>
-        </nav>
-      )}
-    </header>
+      <a className="nav-phone" href={SITE.phoneHref}>
+        {SITE.phone}
+      </a>
+
+      <div className="nav-m">
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls="nav-m-panel"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? "CLOSE" : "MENU"}
+        </button>
+        {open && (
+          <div className="nav-m-panel" id="nav-m-panel">
+            {flat.map((i) => (
+              <Link key={i.href + i.label} href={i.href} onClick={() => setOpen(false)}>
+                {i.label}
+              </Link>
+            ))}
+            <a href={SITE.phoneHref} onClick={() => setOpen(false)}>
+              {SITE.phone}
+            </a>
+          </div>
+        )}
+      </div>
+
+      <Link className="nav-cta" href={CTA.primary.href}>
+        {CTA.primary.label}
+      </Link>
+    </nav>
   );
 }

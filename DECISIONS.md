@@ -1,6 +1,18 @@
 # DECISIONS.md — judgment calls, one line each
 
-## Phase 1
+## Phase 1 — rev B (Title Block treatment)
+
+- APPROVAL DECISION (Saadat, 4 Aug 2026): "Make it like 3001" — the live site's Title Block drawing-sheet system carries into the new build, overriding the pack's "sparingly" guidance and the cover-editorial rev A (rev A retrievable from git history at commit 67eafff).
+- Title Block CSS ported and re-tokenised: all colours resolve to the six @theme tokens (aliases + color-mix derivations in :root); class names kept close to the live site's for familiarity.
+- Statistics band stays a DARK aubergine band inside the sheet (honours the 04-brand "never on a light block" rule even in the 3001-style layout).
+- Condition decoder added to the homepage (SHT 03) at Saadat's request with expanded content: live-site paragraph carried (client-published, incl. same-business-day claim), new supporting copy kept claim-safe, what-you-send/get/costs spec rows, decoder form stubbed like the contact form.
+- Contact details (phone/email/address/hours) carried from the live site into content/site.ts — client-published; used in nav, title-block CTA, contact page, footer. Clears the earlier footer TODO.
+- Practice-landing service list rendered as the drawing-register table (the 3001 signature) instead of cards — user's direction implies the register; the ServiceCard treatment remains available for Phase 2 landing pages if preferred.
+- .tb-cell a colour rule out-specified .btn-paper (paper-on-paper button) — fixed with .titleblock .btn-paper override; same bug class exists in the live repo, worth remembering.
+- Team page still wears the interim Tailwind treatment — restyle to Title Block in Phase 2.
+- Hero diagram recoloured for the light sheet (carbon linework, oxide accents, survey dimensions) — reads as a drawing on the sheet rather than a dark panel.
+
+## Phase 1 — rev A (superseded)
 
 - Official brand-pack lockups adopted: primary horizontal in the header (light ground), reversed in the footer (aubergine), app tile as the web icon; the interim inline BrandMark component removed.
 - Hero diagram: detailed TGS-extract treatment (cone taper w/ AS 1742.3 Fig 4.9 annotation, hatched work zone, chainage per the approved cover, lane dimension, north point, scale bar, paper stamp w/ oxide corners) at Saadat's request ("more detailed and engineering-looking"); simpler cover-literal version retrievable from git history.
