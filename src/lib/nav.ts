@@ -29,7 +29,9 @@ export const NAV: NavItem[] = [
   { label: "Approvals", href: "/approvals" },
   { label: "Sectors", href: "/sectors" },
   { label: "Projects", href: "/projects" },
-  { label: "About", href: "/about", draft: true },
+  // Saadat (4 Aug 2026): "about us should be at the nav bar — they need to know
+  // who we are." Built live from approved/published copy; credentials still gate on D6.
+  { label: "About", href: "/about" },
   { label: "Team", href: "/team", footerOnly: true },
   { label: "Contact", href: "/contact" },
 ];

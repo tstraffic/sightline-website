@@ -110,11 +110,11 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .nav-brand {
   display: flex;
   align-items: center;
-  padding: 12px 22px;
+  padding: 10px 24px;
   border-right: 1.5px solid var(--ink);
   text-decoration: none;
 }
-.nav-brand img { height: 44px; width: auto; }
+.nav-brand img { height: 58px; width: auto; }
 .nav-links { display: flex; align-items: stretch; margin-left: auto; }
 .nav-links > a, .nav-drop > button {
   display: flex;
@@ -169,7 +169,9 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   color: var(--ink);
   text-decoration: none;
   border-left: 1px solid var(--rule);
+  white-space: nowrap;
 }
+@media (max-width: 1120px) { .nav-phone { display: none; } }
 .nav-cta {
   display: flex;
   align-items: center;
@@ -229,8 +231,8 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   .nav-m { display: block; margin-left: auto; align-self: stretch; }
 }
 @media (max-width: 640px) {
-  .nav-brand { padding: 10px 14px; }
-  .nav-brand img { height: 38px; }
+  .nav-brand { padding: 8px 14px; }
+  .nav-brand img { height: 46px; }
   .nav-cta { padding: 0 14px; font-size: 0.62rem; letter-spacing: 0.06em; }
 }
 
@@ -604,6 +606,10 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 .dashlist strong { color: var(--ink); }
 .dashlist li p { color: var(--ink-soft); }
 
-/* ---------- draw-in animation (hero linework) ---------- */
+/* ---------- draw-in animation (hero linework, slow per Saadat) ---------- */
 @keyframes dash { to { stroke-dashoffset: 0; } }
-.anim-line { stroke-dasharray: 900; stroke-dashoffset: 900; animation: dash 2.2s ease forwards 0.3s; }
+.anim-line { stroke-dasharray: 900; stroke-dashoffset: 900; animation: dash 3.4s ease forwards 0.3s; }
+@keyframes conein { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+.cone-g { opacity: 0; animation: conein 0.45s ease forwards; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.fade-late { opacity: 0; animation: fadein 0.9s ease forwards 2.6s; }

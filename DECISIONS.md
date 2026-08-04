@@ -1,5 +1,12 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Phase 1 — rev B addendum (Saadat's markup, 4 Aug 2026)
+
+- Logo enlarged in the nav (58px, 46px mobile); phone cell hides below 1120px so nothing wraps.
+- Hero diagram now animates like the live site: road linework draws in over ~3.4s, cones fade in staggered, stamp fades last; disabled under prefers-reduced-motion.
+- Cone taper repositioned per Saadat's annotated screenshot: merges from the lower carriageway, delineates the closed lane along the work zone's left boundary, and carries through to terminate past the work zone (14 cones).
+- About PROMOTED from hidden draft to live nav item at Saadat's direction ("they need to know who we are"): page built strictly from approved brand-brief wording + client-published live-site copy (small-practice lines, independence disclosure) + factual standards list + gap-brief-D engagement structure; people section is name/role cards routing to /team; registrations/accreditations still absent pending D6 (TODO comment in place). Supersedes the earlier "About stays out of nav while draft" call.
+
 ## Phase 1 — rev B (Title Block treatment)
 
 - APPROVAL DECISION (Saadat, 4 Aug 2026): "Make it like 3001" — the live site's Title Block drawing-sheet system carries into the new build, overriding the pack's "sparingly" guidance and the cover-editorial rev A (rev A retrievable from git history at commit 67eafff).

@@ -13,9 +13,13 @@ export function HeroDiagram() {
   const oxide = "var(--color-oxide)";
   const survey = "var(--color-survey)";
 
-  // Cone taper positions along the closure (merge from right lane edge to centreline)
+  // Cone taper per Saadat's markup: merges from the lower carriageway, runs
+  // the length of the closed lane, and carries through past the work zone to
+  // a termination beyond its end.
   const cones: [number, number][] = [
-    [104, 404], [140, 392], [175, 378], [208, 362], [238, 344], [264, 324], [286, 302],
+    [148, 486], [180, 450], [212, 415], [244, 380], [272, 340], [295, 305],
+    [318, 268], [340, 232], [362, 196], [384, 160], [400, 132],
+    [416, 100], [430, 72], [442, 46],
   ];
 
   return (
@@ -35,17 +39,17 @@ export function HeroDiagram() {
       </defs>
       <rect width="600" height="500" fill="url(#gridplus)" />
 
-      {/* ---- carriageway: two edges + kerb offset lines ---- */}
+      {/* ---- carriageway: two edges + kerb offset lines (drawn in slowly) ---- */}
       <g fill="none" stroke={ink}>
-        <path d="M-10 470 C160 415 300 270 405 30" strokeWidth="2.2" />
-        <path d="M105 500 C270 430 400 285 505 45" strokeWidth="2.2" />
+        <path className="anim-line" d="M-10 470 C160 415 300 270 405 30" strokeWidth="2.2" />
+        <path className="anim-line" d="M105 500 C270 430 400 285 505 45" strokeWidth="2.2" />
         {/* kerb/verge offset lines */}
-        <path d="M-24 452 C146 398 286 254 391 18" strokeWidth="1" opacity="0.45" />
-        <path d="M122 500 C286 437 415 293 520 55" strokeWidth="1" opacity="0.45" />
+        <path className="anim-line" d="M-24 452 C146 398 286 254 391 18" strokeWidth="1" opacity="0.45" />
+        <path className="anim-line" d="M122 500 C286 437 415 293 520 55" strokeWidth="1" opacity="0.45" />
       </g>
 
       {/* centreline — oxide dashed, with chainage tick marks */}
-      <path d="M48 488 C215 422 350 278 455 38" fill="none" stroke={oxide} strokeWidth="1.6" strokeDasharray="14 10" />
+      <path className="anim-line" d="M48 488 C215 422 350 278 455 38" fill="none" stroke={oxide} strokeWidth="1.6" strokeDasharray="14 10" />
       <g stroke={ink} strokeWidth="1.2" opacity="0.7">
         <path d="M147 431 L156 444" />
         <path d="M231 371 L241 382" />
@@ -62,14 +66,16 @@ export function HeroDiagram() {
         <text x="500" y="264" opacity="0.9">LANE 1 CLOSED</text>
       </g>
 
-      {/* ---- cone taper ---- */}
+      {/* ---- cone taper + lane delineation (staggered fade-in) ---- */}
       <g fill={oxide}>
         {cones.map(([x, y], i) => (
-          <circle key={i} cx={x} cy={y} r="4.5" />
+          <g key={i} className="cone-g" style={{ animationDelay: `${1.1 + i * 0.16}s` }}>
+            <circle cx={x} cy={y} r="4.5" />
+          </g>
         ))}
       </g>
       <g fontFamily="var(--font-mono)" fontSize="11" fill={ink}>
-        <line x1="180" y1="382" x2="150" y2="330" stroke={ink} strokeWidth="1" opacity="0.6" />
+        <line x1="152" y1="336" x2="206" y2="408" stroke={ink} strokeWidth="1" opacity="0.6" />
         <text x="84" y="318" opacity="0.9">TAPER 1:10</text>
         <text x="84" y="332" opacity="0.9">AS 1742.3 FIG 4.9</text>
       </g>
@@ -127,8 +133,8 @@ export function HeroDiagram() {
         <text x="106" y="17">20 m</text>
       </g>
 
-      {/* ---- issued-status stamp — Drawing Paper with Oxide corner accents (v3.1) ---- */}
-      <g transform="rotate(-6 462 434)">
+      {/* ---- issued-status stamp — fades in after the linework ---- */}
+      <g className="fade-late" transform="rotate(-6 462 434)">
         <rect x="352" y="402" width="220" height="64" rx="4" fill="none" stroke={ink} strokeWidth="1.6" />
         <g stroke={oxide} strokeWidth="2" fill="none">
           <path d="M352 414 V402 H364" />
