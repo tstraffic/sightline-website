@@ -10,6 +10,8 @@ export type NavItem = {
   label: string;
   href: string;
   draft?: boolean;
+  /** Reachable page that stays out of the header nav (e.g. /team — linked from About + footer; Saadat, 4 Aug 2026: "About is the story, Team is the people in detail"). */
+  footerOnly?: boolean;
   children?: { label: string; href: string }[];
 };
 
@@ -28,6 +30,7 @@ export const NAV: NavItem[] = [
   { label: "Sectors", href: "/sectors" },
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about", draft: true },
+  { label: "Team", href: "/team", footerOnly: true },
   { label: "Contact", href: "/contact" },
 ];
 

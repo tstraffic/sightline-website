@@ -13,7 +13,7 @@ import { BrandMark } from "./BrandMark";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-  const items = NAV.filter((i) => !i.draft);
+  const items = NAV.filter((i) => !i.draft && !i.footerOnly);
 
   return (
     <header className="sticky top-0 z-50 border-b border-carbon/20 bg-paper">
