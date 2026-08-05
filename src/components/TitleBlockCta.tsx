@@ -25,6 +25,15 @@ export function TitleBlockCta({
           </Link>
         </div>
         <div className="tb-cell">
+          {/* v3.2 APPROVED reversed lockup: paper wordmark + brass #C9A15A descriptor (5.71:1 on aubergine) */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/Sightline_Logo_Horizontal_Reversed_BrassDescriptor.svg"
+            alt="Sightline Traffic Engineers"
+            width={163}
+            height={40}
+            className="mb-4 h-10 w-auto"
+          />
           <b>Contact</b>
           <div className="mono">
             <a href={SITE.phoneHref}>{SITE.phone}</a>

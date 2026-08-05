@@ -20,8 +20,9 @@ export function SiteHeader() {
     <nav className="nav" aria-label="Main">
       <Link className="nav-brand" href="/" aria-label="Sightline Traffic Engineers — home">
         {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* v3.2: oxide descriptor on light grounds (pack README recommendation) */}
         <img
-          src="/brand/Sightline_Logo_Horizontal_Primary.svg"
+          src="/brand/Sightline_Logo_Horizontal_Light_Oxide.svg"
           alt="Sightline Traffic Engineers"
           width={179}
           height={44}

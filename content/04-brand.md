@@ -1,4 +1,12 @@
-# Sightline brand — Oxide Mark / Technical Editorial (v3.1, approved)
+# Sightline brand — Oxide Mark / Technical Editorial (v3.2)
+
+> **v3.2 amendment (Logo Pack v3.2, issued 5 Aug 2026 — supersedes v3.1 logo section).**
+> Mark geometry unchanged. The logo **descriptor** ("TRAFFIC ENGINEERS") gains an accent:
+> - **APPROVED — dark grounds (Aubergine/Carbon):** reversed lockups use a **Brass `#C9A15A` descriptor** with the Drawing Paper wordmark (5.71:1 on Aubergine, WCAG AA). Files: `*_Reversed_BrassDescriptor.svg`.
+> - **Light grounds:** per the pack's proofing, the **Oxide `#A34652` descriptor** is used (Brass Deep `#AB894C` is 3.03:1 on Drawing Paper — large-size/non-text only: A4 covers and signage, never small applications).
+> - Brass is a **logo-accent only** — it is not a UI colour and does not join the six-colour interface palette; the "avoid brass" rule continues to apply to surfaces, text and components.
+> - Known limitation: at ≤120px lockup widths the descriptor is marginal in every variant — use mark+wordmark or the icon at avatar sizes.
+> - Pending separately: descriptor re-typeset test (Medium 500, tighter tracking).
 
 > Distilled from the approved Brand Brief v3.1 and Brand Guidelines v3.1 for use in code. The rasterised approved capability-statement cover is at `assets/capability-cover.png` — it is the **locked visual reference** for the technical road-diagram treatment, reversed logo use, typography and restrained Oxide accents. The full brand pack exists as PDF outside this repo.
 

@@ -1,5 +1,13 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Logo Pack v3.2 (5 Aug 2026, pre-Phase 3)
+
+- v3.2 pack adopted per its own README: header (light ground) uses the OXIDE-descriptor horizontal (pack's recommendation — Brass Deep is 3.03:1 on Drawing Paper, large-size/non-text only); the APPROVED Reversed_BrassDescriptor lockup (#C9A15A, 5.71:1) sits on the aubergine title-block CTA's contact cell — the Title Block system's dark ground (the footer strip is light, so no reversed lockup there).
+- LightTest_OxideDescriptor copied to a production name (Sightline_Logo_Horizontal_Light_Oxide.svg); originals kept alongside for the pending descriptor decision.
+- Brass stays a logo-only accent — not added to the UI palette; the avoid-brass rule still applies to surfaces/text/components. 04-brand.md amended with the v3.2 section (user-directed edit).
+- Known limitation noted in the brand doc: descriptor marginal at ≤120px lockup widths — icon or mark+wordmark at avatar sizes.
+- QA note for Phase 3: /favicon.ico 404s (icon.svg serves the modern link tag) — add a favicon.ico fallback in the QA pass.
+
 ## Phase 2
 
 - All 21 live service pages render through one registry-driven dynamic route (src/app/[slug], URLs exactly per 03-build-list); sector pages 26a–e through /sectors/[slug]; the Phase 1 static routes for 01/07/26a were migrated into the registries and deleted.
