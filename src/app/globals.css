@@ -82,7 +82,8 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border: 1.5px solid var(--ink);
   outline: 1px solid var(--ink);
   outline-offset: 3px;
-  max-width: 1280px;
+  /* fit the screen: fill the viewport (minus the desk margin) up to 1640px */
+  max-width: min(1640px, calc(100vw - 28px));
   margin: 0 auto;
   position: relative;
 }
@@ -170,20 +171,23 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 .nav-drop-panel a:last-child { border-bottom: none; }
 .nav-drop-panel a:hover { background: var(--sheet); color: var(--oxide); }
-/* the 1800 number stands out: oxide, medium weight (5.47:1 on sheet) */
+/* the 1800 number as an oxide call chip — reads as a secondary CTA */
 .nav-phone {
   display: flex;
   align-items: center;
-  padding: 0 18px;
+  align-self: center;
+  margin: 0 14px;
+  padding: 10px 18px;
+  border: 1.5px solid var(--oxide);
+  border-radius: 2px;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   font-weight: 500;
   color: var(--oxide);
   text-decoration: none;
-  border-left: 1px solid var(--rule);
   white-space: nowrap;
 }
-.nav-phone:hover { text-decoration: underline; text-underline-offset: 3px; }
+.nav-phone:hover { background: var(--oxide); color: var(--paper-on-dark); }
 @media (max-width: 1280px) { .nav-phone { display: none; } }
 /* CTA refinement (Saadat, 5 Aug 2026): aubergine ground, brass text (5.71:1),
    centred + larger so it earns attention without leaving the system */
