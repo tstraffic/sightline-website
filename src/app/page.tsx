@@ -6,6 +6,7 @@ import { HeroDiagram } from "@/components/HeroDiagram";
 import { StatsBand } from "@/components/StatsBand";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
 import { DecoderForm } from "@/components/DecoderForm";
+import { CapabilityRequestModal } from "@/components/CapabilityRequestModal";
 
 /**
  * Homepage — Phase 1 rev B: Title Block treatment (Saadat's approval call),
@@ -32,6 +33,7 @@ export default function HomePage() {
             <Link className="btn btn-dark" href={CTA.secondary.href}>
               {CTA.secondary.label}
             </Link>
+            <CapabilityRequestModal variant="button" />
           </div>
           <div className="hero-note">
             Send the drawings — a written scope comes back with a fixed fee.

@@ -2,9 +2,10 @@
 
 import { useRef, useState } from "react";
 
-/** "Request our capability statement" — small popup form in the title block.
- *  Posts to the stubbed /api/capability handler until email delivery is wired. */
-export function CapabilityRequestModal() {
+/** "Request our capability statement" — popup form. Trigger renders as the
+ *  title-block text link (default) or a hero button. Posts to the stubbed
+ *  /api/capability handler until email delivery is wired. */
+export function CapabilityRequestModal({ variant = "link" }: { variant?: "link" | "button" }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
@@ -23,9 +24,15 @@ export function CapabilityRequestModal() {
 
   return (
     <>
-      <button type="button" className="tb-caplink" onClick={() => ref.current?.showModal()}>
-        Request our capability statement →
-      </button>
+      {variant === "button" ? (
+        <button type="button" className="btn btn-ghost" onClick={() => ref.current?.showModal()}>
+          Capability statement
+        </button>
+      ) : (
+        <button type="button" className="tb-caplink" onClick={() => ref.current?.showModal()}>
+          Request our capability statement →
+        </button>
+      )}
       <dialog ref={ref} className="modal" aria-label="Request our capability statement">
         <div className="modal-head">
           <span>Capability statement</span>
