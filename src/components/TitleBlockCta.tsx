@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { SITE } from "@content/site";
 import { CTA } from "@/lib/nav";
+import { FeeProposalModal } from "./FeeProposalModal";
 
 /** Title-block CTA — the drawing sheet's title block as the closing conversion band. */
 export function TitleBlockCta({
@@ -20,9 +20,19 @@ export function TitleBlockCta({
         <div className="tb-cell">
           <b>{label}</b>
           <h2>{heading}</h2>
-          <Link className="btn btn-brass" href={CTA.primary.href}>
-            {CTA.primary.label} →
-          </Link>
+          {/* opens the enquiry form as a popup — no page change (Saadat) */}
+          <FeeProposalModal label={CTA.primary.label} />
+        </div>
+        <div className="tb-cell">
+          <b>{notesLabel}</b>
+          <div className="mono small">
+            {notes.map((n, i) => (
+              <span key={i}>
+                {n}
+                <br />
+              </span>
+            ))}
+          </div>
         </div>
         <div className="tb-cell">
           {/* v3.2 APPROVED reversed lockup: paper wordmark + brass #C9A15A descriptor (5.71:1 on aubergine) */}
@@ -49,17 +59,6 @@ export function TitleBlockCta({
                 ABN {SITE.abn}
               </>
             )}
-          </div>
-        </div>
-        <div className="tb-cell">
-          <b>{notesLabel}</b>
-          <div className="mono small">
-            {notes.map((n, i) => (
-              <span key={i}>
-                {n}
-                <br />
-              </span>
-            ))}
           </div>
         </div>
       </div>

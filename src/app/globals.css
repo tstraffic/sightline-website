@@ -625,6 +625,49 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 .tb-cell .mono { font-family: var(--font-mono); font-size: 0.8rem; line-height: 2; }
 .tb-cell .mono.small { font-size: 0.72rem; line-height: 1.9; }
 
+/* ---------- enquiry modal (native <dialog>) ---------- */
+.modal {
+  border: 1.5px solid var(--ink);
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+  background: var(--sheet);
+  color: var(--ink);
+  padding: 0;
+  width: min(720px, 94vw);
+  max-height: 88vh;
+}
+.modal::backdrop { background: rgba(36, 39, 42, 0.6); }
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 22px;
+  border-bottom: 1.5px solid var(--ink);
+  background: var(--sheet-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oxide);
+}
+.modal-close {
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.modal-close:hover { color: var(--oxide); border-color: var(--oxide); }
+.modal-body { padding: 26px 24px 30px; overflow-y: auto; max-height: calc(88vh - 54px); }
+.modal-sub { margin-bottom: 20px; color: var(--ink-soft); max-width: 56ch; }
+
 /* ---------- footer ---------- */
 .footer {
   padding: 14px 48px;
