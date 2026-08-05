@@ -11,6 +11,5 @@ export const SITE = {
   email: "plans@sightlinetraffic.com.au",
   address: "9 Epic Pl, Villawood NSW",
   hours: "Mon–Fri, 8am–5pm",
-  /** Renders in the footer + title block once supplied (Saadat to provide). */
-  abn: "",
+  abn: "16 699 960 668",
 } as const;

@@ -19,8 +19,7 @@ export function HeroDiagram() {
   const cones: [number, number][] = [
     [148, 486], [180, 450], [212, 415], [244, 380], [272, 340], [295, 305],
     [318, 268], [340, 232], [362, 196], [384, 160],
-    [416, 100], [430, 72], [442, 46],
-    // (cone at 400,132 removed — crowded the CH 0+240 marker; Saadat)
+    [404, 122], [422, 86], [438, 52],
   ];
 
   return (
@@ -100,13 +99,13 @@ export function HeroDiagram() {
         3.5 LANE
       </text>
 
-      {/* ---- chainage markers (per the approved cover) ---- */}
+      {/* ---- chainage markers — open survey rings, so they can't be read as cones ---- */}
       <g fontFamily="var(--font-mono)" fontSize="13" fill={ink}>
-        <circle cx="284" cy="326" r="5" fill={oxide} />
+        <circle cx="284" cy="326" r="5" fill="none" stroke={oxide} strokeWidth="2" />
         <line x1="292" y1="326" x2="348" y2="342" stroke={ink} strokeWidth="1" opacity="0.6" />
         <text x="354" y="346" opacity="0.9">CH 0+120</text>
 
-        <circle cx="404" cy="146" r="5" fill={oxide} />
+        <circle cx="404" cy="146" r="5" fill="none" stroke={oxide} strokeWidth="2" />
         <line x1="412" y1="146" x2="452" y2="176" stroke={ink} strokeWidth="1" opacity="0.6" />
         <text x="458" y="180" opacity="0.9">CH 0+240</text>
 

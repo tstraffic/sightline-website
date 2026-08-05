@@ -117,11 +117,11 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .nav-brand {
   display: flex;
   align-items: center;
-  padding: 10px 24px;
+  padding: 8px 20px;
   border-right: 1.5px solid var(--ink);
   text-decoration: none;
 }
-.nav-brand img { height: 70px; width: auto; }
+.nav-brand img { height: 72px; width: auto; }
 /* the links strip only (Engineering services → Contact) sits on Mineral Dust —
    same surface as the decoder box (Saadat); brand cell stays on the sheet */
 .nav-links {
@@ -186,6 +186,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   text-decoration: none;
   border-left: 1px solid var(--rule);
   white-space: nowrap;
+  background: var(--sheet-deep);
 }
 @media (max-width: 1120px) { .nav-phone { display: none; } }
 /* CTA refinement (Saadat, 5 Aug 2026): aubergine ground, brass text (5.71:1) */
@@ -193,7 +194,6 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   display: flex;
   align-items: center;
   padding: 0 26px;
-  margin-left: 10px;
   background: var(--aub);
   color: var(--brass);
   font-family: var(--font-mono);
@@ -248,8 +248,8 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   .nav-m { display: block; margin-left: auto; align-self: stretch; }
 }
 @media (max-width: 640px) {
-  .nav-brand { padding: 8px 14px; }
-  .nav-brand img { height: 54px; }
+  .nav-brand { padding: 6px 12px; }
+  .nav-brand img { height: 58px; }
   .nav-cta { padding: 0 14px; font-size: 0.62rem; letter-spacing: 0.06em; }
 }
 
