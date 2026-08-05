@@ -47,7 +47,9 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* fluid root: every rem-based size scales gently with the viewer's screen
+   (16px at mobile → 18px at 1900px+) */
+html { scroll-behavior: smooth; font-size: clamp(16px, 14.6px + 0.18vw, 18px); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -122,20 +124,21 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border-right: 1.5px solid var(--ink);
   text-decoration: none;
 }
-.nav-brand img { height: 72px; width: auto; }
-.nav-links { display: flex; align-items: stretch; margin-left: auto; }
+.nav-brand img { height: clamp(62px, 4.4vw, 86px); width: auto; }
+/* links spread across the available width — no dead zone on wide screens */
+.nav-links { display: flex; align-items: stretch; justify-content: space-evenly; flex: 1; min-width: 0; }
 /* nav links in oxide (Saadat) — larger, single-line, vertically centred */
 .nav-links > a, .nav-drop > button {
   display: flex;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: clamp(0.78rem, 0.68rem + 0.22vw, 0.95rem);
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--oxide);
   text-decoration: none;
-  padding: 0 16px;
+  padding: 0 12px;
   background: none;
   border: none;
   cursor: pointer;
@@ -196,12 +199,12 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-width: 172px;
+  min-width: clamp(172px, 13vw, 250px);
   padding: 0 28px;
   background: var(--aub);
   color: var(--brass);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: clamp(0.78rem, 0.68rem + 0.22vw, 0.95rem);
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -627,6 +630,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 
 /* ---------- enquiry modal (native <dialog>) ---------- */
 .modal {
+  margin: auto; /* centre in the viewport (the global reset zeroes the UA default) */
   border: 1.5px solid var(--ink);
   outline: 1px solid var(--ink);
   outline-offset: 3px;
