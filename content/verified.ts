@@ -60,10 +60,10 @@ export const CLAIMS = {
     note: "In-house Austroads-accredited auditor vs subcontracted — gates page 08 claims and the 26c route card.",
   } satisfies VerifiedValue<string>,
   geographicScope: {
-    value: "NSW",
-    verified: false,
+    value: "NSW & ACT",
+    verified: true,
     openItem: "D2",
-    note: "NSW-only vs wider — affects hero line, page 23 ACT legislation line, page 09 VicRoads/Transport Canberra references.",
+    note: "Confirmed by Saadat 5 Aug 2026. Applied: hero, layout meta, page 01 intro, page 09 jurisdictions (VicRoads dropped), page 23 ACT statute labelled.",
   } satisfies VerifiedValue<string>,
   staTerminology: {
     value: "State Transit Authority (STA)",

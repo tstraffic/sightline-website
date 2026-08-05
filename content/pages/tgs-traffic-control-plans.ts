@@ -21,7 +21,7 @@ export const TGS_TCP: ServicePageData = {
     "The certified diagram that decides whether your work site is safe — and whether it's approved.",
   intro:
     // Voice fix 1 — concrete rewrite (05-migration-map)
-    "Sightline prepares certified Traffic Guidance Schemes and Traffic Control Plans for civil and construction projects across NSW — designed by traffic engineers to the site's actual geometry, sightlines and staging, and documented to the Traffic Control at Worksites (TCAWS) Manual and AS 1742.3.",
+    "Sightline prepares certified Traffic Guidance Schemes and Traffic Control Plans for civil and construction projects across NSW and the ACT — designed by traffic engineers to the site's actual geometry, sightlines and staging, and documented to the Traffic Control at Worksites (TCAWS) Manual and AS 1742.3.",
   sections: [
     {
       kind: "numbered",

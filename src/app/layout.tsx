@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Sightline Traffic Engineers",
   },
   description:
-    "Independent traffic and transport engineering for civil, infrastructure and development projects across NSW.",
+    "Independent traffic and transport engineering for civil, infrastructure and development projects across NSW and the ACT.",
 };
 
 export default function RootLayout({

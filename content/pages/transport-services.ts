@@ -8,9 +8,7 @@ import type { ServicePageData } from "./types";
 
 const PRACTICE = { label: "Transport & network engineering", href: "/transport-network-engineering" };
 
-/** Page 09 — KEEP. Multi-state references pend open item D2 (geographic scope):
- *  TODO(verify:D2) — VicRoads / Transport Canberra name-checks kept as source
- *  wording until the NSW-only-or-wider call is made. */
+/** Page 09 — KEEP. D2 resolved: scope is NSW & ACT. */
 export const MODELLING: ServicePageData = {
   pageNo: "09",
   slug: "traffic-modelling",
@@ -61,8 +59,8 @@ export const MODELLING: ServicePageData = {
     },
     {
       kind: "paragraph",
-      // TODO(verify:D2) — multi-state references pend the geographic-scope decision
-      text: "Modelling is carried out to the relevant road authority's guidelines for the project's jurisdiction (TfNSW, VicRoads, Transport Canberra, and equivalent bodies elsewhere).",
+      // D2 resolved (Saadat, 5 Aug 2026): NSW & ACT — VicRoads/elsewhere dropped
+      text: "Modelling is carried out to the relevant road authority's guidelines for the project's jurisdiction — TfNSW in New South Wales, Transport Canberra in the ACT.",
     },
   ],
   faqs: [

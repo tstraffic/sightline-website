@@ -9,8 +9,8 @@ export const HOME = {
   hero: {
     eyebrow: "Independent traffic and transport engineering",
     h1: "Designed to standard.",
-    // TODO(verify:D2) — "across NSW" pends the geographic-scope decision
-    sub: "Sightline Traffic Engineers designs the traffic engineering behind civil, infrastructure and development projects across NSW — from the certified TGS on a single lane closure to the SIDRA case that gets an intersection through council.",
+    // D2 resolved (Saadat, 5 Aug 2026): scope is NSW & ACT
+    sub: "Sightline Traffic Engineers designs the traffic engineering behind civil, infrastructure and development projects across NSW and the ACT — from the certified TGS on a single lane closure to the SIDRA case that gets an intersection through council.",
   },
   why: {
     heading: "Anyone can draw a plan. Fewer can defend it.",

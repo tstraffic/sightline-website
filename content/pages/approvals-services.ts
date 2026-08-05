@@ -52,8 +52,7 @@ export const ROL: ServicePageData = {
 };
 
 /** Page 23 — KEEP+pass. Complete permit-type list verbatim, grouped visually,
- *  nothing cut. TODO(verify:D2) — "Section 45, Public Unleased Land Act 2013"
- *  is ACT legislation; kept as source wording pending the geographic-scope call. */
+ *  nothing cut. D2 resolved: NSW & ACT — the ACT statute line is in scope. */
 export const COUNCIL_PERMITS: ServicePageData = {
   pageNo: "23",
   slug: "council-permits",
@@ -76,8 +75,8 @@ export const COUNCIL_PERMITS: ServicePageData = {
       heading: "Types of permits we obtain",
       items: [
         { text: "Local approval (Section 68) and Section 138 Roads Act approval" },
-        // TODO(verify:D2) — ACT legislation line, kept as source wording
-        { text: "Application to use a public place for construction activities (Section 45, Public Unleased Land Act 2013)" },
+        // D2 resolved: ACT is in scope — the ACT statute stays, jurisdiction labelled
+        { text: "Application to use a public place for construction activities (Section 45, Public Unleased Land Act 2013 — ACT)" },
         { text: "Roads Act application, parking permit, works on council property" },
         { text: "Work zone, road occupancy and standing plant permits" },
         { text: "Road opening, occupation, lane and footpath closure permits" },
