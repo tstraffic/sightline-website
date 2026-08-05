@@ -21,10 +21,10 @@ export const ABOUT = {
   standardsHeading: "Standards and frameworks we work to",
   standards: [
     "Transport for NSW specifications and technical directions",
-    "Traffic Control at Worksites (TCAWS) Manual",
+    "TfNSW TS 05492 Traffic Control at Work Sites",
     "AS 1742 series — manual of uniform traffic control devices",
     "AS 2890 series — parking facilities",
-    "Austroads guides, including the Guide to Temporary Traffic Management",
+    "Current Austroads guides, including the Guide to Temporary Traffic Management",
   ],
   checking:
     "Every document goes through an internal design check and verification before it is issued, with revision history tracked sheet by sheet.",

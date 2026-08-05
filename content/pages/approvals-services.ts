@@ -1,4 +1,5 @@
 import type { ServicePageData } from "./types";
+import { PRACTICES } from "./practices";
 
 /**
  * Approvals & Delivery Support service pages 22–25, verbatim from Rev 3.
@@ -7,7 +8,7 @@ import type { ServicePageData } from "./types";
  * line in the page 23 permit list).
  */
 
-const PRACTICE = { label: "Approvals & delivery support", href: "/approvals" };
+const PRACTICE = PRACTICES.approvals;
 
 /** Page 22 — KEEP+pass, kept in full (high-traffic page).
  *  TODO(verify:V2) — "near a traffic light": confirm whether to state the

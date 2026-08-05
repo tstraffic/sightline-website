@@ -2,30 +2,32 @@ import Link from "next/link";
 import { HOME } from "@content/pages/home";
 import { CREDENTIALS } from "@content/verified";
 import { CTA } from "@/lib/nav";
-import { HeroDiagram } from "@/components/HeroDiagram";
+import { AccessDiagram } from "@/components/AccessDiagram";
 import { StatsBand } from "@/components/StatsBand";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
 import { DecoderForm } from "@/components/DecoderForm";
 import { CapabilityRequestModal } from "@/components/CapabilityRequestModal";
 
 /**
- * Homepage — Phase 1 rev B: Title Block treatment (Saadat's approval call),
- * new structure per 05-migration-map: hero, statistics band, credential strip
- * (confirmed items only), Why Sightline, four equal pillars, condition
- * decoder, sector tiles, title-block CTA.
+ * Homepage — Title Block treatment. Structure per Copy Pass 1: hero, stats,
+ * credentials, Why Sightline, four engineering practices, approvals as a
+ * supporting section, condition decoder, sectors, title-block CTA.
  */
 export default function HomePage() {
   const confirmed = CREDENTIALS.filter((c) => c.verified);
   return (
     <>
-      {/* Hero — copy + TGS drawing panel */}
+      {/* Hero — copy + drawing panel */}
       <header className="hero">
         <div className="hero-copy">
           <div className="dwgno">{HOME.hero.eyebrow}</div>
           <h1>
-            Designed to <em>standard.</em>
+            {HOME.hero.h1Line1}
+            <br />
+            <em>{HOME.hero.h1Line2}</em>
           </h1>
           <p className="sub">{HOME.hero.sub}</p>
+          <p className="sub">{HOME.hero.lifecycle}</p>
           <div className="hero-actions">
             <Link className="btn btn-brass" href={CTA.primary.href}>
               {CTA.primary.label} →
@@ -35,23 +37,20 @@ export default function HomePage() {
             </Link>
             <CapabilityRequestModal variant="button" />
           </div>
-          <div className="hero-note">
-            Send the drawings — a written scope comes back with a fixed fee.
-          </div>
+          <div className="hero-note">{HOME.hero.note}</div>
         </div>
         <div className="hero-draw">
-          <HeroDiagram />
+          <AccessDiagram />
           {/* honest labels only — no invented drawing numbers (brand §7) */}
           <div className="draw-caption">
-            <div><b>Drawing</b>Sample TGS extract</div>
-            <div><b>Standard</b>AS 1742.3 · TCAWS</div>
+            <div><b>Drawing</b>Sample vehicle access assessment</div>
+            <div><b>Reference</b>AS 2890 series · Council DCP</div>
             <div><b>Scale</b>NTS · illustrative</div>
             <div><b>Status</b>For approval</div>
           </div>
         </div>
       </header>
 
-      {/* Statistics band — dark, per the capability cover; preview until verified */}
       <StatsBand />
 
       {/* Credential strip — confirmed items only */}
@@ -77,10 +76,10 @@ export default function HomePage() {
             <div key={p.lead}>
               <h3 className="!mt-0">{p.lead}</h3>
               <p>{p.text}</p>
-              {"href" in p && p.href && (
+              {"href" in p && (
                 <p className="!mt-3">
                   <Link href={p.href} className="font-medium !text-aubergine no-underline hover:!text-oxide">
-                    Temporary barrier design →
+                    {p.linkLabel}
                   </Link>
                 </p>
               )}
@@ -92,12 +91,12 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* SHT 02 — the four practices, equal weight */}
+      {/* SHT 02 — the four engineering practices */}
       <section className="section" aria-labelledby="pillars">
         <div className="sec-head">
           <span className="sec-num">SHT 02</span>
-          <h2 id="pillars">What we do</h2>
-          <span className="sec-rev">Four practices · one standard</span>
+          <h2 id="pillars">{HOME.whatWeDo.heading}</h2>
+          <span className="sec-rev">{HOME.whatWeDo.rev}</span>
         </div>
         <div className="cellgrid cols-2">
           {HOME.pillars.map((p) => (
@@ -109,6 +108,13 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+        {/* Approvals sits beneath the engineering practices, not alongside them */}
+        <Link href={HOME.supporting.href} className="cell supporting-cell">
+          <span className="cell-tag">{HOME.supporting.label}</span>
+          <h3>{HOME.supporting.title}</h3>
+          <p>{HOME.supporting.text}</p>
+          <span className="go">View approvals support →</span>
+        </Link>
       </section>
 
       {/* SHT 03 — the condition decoder */}

@@ -1,19 +1,26 @@
 import type { ServicePageData } from "./types";
+import { PRACTICES } from "./practices";
 
 /**
- * Transport & Network Engineering service pages 09–11, verbatim from Rev 3.
- * Pages 12 (data collection) and 13 (road design & CAD) are hidden drafts —
- * Phase 3.
+ * Service pages 09–11, verbatim from Rev 3. Pages 12 (data collection) and 13
+ * (road design & CAD) are hidden drafts.
+ *
+ * Copy Pass 1: 09–10 sit under Traffic modelling and network assessment; the
+ * TIA (11) moved to Development traffic engineering.
  */
 
-const PRACTICE = { label: "Transport & network engineering", href: "/transport-network-engineering" };
+const PRACTICE = PRACTICES.modelling;
 
-/** Page 09 — KEEP. D2 resolved: scope is NSW & ACT. */
+/** Page 09 — D2 resolved: scope is NSW & ACT.
+ *  TODO(verify:aimsun) — Copy Pass 1 note: only advertise Aimsun as an active
+ *  service where delivery capability and technical review arrangements are
+ *  confirmed. Removed from the page title/meta pending that confirmation;
+ *  still described below as a simulation option. */
 export const MODELLING: ServicePageData = {
   pageNo: "09",
   slug: "traffic-modelling",
-  title: "Traffic modelling (SIDRA / Aimsun)",
-  metaTitle: "Traffic Modelling (SIDRA / Aimsun)",
+  title: "Traffic modelling",
+  metaTitle: "Traffic Modelling",
   metaDescription:
     "Computer-based traffic models replicating how a road network operates today and how it will perform under future conditions — calibrated against real-world observations.",
   practice: PRACTICE,
@@ -52,8 +59,10 @@ export const MODELLING: ServicePageData = {
           text: "individual intersections or smaller networks requiring a fast, detailed result",
         },
         {
-          lead: "Simulation models (Aimsun)",
-          text: "larger, more complex networks, or where an animated, network-wide output is required",
+          // TODO(verify:aimsun) — confirm delivery capability and technical
+          // review arrangements before naming Aimsun as an active service.
+          lead: "Simulation models",
+          text: "larger, more complex networks, or where an animated, network-wide output is required — scoped where the project genuinely calls for simulation rather than analytical modelling",
         },
       ],
     },
@@ -151,10 +160,10 @@ export const TIA: ServicePageData = {
   metaTitle: "Traffic Impact Assessment (TIA)",
   metaDescription:
     "The detailed evaluation council or a road authority requires for larger developments — a full technical case that your project's network impact has been properly tested, not assumed.",
-  practice: PRACTICE,
+  practice: PRACTICES.development,
   opener: "Bigger project, bigger scrutiny.",
   intro:
-    "A Traffic Impact Assessment is the detailed evaluation council or a road authority requires for larger, more complex developments — a full technical case that your project's impact on the existing and future transport network has been properly tested, not assumed. Depending on the state, you might see this called a TIA, TIAR, or TER — the name changes, the underlying requirement doesn't.",
+    "A Traffic Impact Assessment is the detailed evaluation council or a road authority requires for larger, more complex developments — a full technical case that your project's impact on the existing and future transport network has been properly tested, not assumed. Depending on the jurisdiction, you might see this called a TIA, TIAR, or TER. The terminology varies, and the required scope should be confirmed against the consent authority's requirements.",
   sections: [
     {
       kind: "bullets",
@@ -181,7 +190,7 @@ export const TIA: ServicePageData = {
     },
     {
       q: "Does council always call it a “TIA”?",
-      a: "No — naming varies by state, but the content required is consistent.",
+      a: "Core assessment themes are generally similar, but terminology, modelling requirements, assessment horizons and reporting expectations vary by authority and project.",
     },
     {
       q: "What's in the final report?",

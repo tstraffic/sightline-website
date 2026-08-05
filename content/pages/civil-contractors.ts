@@ -19,7 +19,7 @@ export const CIVIL_CONTRACTORS = {
     {
       // Softened per 05-migration-map (26a note) — guarantee phrase removed
       lead: "Barrier design statements",
-      text: "deflection zones checked against the manufacturer's specification and the road authority's approved list, whichever is stricter",
+      text: "deflection zones assessed against the manufacturer's specification and the road authority's requirements, with approved-product status confirmed for the project",
     },
     {
       lead: "Multi-stage CTMPs",

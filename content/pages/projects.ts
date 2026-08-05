@@ -46,7 +46,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     deliverables: ["[Sample] 4-stage CAD staging set", "[Sample] Barrier cross sections per stage", "[Sample] ROL applications"],
     outcome: "[Sample text] Works completed across four stages without an unplanned closure.",
     images: [],
-    related: [{ label: "Work zone engineering", href: "/work-zone-engineering" }],
+    related: [{ label: "Construction traffic engineering", href: "/construction-traffic-engineering" }],
     permission: "sample",
   },
 ];

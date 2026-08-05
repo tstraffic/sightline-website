@@ -22,11 +22,25 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sightlinetraffic.com.au"),
   title: {
-    default: "Sightline Traffic Engineers | Designed to standard.",
+    default: "Sightline Traffic Engineers | Designed for approval. Built for construction.",
     template: "%s | Sightline Traffic Engineers",
   },
   description:
-    "Independent traffic and transport engineering for civil, infrastructure and development projects across NSW and the ACT.",
+    "Independent traffic engineering for development approvals, parking and access, network performance and construction delivery across NSW and the ACT.",
+  openGraph: {
+    title: "Sightline Traffic Engineers | Designed for approval. Built for construction.",
+    description:
+      "Independent traffic engineering consultancy. Reports, assessments and drawings that help projects move from concept and consent through to construction.",
+    siteName: "Sightline Traffic Engineers",
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Sightline Traffic Engineers | Designed for approval. Built for construction.",
+    description:
+      "Independent traffic engineering for development approvals, parking and access, network performance and construction delivery across NSW and the ACT.",
+  },
 };
 
 export default function RootLayout({

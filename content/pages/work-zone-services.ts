@@ -1,12 +1,16 @@
 import type { ServicePageData } from "./types";
+import { PRACTICES } from "./practices";
 
 /**
- * Work Zone Engineering service pages 02–06 (01 and 07 live in their own
- * files). Copy verbatim from 01-website-copy-rev3.md except the surgical
- * voice fixes from 05-migration-map (fix 2 on page 02, fix 3 on page 06).
+ * Service pages 02–06 (01 and 07 live in their own files). Copy verbatim from
+ * 01-website-copy-rev3.md except the surgical voice fixes from
+ * 05-migration-map (fix 2 on page 02, fix 3 on page 06).
+ *
+ * Copy Pass 1: 02–05 sit under Construction traffic engineering; swept path
+ * (06) moved to Parking, access and swept paths.
  */
 
-const PRACTICE = { label: "Work zone engineering", href: "/work-zone-engineering" };
+const PRACTICE = PRACTICES.construction;
 
 /** Page 02 — merge already executed in Rev 3; voice fix 2 applied to the
  *  abstract differentiator bullets ("Critical thinking…", "Reviewing the
@@ -135,7 +139,7 @@ export const TMP: ServicePageData = {
         },
         {
           lead: "Traffic Guidance Scheme (TGS)",
-          text: "the visual component, prepared in line with the Austroads Guide to Temporary Traffic Management",
+          text: "the visual component, prepared in line with the current Austroads Guide to Temporary Traffic Management",
         },
         {
           lead: "Implementation & monitoring plan",
@@ -189,7 +193,7 @@ export const TMP: ServicePageData = {
     },
     {
       q: "What standards apply?",
-      a: "AS 1742.3:2019 for signs, devices and procedures, alongside the Austroads Guide to Temporary Traffic Management and relevant state codes, including the TCAWS Manual in NSW.",
+      a: "AS 1742.3 for signs, devices and procedures, alongside the current Austroads Guide to Temporary Traffic Management and relevant authority requirements — in NSW, TfNSW TS 05492 Traffic Control at Work Sites, and the applicable TfNSW TS 03401 (G10) specification where required by the contract or road authority.",
     },
   ],
   related: [{ label: "Complex & multi-stage TMPs", href: "/complex-multi-stage-tmp" }],
@@ -282,11 +286,11 @@ export const BARRIER: ServicePageData = {
     },
     {
       q: "Are all barrier types covered?",
-      a: "Yes — concrete, steel, and water-filled systems, each checked against the road authority's approved barrier list and the manufacturer's specification, whichever is more stringent.",
+      a: "Sightline assesses suitable approved barrier systems where the required survey, manufacturer information, road-authority requirements and technical inputs are available. Complex or non-standard arrangements may require specialist road-safety barrier engineering.",
     },
     {
       q: "What information is needed to produce a cross section?",
-      a: "Existing survey and road geometry, the intended construction zone width, and a proposed barrier type if one is already identified. We can also recommend a barrier system based on site conditions.",
+      a: "Existing survey and road geometry, the intended construction zone width, and a proposed barrier type if one is already identified. Where included in the agreed scope, we can assess barrier options against the site constraints and applicable authority requirements. Final product selection remains subject to approved-product status, manufacturer requirements and project-specific engineering review.",
     },
     {
       q: "Can cross sections change during construction?",
@@ -305,7 +309,7 @@ export const SWEPT_PATH: ServicePageData = {
   metaTitle: "Swept Path Analysis (Vehicle Tracking)",
   metaDescription:
     "Swept path analysis confirming the space every vehicle type needs — from passenger cars to articulated trucks and abnormal loads — before construction locks the design in.",
-  practice: PRACTICE,
+  practice: PRACTICES.parking,
   opener: "A design that looks fine on paper can still be too narrow for the vehicle it's built for.",
   intro:
     "Swept path analysis evaluates the space a vehicle needs to complete a turning manoeuvre. Because a vehicle's rear wheels track a tighter arc than its front wheels, this difference has to be accounted for to keep roads, driveways, junctions, and parking areas safe and functional. Get it wrong, and the result is costly redesigns, safety hazards, or vehicles encroaching into pedestrian and cyclist space.",

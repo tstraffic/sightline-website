@@ -29,7 +29,7 @@ export const DEVELOPERS: SectorData = {
   h1: "Council asked for a traffic report. We'll tell you which one.",
   metaTitle: "Developers & Architects",
   metaDescription:
-    "The technical evidence that closes traffic and parking questions before they become a Request for Information — TIS, TIA, AS 2890 certification, driveways, sight lines and access.",
+    "The technical evidence that closes traffic and parking questions before they become a Request for Information — TIS, TIA, AS 2890 assessment, driveways, sight lines and access.",
   intro:
     "Most DAs that stall on traffic and parking don't stall on anything dramatic. They stall on a bay width, a ramp transition, a sight triangle, or a report prepared by someone council doesn't accept as qualified. Sightline provides the technical evidence that closes those questions before they become a Request for Information.",
   needsHeading: "What developers and architects come to us for",
@@ -40,7 +40,7 @@ export const DEVELOPERS: SectorData = {
     },
     {
       lead: "Parking that complies, or a case for why it doesn't need to",
-      text: "AS 2890 certification, and carpark demand assessments that justify a reduction on evidence rather than assumption",
+      text: "AS 2890 compliance assessment and supporting documentation, and carpark demand assessments that justify a reduction on evidence rather than assumption",
     },
     {
       lead: "Driveways on difficult sites",
@@ -94,7 +94,7 @@ export const GOVERNMENT: SectorData = {
       text: "the same CAD staging sets and barrier design used on major civil projects",
     },
   ],
-  outro: "Assessed against TCAWS, the relevant Australian Standards, and the specific approved plan for the site.",
+  outro: "Assessed against TfNSW TS 05492, the relevant Australian Standards, and the specific approved plan for the site.",
   routeHeading: "Where government clients usually start",
   routes: [
     { ref: "07", label: "Site audits", href: "/site-audits" },

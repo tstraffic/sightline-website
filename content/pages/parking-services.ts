@@ -1,13 +1,18 @@
 import type { ServicePageData } from "./types";
+import { PRACTICES } from "./practices";
 
 /**
- * Development & Parking Engineering service pages 14–20, verbatim from Rev 3.
- * Page 21 (operational TPMPs) is a hidden draft — Phase 3. Evidence blocks
- * verbatim: three-tier methodology (15), AS 2890.1 table (16), gradient rules
- * (17), AS 2890.2 table (19).
+ * Service pages 14–20, from Rev 3. Page 21 (operational TPMPs) is a hidden
+ * draft.
+ *
+ * Copy Pass 1: the TIS (14) sits under Development traffic engineering; 15–20
+ * under Parking, access and swept paths. The AS 2890.1 (16) and AS 2890.2 (19)
+ * dimensional tables and the TIS numeric triggers were REMOVED from public
+ * display at Saadat's direction — see DECISIONS.md (overrides the Rev 3 keep
+ * list on professional-liability grounds).
  */
 
-const PRACTICE = { label: "Development & parking engineering", href: "/development-parking-engineering" };
+const PRACTICE = PRACTICES.parking;
 
 /** Page 14 — KEEP. */
 export const TIS: ServicePageData = {
@@ -16,25 +21,18 @@ export const TIS: ServicePageData = {
   title: "Traffic impact statement (TIS)",
   metaTitle: "Traffic Impact Statement (TIS)",
   metaDescription:
-    "A concise technical report demonstrating that your development's traffic generation, parking and access arrangements won't create unsafe or inefficient conditions — the standard requirement for smaller-scale developments.",
-  practice: PRACTICE,
+    "A concise technical report demonstrating that your development's traffic generation, parking and access arrangements won't create unsafe or inefficient conditions on the surrounding road network.",
+  practice: PRACTICES.development,
   opener: "Stalled DA because council wants a traffic report? A Traffic Impact Statement is usually the fix.",
   intro:
-    "It's a concise technical report demonstrating that your development's traffic generation, parking, and access arrangements won't create unsafe or inefficient conditions on the surrounding road network — the standard requirement for smaller-scale developments where a full assessment would be overkill.",
+    "It's a concise technical report demonstrating that your development's traffic generation, parking, and access arrangements won't create unsafe or inefficient conditions on the surrounding road network. A TIS is commonly requested for smaller developments where impacts are expected to be localised and a more extensive network assessment is not warranted.",
   sections: [
     {
-      kind: "bullets",
-      heading: "When a TIS is typically the right call",
-      items: [
-        { text: "Small residential flat buildings, commonly under 20 units" },
-        { text: "Childcare centres" },
-        { text: "Medical or dental clinics" },
-        { text: "Small-scale commercial or industrial units" },
-      ],
-    },
-    {
       kind: "paragraph",
-      text: "A common rule of thumb is a development expected to generate under 100 vehicle trips in the weekday peak hour — though this is indicative only; your council or road authority determines the actual requirement.",
+      heading: "When a TIS may be appropriate",
+      // Copy Pass 1: the "under 20 units" and "under 100 trips" screening
+      // thresholds were removed — visitors were treating them as rules.
+      text: "A TIS may suit a smaller development or change of use where the likely traffic impacts are localised and detailed intersection modelling is not expected. The appropriate report scope is determined by the development type, consent authority, road environment and applicable planning controls.",
     },
     {
       kind: "bullets",
@@ -56,7 +54,11 @@ export const TIS: ServicePageData = {
     },
     {
       kind: "paragraph",
-      text: "A TIS must be prepared by a qualified, appropriately registered traffic engineer — an unqualified preparer is one of the most common, and entirely avoidable, reasons a report gets rejected outright.",
+      text: "Councils commonly expect a TIS to be prepared by a suitably qualified traffic engineer. Registration or certification requirements depend on the jurisdiction, development type and requested deliverable.",
+    },
+    {
+      kind: "paragraph",
+      text: "A report that does not demonstrate appropriate technical competence, evidence or project-specific assessment may be rejected or returned for further information.",
     },
   ],
   faqs: [
@@ -143,11 +145,11 @@ export const AS2890: ServicePageData = {
   title: "Parking & AS 2890 compliance",
   metaTitle: "Parking & AS 2890 Compliance",
   metaDescription:
-    "Car park design checked and certified against the full AS 2890 series — bay dimensions, headroom, aisles, ramp grades and design vehicles — with the formal certification most councils require.",
+    "Parking and access assessment against the AS 2890 series — geometry, circulation, ramps, headroom, accessible parking and vehicle templates, assessed for the specific project.",
   practice: PRACTICE,
   opener: "One miscalculated dimension can sink a DA.",
   intro:
-    "AS 2890 is the Australian Standard series governing parking facility geometry, and it's built directly into council development control plans (DCPs) and planning schemes. Non-compliance is one of the most common — and most preventable — reasons a car park design gets rejected. We check and design against the full series so it doesn't happen to your project, and provide the formal parking certification most councils require.",
+    "The AS 2890 series is commonly referenced by planning controls, consent conditions and design requirements. The applicable standard, council controls and project-specific requirements must be considered together. Parking non-compliance can result in council comments, redesign and delays during development assessment or certification. We provide a documented parking and access assessment, including certification where the consent authority or project scope specifically requires it and the appropriate signing arrangements are in place.",
   sections: [
     {
       kind: "bullets",
@@ -159,41 +161,57 @@ export const AS2890: ServicePageData = {
       ],
     },
     {
-      kind: "table",
-      heading: "What we check against AS 2890.1",
-      columns: ["Element", "Requirement"],
-      rows: [
-        ["Bay dimensions", "2.4m wide × 5.4m long standard; user class can shift this"],
-        ["Headroom", "2.2m standard; 2.5m for accessible spaces and shared areas"],
-        ["Aisle width (90°, one-way)", "Minimum 6.2m"],
-        ["Ramp grade", "Max 1 in 4 (25%); transitions required beyond 1 in 8 (12.5%), minimum 2m long"],
-        ["Shy distance", "Bays next to columns or walls often need widening to 2.7m"],
-        ["Wheel stops", "90–100mm high, positioned roughly 0.9m from the front of the space"],
-        ["Design vehicle", "B85 default; B99 mandated by some councils — confirm early"],
+      // Copy Pass 1: the public dimensional table (bay sizes, headroom, aisle
+      // widths, ramp grades, shy distance, wheel stops, B85/B99) was REMOVED.
+      // Those values change with user class, geometry, local controls and the
+      // edition applied, and were being read as universal requirements.
+      kind: "paragraph",
+      heading: "What we assess",
+      text: "Parking compliance is not determined by one standard dimension. The assessment considers the applicable user class, bay and aisle geometry, circulation, ramps and transitions, headroom, columns and obstructions, accessible parking, vehicle templates, sight distance and local planning controls.",
+    },
+    {
+      kind: "bullets",
+      heading: "Assessment areas",
+      items: [
+        { text: "Parking supply and demand" },
+        { text: "Bay and aisle geometry" },
+        { text: "Circulation and manoeuvring" },
+        { text: "Ramp grades and transitions" },
+        { text: "Headroom and overhead obstructions" },
+        { text: "Accessible parking" },
+        { text: "Columns, walls and obstructions" },
+        { text: "Vehicle design templates" },
+        { text: "Driveway sight distance" },
+        { text: "Council DCP and consent requirements" },
       ],
     },
     {
       kind: "paragraph",
+      text: "Requirements vary by site, user class, vehicle type, council controls and the applicable edition of the standard. Website information is general only and does not replace a project-specific compliance assessment.",
+    },
+    {
+      kind: "paragraph",
       heading: "Beyond the minimums",
-      text: "Sightlines at driveway exits, lighting, signage and line marking for predictable circulation, and correct treatment of EV charging bays — still subject to all standard dimensional requirements — all factor into a car park that actually works, not just one that ticks the geometry box.",
+      text: "Sightlines at driveway exits, lighting, signage and line marking for predictable circulation, and correct treatment of EV charging bays all factor into a car park that works in practice, not just one that meets the geometry on paper.",
     },
   ],
   faqs: [
     {
       q: "Is AS 2890.1 legally mandatory?",
-      a: "It's a Standard, not legislation — but it's referenced by the NCC and most council DCPs, making compliance a practical requirement for DA approval regardless.",
+      a: "It's a Standard rather than legislation, but it is commonly referenced by the NCC, council development control plans and consent conditions — which generally makes compliance a practical requirement for assessment.",
     },
     {
       q: "What's the difference between AS 2890.1 and AS 2890.6?",
       a: "2890.1 covers general parking; 2890.6 is the accessible parking standard — wider bays, shared zones, specific signage. They apply together.",
     },
     {
-      q: "Does it matter whether B85 or B99 is used?",
-      a: "Yes — some councils mandate B99 for all or part of a site. Confirming which applies before design avoids a late-stage rejection.",
+      // Copy Pass 1: B85/B99 naming removed — the applicable template varies
+      q: "Which design vehicle applies to my project?",
+      a: "The applicable design and check vehicles depend on the land use, the vehicles that will genuinely use the site, and the council's controls. Confirming them before design avoids late-stage redesign.",
     },
     {
       q: "Do I need formal certification, or just a compliant design?",
-      a: "Most councils require formal assessment and certification from a qualified traffic engineer — not just a compliant-looking plan. We issue that certification as part of this service.",
+      a: "Requirements vary by council and project. Some applications require a traffic engineer's assessment or certification, while others require supporting plans and a written compliance review. We confirm the required deliverable when reviewing the consent condition and project documentation.",
     },
   ],
 };
@@ -337,17 +355,33 @@ export const VEHICLE_ACCESS: ServicePageData = {
     "A Vehicle Access Assessment reviews how every vehicle type expected on your site — from passenger cars to B-doubles — enters, moves through, and exits safely. It brings driveway design, swept path analysis, and sightlines together into one access-focused review, and it's essential wherever heavy vehicles are part of the picture.",
   sections: [
     {
-      kind: "table",
-      heading: "Governing standard: AS 2890.2 (commercial and industrial)",
-      columns: ["Element", "Requirement"],
-      rows: [
-        ["Design vehicle", "Largest regular user — from 6.4m SRV up to 19.0m AV or 25.0m B-double"],
-        ["Check vehicle", "Waste truck or fire appliance, assessed separately from routine traffic"],
-        ["Ramp grade", "Max 15% for heavy vehicles; 2.0m transitions top and bottom"],
-        ["Vertical clearance", "Minimum 4.5m; 4.8m preferred for high-clearance loads"],
-        ["Driveway width", "Approximately 3.5m single-lane SRV, up to 15m+ for dual-lane B-double entry"],
-        ["Circulating roadway grade", "Kept under 10% for traction and safety"],
+      // Copy Pass 1: the public AS 2890.2 dimensional table (vehicle lengths,
+      // ramp grades, clearances, driveway widths) was REMOVED — those values
+      // are project-specific, not universal website figures.
+      kind: "paragraph",
+      heading: "What the assessment considers",
+      text: "The required vehicle-access geometry depends on the actual vehicles using the site, the frequency of use, road environment, internal layout and applicable authority requirements.",
+    },
+    {
+      kind: "bullets",
+      items: [
+        { text: "Largest regular design vehicle" },
+        { text: "Occasional check vehicles" },
+        { text: "Entry and exit movements" },
+        { text: "Forward-in and forward-out requirements" },
+        { text: "Driveway width and alignment" },
+        { text: "Internal turning and circulation" },
+        { text: "Ramp grades and transitions" },
+        { text: "Vertical clearance" },
+        { text: "Loading and waste collection" },
+        { text: "Emergency-vehicle access" },
+        { text: "Conflicts with pedestrians and other vehicles" },
+        { text: "Swept-path clearance from kerbs, walls, gates and structures" },
       ],
+    },
+    {
+      kind: "paragraph",
+      text: "Vehicle templates and dimensional requirements are confirmed for each project rather than applied as universal website figures.",
     },
     {
       kind: "numbered",

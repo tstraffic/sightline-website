@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ServicePage } from "@/components/ServicePage";
+import { PracticeLanding } from "@/components/PracticeLanding";
 import { SERVICES } from "@content/pages/services-index";
 import { DRAFT_SERVICES } from "@content/pages/drafts";
+import { PRACTICE_LANDINGS } from "@content/pages/landings";
 
 /**
- * All service pages render through this route. LIVE pages come from SERVICES;
- * DRAFT pages (08, 12, 21, 13) are reachable only by direct URL — noindex,
- * excluded from nav and sitemap, watermarked "DRAFT — not for publication".
+ * Top-level route for practice landings and service pages.
+ * LIVE services come from SERVICES; DRAFT services (08, 12, 21, 13) are
+ * reachable only by direct URL — noindex, out of nav and sitemap, watermarked.
  */
 
-const ALL = { ...SERVICES, ...DRAFT_SERVICES };
+const ALL_SERVICES = { ...SERVICES, ...DRAFT_SERVICES };
 
 export function generateStaticParams() {
-  return Object.keys(ALL).map((slug) => ({ slug }));
+  return [...Object.keys(PRACTICE_LANDINGS), ...Object.keys(ALL_SERVICES)].map((slug) => ({ slug }));
 }
 
 export const dynamicParams = false;
@@ -24,7 +26,17 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const data = ALL[slug];
+
+  const landing = PRACTICE_LANDINGS[slug];
+  if (landing) {
+    return {
+      title: landing.eyebrow.split("·").pop()?.trim() ?? landing.h1,
+      description: landing.intro[0],
+      alternates: { canonical: `/${slug}` },
+    };
+  }
+
+  const data = ALL_SERVICES[slug];
   if (!data) return {};
   return {
     title: data.metaTitle,
@@ -36,7 +48,11 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const data = ALL[slug];
+
+  const landing = PRACTICE_LANDINGS[slug];
+  if (landing) return <PracticeLanding data={landing} />;
+
+  const data = ALL_SERVICES[slug];
   if (!data) notFound();
   return (
     <>

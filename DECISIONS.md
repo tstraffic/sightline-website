@@ -1,5 +1,27 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Website Copy Pass 1 (Saadat, 5 Aug 2026) — five areas
+
+**1 · Slogan and positioning.** "Designed to standard." retired everywhere (hero, footer, browser title, meta description, OG/Twitter, mobile menu, capability pop-up) and replaced with the sole tagline "Designed for approval. Built for construction." Hero rebuilt: eyebrow "Independent traffic engineering consultancy", two-line H1, approved supporting paragraph + lifecycle sentence. OG/Twitter metadata added (they were inheriting defaults). NOTE: the browser title is now 76 characters — Google will truncate around 60; flagged for Saadat's call.
+
+**Hero drawing rebuilt twice.** The label change alone would have been dishonest (a cone taper labelled "vehicle access assessment"), so the drawing was replaced: first with a site-access plan, then — per Saadat's reference sheet — with an overall road plan (corridor, signalised cross-road, roundabout with landscaped spiral, faint existing context, oxide movement paths with arrowheads, dashed SHEET reference areas, chainage markers, legend, notes, scale). Sheet references carry NO invented drawing numbers (brand §7); the caption strip marks it illustrative. Animation is staged like a sheet being issued (context → alignment → roundabout → movement paths → annotation → stamp) via `.anim-line*`/`.fade-in` with inline delays. The work-zone TGS drawing survives as `HeroDiagram` for construction-side pages.
+
+**2 · Service hierarchy.** Restructured to four engineering practices — development → parking/access/swept paths → modelling/network → construction — with approvals demoted to a supporting cell beneath them on the homepage and moved into the Engineering Services dropdown (top-level "Approvals" nav item removed). Practice definitions centralised in `content/pages/practices.ts`; landings render through the `[slug]` route from `PRACTICE_LANDINGS`.
+- **URL change, flagged:** the three old practice URLs are renamed and 301-redirect via `next.config.ts` (verified). Individual service-page URLs — the SEO-priority ones — are unchanged.
+- Swept path (06) moved from work zone to parking; TIA (11) moved from modelling to development; TIS (14) moved from parking to development.
+- Services Saadat listed that have no page yet (DA support, traffic generation, sustainable transport, council response letters, loading/servicing reviews, construction vehicle route plans) render as a text-only `scope` list — never links, so nothing dead-ends.
+
+**5 · Absolute claims.** Applied the supplied replacements verbatim on the homepage, development landing, TIS, AS 2890, TGS, TIA and barrier pages, and extended the same treatment where the identical claim recurred elsewhere (sector-page "AS 2890 certification" → "compliance assessment and supporting documentation"; the 26a "approved barrier list, whichever is stricter" bullet; the AS 2890 "legally mandatory" FAQ; the B85/B99 FAQ, which was carrying the design-vehicle mandate the area-6 list removed from the table).
+
+**6 · Technical numbers.** Removed from public display: the AS 2890.1 dimensional table (16), the AS 2890.2 table (19), and the TIS numeric triggers (14) — replaced with the supplied assessment-areas lists and per-project disclaimers. **This deliberately overrides the Rev 3 keep list** ("evidence blocks verbatim") on professional-liability grounds, at the client's instruction.
+- **Not touched, needs a decision:** the driveway page (17) still publishes gradient rules (1 in 4, 1 in 20, 1 in 8, 2 m transitions, 120 mm clearance). They are the same class of figure as the tables just removed but were not on the area-6 list.
+- **Also lost with the TIS trigger section:** the non-numeric land-use examples (childcare, medical/dental, small commercial units). Reinstatable without thresholds if wanted.
+
+**7 · Standards.** TCAWS Manual → "TfNSW TS 05492 Traffic Control at Work Sites" (short form "TS 05492") across TGS, site audits, TMP FAQ, sector pages, About standards list and the team register; Austroads references now read "current Austroads Guide…" so editions don't date the site; G10 framed as "applicable TfNSW TS 03401 (G10) specification, where required by the contract or road authority"; homepage credential strip → "AS 1742.3 · AS 2890 series · TfNSW TS 05492 · Current Austroads guidance"; drawing caption relabelled "Reference" per the instruction not to group standards under "Standard".
+- **Aimsun:** removed from the page 09 title/meta and the tool bullet de-named, pending Saadat's confirmation of delivery capability and technical review arrangements — `TODO(verify:aimsun)`.
+
+Verified: 41 routes 200, 3 redirects resolving, sitemap 37 URLs (new practices in, drafts out), production build clean.
+
 ## Phase 3 (+ pre-phase changes, 5 Aug 2026)
 
 - Saadat: services reordered site-wide to dev → work zone → transport (nav dropdown, homepage pillars renumbered P—01..03, practice eyebrows renumbered to match); build-list page numbers (01–25) unchanged — they are document refs, not practice order.

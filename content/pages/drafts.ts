@@ -1,4 +1,5 @@
 import type { ServicePageData } from "./types";
+import { PRACTICES } from "./practices";
 
 /**
  * DRAFT pages 08, 12, 21 (placeholder copy written strictly from the gap
@@ -21,7 +22,7 @@ export const RSA_DRAFT: ServicePageData = {
   metaTitle: "Road Safety Audits (RSA)",
   metaDescription:
     "Independent road safety audits at design, pre-opening and existing road stages — findings identified, risk-classified and closed out through formal designer responses.",
-  practice: { label: "Work zone engineering", href: "/work-zone-engineering" },
+  practice: PRACTICES.construction,
   opener: "When a design is challenged, “we checked it ourselves” is not a defence.",
   intro:
     "A road safety audit is a formal, independent review of a road design or an existing road against road safety principles — an examination by auditors who had no part in the design, asking one question: where could this arrangement harm a road user? For the councils and road authorities that commission them, the independence is the point.",
@@ -91,7 +92,7 @@ export const DATA_COLLECTION_DRAFT: ServicePageData = {
   metaTitle: "Traffic Data Collection & Analysis",
   metaDescription:
     "Turning-movement counts, classified counts, queue observations, travel-time and speed data — the counted baseline that SIDRA and Aimsun calibration, TIAs and network analysis rest on.",
-  practice: { label: "Transport & network engineering", href: "/transport-network-engineering" },
+  practice: PRACTICES.modelling,
   opener: "A calibrated model starts with counted traffic, not assumed traffic.",
   intro:
     "Every defensible model, TIA and network study rests on a baseline someone actually measured. Sightline collects and analyses the traffic data behind civil and network projects — designed around what the model or assessment downstream will need, and delivered in the formats road authorities accept.",
@@ -155,7 +156,7 @@ export const OPERATIONAL_DRAFT: ServicePageData = {
   metaTitle: "Operational Traffic & Parking Management Plans",
   metaDescription:
     "The plan for how a site operates after it opens — circulation, parking, loading, waste, pick-up and drop-off, queues and pedestrian movement, with named responsibilities.",
-  practice: { label: "Development & parking engineering", href: "/development-parking-engineering" },
+  practice: PRACTICES.development,
   opener: "The CTMP ends at completion — the consent condition doesn't.",
   intro:
     "A construction traffic management plan covers the build. An operational traffic and parking management plan covers everything after: how vehicles, parking, deliveries and people actually move through the site once it opens — commonly required as a condition of consent, and inherited by whoever operates the site.",
@@ -214,7 +215,7 @@ export const ROAD_DESIGN_HOLD: ServicePageData = {
   title: "Road design & CAD documentation",
   metaTitle: "Road Design & CAD Documentation",
   metaDescription: "Page in preparation.",
-  practice: { label: "Transport & network engineering", href: "/transport-network-engineering" },
+  practice: PRACTICES.modelling,
   opener: "Page in preparation.",
   intro:
     "[Structure only — the scope of this service is being confirmed with the engineering team. No service description is published until it is.]",

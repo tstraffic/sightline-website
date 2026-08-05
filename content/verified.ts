@@ -55,7 +55,8 @@ export const STATS: Record<string, VerifiedValue<string>> = {
 export const CREDENTIALS: VerifiedValue<string>[] = [
   { value: "Qualified traffic engineers", verified: true },
   { value: "TfNSW-aligned documentation", verified: true },
-  { value: "AS 1742.3 | AS 2890 | TCAWS", verified: true },
+  // Standards line updated for TS 05492 (Copy Pass 1, area 7)
+  { value: "AS 1742.3 · AS 2890 series · TfNSW TS 05492 · Current Austroads guidance", verified: true },
   { value: "NER / CPEng", verified: false, openItem: "D6" },
   { value: "NSW Government prequalified", verified: false, openItem: "D6" },
 ];

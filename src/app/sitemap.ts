@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "@content/pages/services-index";
 import { SECTORS } from "@content/pages/sectors";
+import { PRACTICE_LANDINGS } from "@content/pages/landings";
 
 /** Sitemap — live pages only. Drafts (08, 12, 13, 21) and the dev-only
  *  sample case study are excluded by construction. */
@@ -8,9 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://sightlinetraffic.com.au";
   const statics = [
     "",
-    "/work-zone-engineering",
-    "/transport-network-engineering",
-    "/development-parking-engineering",
+    ...Object.keys(PRACTICE_LANDINGS).map((s) => `/${s}`),
     "/approvals",
     "/sectors",
     "/projects",

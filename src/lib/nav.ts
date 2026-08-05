@@ -1,16 +1,17 @@
+import { PRACTICES } from "@content/pages/practices";
+
 /**
- * Main navigation per 00-INSTRUCTIONS: Home / Engineering Services (dropdown:
- * three practices) / Approvals / Sectors / Projects / About / Contact.
+ * Main navigation. Engineering Services dropdown order per Copy Pass 1:
+ * development → parking/access → modelling → construction → approvals.
  *
- * Draft-gated items (About, page 28) carry `draft: true` and are excluded
- * from the rendered nav until their copy is approved — CLAUDE.md's draft rule
- * overrides the seven-item listing. See DECISIONS.md.
+ * Draft-gated items carry `draft: true`; `footerOnly` items are reachable but
+ * kept out of the header (see DECISIONS.md).
  */
 export type NavItem = {
   label: string;
   href: string;
   draft?: boolean;
-  /** Reachable page that stays out of the header nav (e.g. /team — linked from About + footer; Saadat, 4 Aug 2026: "About is the story, Team is the people in detail"). */
+  /** Reachable page that stays out of the header nav (e.g. /team). */
   footerOnly?: boolean;
   children?: { label: string; href: string }[];
 };
@@ -19,19 +20,17 @@ export const NAV: NavItem[] = [
   { label: "Home", href: "/" },
   {
     label: "Engineering services",
-    href: "/work-zone-engineering",
-    // Order per Saadat (5 Aug 2026): dev → work zone → transport
+    href: PRACTICES.development.href,
     children: [
-      { label: "Development & parking engineering", href: "/development-parking-engineering" },
-      { label: "Work zone engineering", href: "/work-zone-engineering" },
-      { label: "Transport & network engineering", href: "/transport-network-engineering" },
+      { label: PRACTICES.development.label, href: PRACTICES.development.href },
+      { label: "Parking and vehicle access", href: PRACTICES.parking.href },
+      { label: PRACTICES.modelling.label, href: PRACTICES.modelling.href },
+      { label: PRACTICES.construction.label, href: PRACTICES.construction.href },
+      { label: PRACTICES.approvals.label, href: PRACTICES.approvals.href },
     ],
   },
-  { label: "Approvals", href: "/approvals" },
   { label: "Sectors", href: "/sectors" },
   { label: "Projects", href: "/projects" },
-  // Saadat (4 Aug 2026): "about us should be at the nav bar — they need to know
-  // who we are." Built live from approved/published copy; credentials still gate on D6.
   { label: "About", href: "/about" },
   { label: "Team", href: "/team", footerOnly: true },
   { label: "Contact", href: "/contact" },
@@ -39,6 +38,6 @@ export const NAV: NavItem[] = [
 
 export const CTA = {
   primary: { label: "Request a fee proposal", href: "/contact" },
-  secondary: { label: "View our services", href: "/work-zone-engineering" },
+  secondary: { label: "View our services", href: PRACTICES.development.href },
   contactLine: "Send us the drawings. We'll tell you what you need.",
 } as const;

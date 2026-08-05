@@ -16,9 +16,30 @@ export function PracticeLanding({ data }: { data: LandingData }) {
         ))}
       </div>
 
+      {data.scope && data.scope.length > 0 && (
+        <section className="section" aria-labelledby="scope">
+          <div className="sec-head">
+            <span className="sec-num">SHT 01</span>
+            <h2 id="scope">{data.scopeHeading ?? "Also within this practice"}</h2>
+          </div>
+          <div className="pad">
+            <ul className="dashlist max-w-[68ch]">
+              {data.scope.map((s) => (
+                <li key={s}>
+                  <p>{s}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="fine mt-5">
+              Scoped on request — tell us what the condition or authority is asking for.
+            </p>
+          </div>
+        </section>
+      )}
+
       <section className="section" aria-labelledby="reg">
         <div className="sec-head">
-          <span className="sec-num">SHT 01</span>
+          <span className="sec-num">{data.scope && data.scope.length > 0 ? "SHT 02" : "SHT 01"}</span>
           <h2 id="reg">{data.registerTitle}</h2>
           <span className="sec-rev">{data.registerRev}</span>
         </div>

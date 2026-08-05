@@ -37,7 +37,7 @@ export const PEOPLE: TeamMember[] = [
     signs: [
       { label: "Prepares", value: "TIAs, CTMPs, ROL & permit applications, CC/OC statements" },
       { label: "Tools", value: "SIDRA · AutoTURN · AutoCAD Vehicle Tracking" },
-      { label: "Standards", value: "TfNSW AGTTM · TCAWS · G10" },
+      { label: "Standards", value: "TfNSW AGTTM · TS 05492 · G10" },
     ],
     photo: "saadat-ahmed.jpg",
   },
@@ -61,7 +61,7 @@ export const PEOPLE: TeamMember[] = [
     signs: [
       { label: "Prepares", value: "TIAs, CTMPs, TGS, parking & access assessments" },
       { label: "Tools", value: "SIDRA · AutoTURN · AutoCAD Vehicle Tracking" },
-      { label: "Standards", value: "TfNSW AGTTM · TCAWS · G10" },
+      { label: "Standards", value: "TfNSW AGTTM · TS 05492 · G10" },
     ],
     photo: "rumman-khan.jpg",
   },

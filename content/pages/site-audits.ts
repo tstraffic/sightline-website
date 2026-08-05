@@ -1,4 +1,5 @@
 import type { ServicePageData } from "./types";
+import { PRACTICES } from "./practices";
 
 /**
  * Page 07 — Site Audits. Disposition: KEEP (05-migration-map) — copy verbatim
@@ -10,8 +11,8 @@ export const SITE_AUDITS: ServicePageData = {
   title: "Site audits",
   metaTitle: "Site Audits",
   metaDescription:
-    "Independent site audits of temporary traffic management set-ups — checking physical implementation against the approved TGS or TMP, to TCAWS and the relevant Australian Standards.",
-  practice: { label: "Work zone engineering", href: "/work-zone-engineering" },
+    "Independent site audits of temporary traffic management set-ups — checking physical implementation against the approved TGS or TMP, with reference to TfNSW TS 05492 and the relevant Australian Standards.",
+  practice: PRACTICES.construction,
   opener: "A traffic management plan is only as effective as its on-site implementation.",
   intro:
     "Sightline conducts site audits of temporary traffic management set-ups — checking physical implementation against the approved TGS or TMP — across Sightline-delivered projects, live jobs in progress, and as an independent external auditor for other companies' plans.",
@@ -35,7 +36,7 @@ export const SITE_AUDITS: ServicePageData = {
     },
     {
       kind: "paragraph",
-      text: "Audits are conducted to the full scope of Transport for NSW requirements, assessed against TCAWS, the relevant Australian Standards, and the specific approved plan for the site.",
+      text: "Audits are conducted to the full scope of Transport for NSW requirements, assessed with reference to TfNSW TS 05492 Traffic Control at Work Sites, the relevant Australian Standards, and the specific approved plan for the site.",
     },
     {
       kind: "numbered",

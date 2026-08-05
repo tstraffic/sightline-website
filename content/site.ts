@@ -5,7 +5,8 @@
 export const SITE = {
   name: "Sightline Traffic Engineers",
   legalName: "Sightline Traffic Engineers Pty Ltd",
-  tagline: "Designed to standard.",
+  /** Sole marketing tagline (brand v3.2 / Copy Pass 1). */
+  tagline: "Designed for approval. Built for construction.",
   phone: "1800 008 782",
   phoneHref: "tel:1800008782",
   email: "plans@sightlinetraffic.com.au",

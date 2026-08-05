@@ -492,6 +492,10 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 a.cell { text-decoration: none; color: var(--ink); display: block; }
 a.cell:hover { background: rgba(163, 70, 82, 0.06); }
 a.cell .go { display: inline-block; margin-top: 14px; font-size: 0.85rem; font-weight: 500; color: var(--aub); }
+/* approvals support — full-width cell beneath the four practices, on dust */
+a.cell.supporting-cell { background: var(--sheet-deep); border-top: 1.5px solid var(--ink); }
+a.cell.supporting-cell:hover { background: rgba(163, 70, 82, 0.06); }
+a.cell.supporting-cell p { max-width: 78ch; }
 a.cell:hover .go { color: var(--oxide); }
 
 /* ---------- numbered methodology ---------- */
@@ -717,10 +721,16 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 .dashlist strong { color: var(--ink); }
 .dashlist li p { color: var(--ink-soft); }
 
-/* ---------- draw-in animation (hero linework, slow per Saadat) ---------- */
+/* ---------- draw-in animation (hero linework) ----------
+   Staged like a drawing being issued: context → alignment → movement paths →
+   annotation → stamp. Per-element timing set inline with animationDelay. */
 @keyframes dash { to { stroke-dashoffset: 0; } }
 .anim-line { stroke-dasharray: 900; stroke-dashoffset: 900; animation: dash 3.4s ease forwards 0.3s; }
+/* longer corridor runs need a bigger dash budget so the tail still draws */
+.anim-line-long { stroke-dasharray: 2600; stroke-dashoffset: 2600; animation: dash 2.6s ease forwards; }
+.anim-line-med { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: dash 2.2s ease forwards; }
 @keyframes conein { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 .cone-g { opacity: 0; animation: conein 0.45s ease forwards; }
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.fade-in { opacity: 0; animation: fadein 0.7s ease forwards; }
 .fade-late { opacity: 0; animation: fadein 0.9s ease forwards 2.6s; }

@@ -1,13 +1,11 @@
 import type { ServicePageData } from "./types";
+import { PRACTICES } from "./practices";
 
 /**
- * Page 01 — TGS/TCP. Disposition: KEEP+pass, voice fix 1 applied:
- * the Rev 3 intro's "minimise disruption while maximising safety" and
- * "backed by hands-on experience" (both avoid-list) are replaced with the
- * concrete rewrite (what is delivered / to what standards / by whom);
- * "No second-guessing, just…" dropped as puffery. Opening line, the 3-step
- * process, the result line, all four FAQs and the closing internal-link
- * line ship verbatim.
+ * Page 01 — TGS/TCP. Voice fix 1 (avoid-list phrases removed) plus Copy Pass 1:
+ * "certified diagram that decides whether…" and "certified Traffic Guidance
+ * Schemes" replaced with site-specific / requirement-dependent wording; the
+ * TGS-vs-TCP and preparer FAQs rewritten; TCAWS Manual → TfNSW TS 05492.
  */
 export const TGS_TCP: ServicePageData = {
   pageNo: "01",
@@ -15,14 +13,17 @@ export const TGS_TCP: ServicePageData = {
   title: "Traffic guidance schemes (TGS) & traffic control plans (TCP)",
   metaTitle: "Traffic Guidance Schemes (TGS) & Traffic Control Plans (TCP)",
   metaDescription:
-    "Certified Traffic Guidance Schemes and Traffic Control Plans designed by traffic engineers to the TCAWS Manual and AS 1742.3 for civil and construction projects across NSW.",
-  practice: { label: "Work zone engineering", href: "/work-zone-engineering" },
+    "Site-specific Traffic Guidance Schemes for civil, construction and infrastructure projects across NSW and the ACT, prepared with reference to TfNSW TS 05492 and AS 1742.3.",
+  practice: PRACTICES.construction,
   opener:
-    "The certified diagram that decides whether your work site is safe — and whether it's approved.",
+    "The site-specific drawing that communicates how traffic, pedestrians and workers are managed around the work area.",
   intro:
-    // Voice fix 1 — concrete rewrite (05-migration-map)
-    "Sightline prepares certified Traffic Guidance Schemes and Traffic Control Plans for civil and construction projects across NSW and the ACT — designed by traffic engineers to the site's actual geometry, sightlines and staging, and documented to the Traffic Control at Worksites (TCAWS) Manual and AS 1742.3.",
+    "Sightline prepares site-specific Traffic Guidance Schemes for civil, construction and infrastructure projects across NSW and the ACT. Each scheme responds to the site geometry, road environment, work staging, traffic conditions and requirements of the relevant road authority.",
   sections: [
+    {
+      kind: "paragraph",
+      text: "Prepared with reference to TfNSW TS 05492 Traffic Control at Work Sites, AS 1742.3, the current Austroads Guide to Temporary Traffic Management and applicable project or council requirements.",
+    },
     {
       kind: "numbered",
       heading: "Our process",
@@ -40,11 +41,11 @@ export const TGS_TCP: ServicePageData = {
   faqs: [
     {
       q: "What's the difference between a TGS and a TCP?",
-      a: "Nothing functionally — Traffic Guidance Scheme (TGS) and Traffic Control Plan (TCP) are used interchangeably across NSW to describe the same certified diagram of signage, devices, markings and control measures for a work site.",
+      a: "The terms are often used interchangeably, particularly when referring to the drawing showing signs, devices and traffic-control arrangements. However, terminology and submission requirements can vary between road authorities, councils, contracts and older documentation.",
     },
     {
       q: "Who can prepare a TGS/TCP?",
-      a: "A suitably qualified and accredited traffic control person or engineer, in accordance with the TCAWS Manual and relevant Australian Standards.",
+      a: "A TGS must be prepared and reviewed by personnel holding the competencies and authorisations required for the relevant jurisdiction, road authority and project.",
     },
     {
       q: "How long does a TGS/TCP take to prepare?",
