@@ -20,7 +20,7 @@ export function TitleBlockCta({
         <div className="tb-cell">
           <b>{label}</b>
           <h2>{heading}</h2>
-          <Link className="btn btn-paper" href={CTA.primary.href}>
+          <Link className="btn btn-brass" href={CTA.primary.href}>
             {CTA.primary.label} →
           </Link>
         </div>
@@ -43,6 +43,12 @@ export function TitleBlockCta({
             {SITE.address}
             <br />
             {SITE.hours}
+            {SITE.abn && (
+              <>
+                <br />
+                ABN {SITE.abn}
+              </>
+            )}
           </div>
         </div>
         <div className="tb-cell">

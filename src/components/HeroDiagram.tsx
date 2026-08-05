@@ -18,8 +18,9 @@ export function HeroDiagram() {
   // a termination beyond its end.
   const cones: [number, number][] = [
     [148, 486], [180, 450], [212, 415], [244, 380], [272, 340], [295, 305],
-    [318, 268], [340, 232], [362, 196], [384, 160], [400, 132],
+    [318, 268], [340, 232], [362, 196], [384, 160],
     [416, 100], [430, 72], [442, 46],
+    // (cone at 400,132 removed — crowded the CH 0+240 marker; Saadat)
   ];
 
   return (
@@ -133,19 +134,21 @@ export function HeroDiagram() {
         <text x="106" y="17">20 m</text>
       </g>
 
-      {/* ---- issued-status stamp — fades in after the linework ---- */}
+      {/* ---- issued-status stamp — full oxide stamp-ink treatment so it reads
+           like a real approval stamp (Saadat: make it stand out) ---- */}
       <g className="fade-late" transform="rotate(-6 462 434)">
-        <rect x="352" y="402" width="220" height="64" rx="4" fill="none" stroke={ink} strokeWidth="1.6" />
-        <g stroke={oxide} strokeWidth="2" fill="none">
+        <rect x="352" y="402" width="220" height="64" rx="4" fill={oxide} opacity="0.08" />
+        <rect x="352" y="402" width="220" height="64" rx="4" fill="none" stroke={oxide} strokeWidth="2.2" />
+        <g stroke={oxide} strokeWidth="3" fill="none">
           <path d="M352 414 V402 H364" />
           <path d="M560 402 H572 V414" />
           <path d="M572 454 V466 H560" />
           <path d="M364 466 H352 V454" />
         </g>
-        <text x="462" y="428" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="15" letterSpacing="3" fill={ink}>
+        <text x="462" y="428" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="15" fontWeight="500" letterSpacing="3" fill={oxide}>
           ISSUED FOR
         </text>
-        <text x="462" y="450" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="15" letterSpacing="3" fill={ink}>
+        <text x="462" y="450" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="15" fontWeight="500" letterSpacing="3" fill={oxide}>
           CONSTRUCTION
         </text>
       </g>

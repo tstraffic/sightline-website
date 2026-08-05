@@ -6,6 +6,7 @@ export function SiteFooter() {
   return (
     <footer className="footer">
       <div>© {new Date().getFullYear()} {SITE.legalName}</div>
+      {SITE.abn && <div>ABN {SITE.abn}</div>}
       <div>{SITE.tagline}</div>
       <a href={SITE.phoneHref}>{SITE.phone}</a>
       <a href={`mailto:${SITE.email}`}>{SITE.email}</a>

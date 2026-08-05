@@ -121,8 +121,17 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border-right: 1.5px solid var(--ink);
   text-decoration: none;
 }
-.nav-brand img { height: 58px; width: auto; }
-.nav-links { display: flex; align-items: stretch; margin-left: auto; }
+.nav-brand img { height: 70px; width: auto; }
+/* the links strip only (Engineering services → Contact) sits on Mineral Dust —
+   same surface as the decoder box (Saadat); brand cell stays on the sheet */
+.nav-links {
+  display: flex;
+  align-items: stretch;
+  margin-left: auto;
+  background: var(--sheet-deep);
+  border-left: 1px solid var(--rule);
+  padding: 0 6px;
+}
 .nav-links > a, .nav-drop > button {
   display: flex;
   align-items: center;
@@ -149,7 +158,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   top: 100%;
   left: 0;
   min-width: 300px;
-  background: var(--sheet);
+  background: var(--sheet-deep);
   border: 1.5px solid var(--ink);
   border-top: none;
   z-index: 51;
@@ -166,7 +175,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border-bottom: 1px solid var(--rule-soft);
 }
 .nav-drop-panel a:last-child { border-bottom: none; }
-.nav-drop-panel a:hover { background: var(--sheet-deep); color: var(--oxide); }
+.nav-drop-panel a:hover { background: var(--sheet); color: var(--oxide); }
 .nav-phone {
   display: flex;
   align-items: center;
@@ -179,13 +188,14 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   white-space: nowrap;
 }
 @media (max-width: 1120px) { .nav-phone { display: none; } }
+/* CTA refinement (Saadat, 5 Aug 2026): aubergine ground, brass text (5.71:1) */
 .nav-cta {
   display: flex;
   align-items: center;
   padding: 0 26px;
   margin-left: 10px;
-  background: var(--brass);
-  color: var(--ink);
+  background: var(--aub);
+  color: var(--brass);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
@@ -193,7 +203,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   text-decoration: none;
   border-left: 1.5px solid var(--ink);
 }
-.nav-cta:hover { background: var(--brass-deep); color: var(--ink); }
+.nav-cta:hover { background: var(--aub-hover); color: var(--brass); }
 
 /* mobile menu */
 .nav-m { display: none; }
@@ -214,7 +224,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--sheet);
+  background: var(--sheet-deep);
   border-top: 1px solid var(--rule);
   border-bottom: 1.5px solid var(--ink);
   z-index: 49;
@@ -239,7 +249,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 @media (max-width: 640px) {
   .nav-brand { padding: 8px 14px; }
-  .nav-brand img { height: 46px; }
+  .nav-brand img { height: 54px; }
   .nav-cta { padding: 0 14px; font-size: 0.62rem; letter-spacing: 0.06em; }
 }
 
@@ -315,9 +325,17 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 /* on-dark CTA: paper ground + aubergine text (oxide is never a button fill) */
 .btn-paper { background: var(--paper-on-dark); border-color: var(--paper-on-dark); color: var(--aub); font-weight: 500; }
 .btn-paper:hover { background: var(--sheet-deep); border-color: var(--sheet-deep); color: var(--aub); }
-/* brass CTA (Saadat, 5 Aug 2026): carbon text on #C9A15A ≈ 6.3:1 */
+/* brass primary CTA (Saadat, 5 Aug 2026): carbon text on #C9A15A ≈ 6.3:1 */
 .btn-brass { background: var(--brass); border-color: var(--brass); color: var(--ink); font-weight: 500; }
 .btn-brass:hover { background: var(--brass-deep); color: var(--ink); }
+/* dark secondary CTA: aubergine ground, brass text ("View our services" etc.) */
+.btn-dark { background: var(--aub); border-color: var(--aub); color: var(--brass); font-weight: 500; }
+.btn-dark:hover { background: var(--aub-hover); color: var(--brass); }
+
+/* dark variant of the side panel — the decoder's brass button stands out on it */
+.panel-dark { background: var(--aub); border-left-color: var(--ink); }
+.panel-dark .fl { color: var(--muted-on-dark); }
+.panel-dark .form-note { background: var(--aub-hover); color: var(--paper-on-dark); border-color: var(--rule-dark); }
 .btn:disabled { opacity: 0.6; cursor: wait; }
 
 .fine { font-family: var(--font-mono); font-size: 0.64rem; color: var(--ink-soft); }

@@ -26,10 +26,10 @@ export default function HomePage() {
           </h1>
           <p className="sub">{HOME.hero.sub}</p>
           <div className="hero-actions">
-            <Link className="btn btn-solid" href={CTA.primary.href}>
+            <Link className="btn btn-brass" href={CTA.primary.href}>
               {CTA.primary.label} →
             </Link>
-            <Link className="btn btn-ghost" href={CTA.secondary.href}>
+            <Link className="btn btn-dark" href={CTA.secondary.href}>
               {CTA.secondary.label}
             </Link>
           </div>
