@@ -12,27 +12,42 @@ export type VerifiedValue<T> = {
   note?: string;
 };
 
-/** Capability statistics — all four unverified (04-brand.md ⚠ Unverified numbers). */
+/** Capability statistics. Saadat reset the band for new-firm positioning
+ *  (5 Aug 2026): 300+ and 1 day kept and confirmed for publication; the
+ *  years/LGA figures retired from display; scope + team register added
+ *  (both already-verified facts: D2 decision, published /team page). */
 export const STATS: Record<string, VerifiedValue<string>> = {
+  schemesImplemented: {
+    value: "300+",
+    verified: true,
+    note: "Schemes implemented alongside delivery teams. Confirmed for publication by Saadat, 5 Aug 2026.",
+  },
+  jurisdictions: {
+    value: "NSW + ACT",
+    verified: true,
+    note: "The jurisdictions we design for and secure approvals in. D2 decision, 5 Aug 2026.",
+  },
+  internalCheck: {
+    value: "100%",
+    verified: true,
+    note: "Of documents through an internal design check before they are issued. Published process claim (About page / Rev 3 page 02 FAQ).",
+  },
+  feeTurnaround: {
+    value: "1 day",
+    verified: true,
+    note: "To a fixed written fee for standard enquiries. Confirmed for publication by Saadat, 5 Aug 2026.",
+  },
+  // Retired from the stats band (new-firm positioning) — kept for the
+  // capability statement should they verify later:
   yearsExperience: {
     value: "14",
     verified: false,
-    note: "Years of road and traffic management experience (engineers', not firm age).",
-  },
-  schemesImplemented: {
-    value: "300+",
-    verified: false,
-    note: "Schemes implemented alongside delivery teams.",
+    note: "Years of road and traffic management experience (engineers', not firm age). Not displayed.",
   },
   lgasWorked: {
     value: "28",
     verified: false,
-    note: "LGAs worked across Greater Sydney and the Illawarra.",
-  },
-  feeTurnaround: {
-    value: "1 day",
-    verified: false,
-    note: "To a fixed written fee for standard enquiries. Gates the fee-turnaround lines on Homepage §7 and Contact.",
+    note: "LGAs worked across Greater Sydney and the Illawarra. Not displayed.",
   },
 };
 

@@ -50,7 +50,7 @@ export default function HomePage() {
       </header>
 
       {/* Statistics band — dark, per the capability cover; preview until verified */}
-      <StatsBand designPreview />
+      <StatsBand />
 
       {/* Credential strip — confirmed items only */}
       <div className="credstrip" aria-label="Credentials">
