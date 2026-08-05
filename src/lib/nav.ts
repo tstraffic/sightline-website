@@ -20,10 +20,11 @@ export const NAV: NavItem[] = [
   {
     label: "Engineering services",
     href: "/work-zone-engineering",
+    // Order per Saadat (5 Aug 2026): dev → work zone → transport
     children: [
+      { label: "Development & parking engineering", href: "/development-parking-engineering" },
       { label: "Work zone engineering", href: "/work-zone-engineering" },
       { label: "Transport & network engineering", href: "/transport-network-engineering" },
-      { label: "Development & parking engineering", href: "/development-parking-engineering" },
     ],
   },
   { label: "Approvals", href: "/approvals" },

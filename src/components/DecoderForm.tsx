@@ -54,7 +54,7 @@ export function DecoderForm({ title }: { title: string }) {
         <input id="dc-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
       <div>
-        <button type="submit" className="btn btn-solid" disabled={status === "sending"}>
+        <button type="submit" className="btn btn-brass" disabled={status === "sending"}>
           {title} →
         </button>
         {status === "sent" && (

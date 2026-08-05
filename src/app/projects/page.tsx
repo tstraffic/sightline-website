@@ -1,5 +1,46 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
+import { visibleCaseStudies } from "@content/pages/projects";
+
+/** Register body: published (and, in dev only, sample) entries — else the honest empty state. */
+function Register() {
+  const entries = visibleCaseStudies(process.env.NODE_ENV === "production");
+  if (entries.length === 0) {
+    return (
+      <div className="pad">
+        <p className="fine">
+          NO ENTRIES PUBLISHED YET — PERMISSIONS IN PROGRESS. IN THE MEANTIME, THE SERVICE
+          PAGES DESCRIBE EXACTLY WHAT WE DELIVER.
+        </p>
+      </div>
+    );
+  }
+  return (
+    <div className="tablewrap">
+      <table className="register">
+        <thead>
+          <tr>
+            <th>Client type</th>
+            <th>Project</th>
+            <th className="hide-m">Problem</th>
+          </tr>
+        </thead>
+        <tbody>
+          {entries.map((c) => (
+            <tr key={c.slug}>
+              <td className="dwg">{c.clientType}</td>
+              <td className="ttl">
+                <Link href={`/projects/${c.slug}`}>{c.title}</Link>
+              </td>
+              <td className="des hide-m">{c.problem}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -32,12 +73,7 @@ export default function ProjectsPage() {
           <h2>Case-study register</h2>
           <span className="sec-rev">Awaiting client permissions</span>
         </div>
-        <div className="pad">
-          <p className="fine">
-            NO ENTRIES PUBLISHED YET — PERMISSIONS IN PROGRESS. IN THE MEANTIME, THE SERVICE
-            PAGES DESCRIBE EXACTLY WHAT WE DELIVER.
-          </p>
-        </div>
+        <Register />
       </section>
 
       <TitleBlockCta

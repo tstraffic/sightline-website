@@ -1,5 +1,17 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Phase 3 (+ pre-phase changes, 5 Aug 2026)
+
+- Saadat: services reordered site-wide to dev → work zone → transport (nav dropdown, homepage pillars renumbered P—01..03, practice eyebrows renumbered to match); build-list page numbers (01–25) unchanged — they are document refs, not practice order.
+- Saadat: BRASS promoted from logo-only to UI accent — nav CTA (carbon on #C9A15A, 6.24:1), stats-band numerals (#C9A15A on aubergine, 5.71:1), decoder button; brass tokens added to @theme. Brass Deep is hover-state only on light grounds (3.03:1 — never small text). 04-brand's "logo-only" note superseded by owner direction.
+- Palette breadth (Saadat: "site only has 2 or 3 colours"): .panel-side surfaces now Mineral Dust — all six brand colours + brass are visibly in play; secondary text darkens to #4d575c inside dust panels (survey grey is 3.82:1 on dust, AA fail — scoped --ink-soft override fixes every descendant).
+- Drafts 08/12/21 written strictly from gap briefs A/B/C; 13 structure-only with zero claims; all noindex + watermarked + out of nav/sitemap, reachable by direct URL; live pages do NOT link to drafts (20→12 and 03→21 cross-links deferred until those pages go live).
+- Case-study template built with all 00-INSTRUCTIONS fields; the one sample entry is permission:"sample" and excluded from production builds by construction (visibleCaseStudies) — dev-only, banner-labelled.
+- seo-migration.csv generated from the content registries by script (40 rows); Existing URL + redirect columns marked "TBC — supply current live URL" per instructions.
+- sitemap.ts emits exactly the 36 live URLs; robots.ts references it; canonicals on the dynamic service routes.
+- QA: contrast audit of all rendered pairings passes AA after the dust-panel fix (worst live pair 4.60:1 survey-on-sheet); zero broken internal links across 37 unique targets; no horizontal overflow at 375px, tables scroll in .tablewrap; dropdown + mobile menu carry aria-expanded; FAQs are native details/summary.
+- Lighthouse NOT run in this environment (no CLI chrome runner available in-session) — run against the Vercel staging deploy; noted as the one open QA item, alongside a favicon.ico fallback.
+
 ## Logo Pack v3.2 (5 Aug 2026, pre-Phase 3)
 
 - v3.2 pack adopted per its own README: header (light ground) uses the OXIDE-descriptor horizontal (pack's recommendation — Brass Deep is 3.03:1 on Drawing Paper, large-size/non-text only); the APPROVED Reversed_BrassDescriptor lockup (#C9A15A, 5.71:1) sits on the aubergine title-block CTA's contact cell — the Title Block system's dark ground (the footer strip is light, so no reversed lockup there).

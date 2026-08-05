@@ -34,24 +34,25 @@ export const HOME = {
     closing:
       "Getting it right at design stage costs a fraction of fixing it after construction, or after a rejection.",
   },
+  // Pillar order per Saadat (5 Aug 2026): dev → work zone → transport → approvals
   pillars: [
     {
       ref: "01",
+      title: "Development & parking engineering",
+      text: "AS 2890 compliance, carpark demand, driveway design, sightlines and vehicle access. The technical detail a development application (DA) stands or falls on.",
+      href: "/development-parking-engineering",
+    },
+    {
+      ref: "02",
       title: "Work zone engineering",
       text: "TGS, staging sets, CTMPs, barrier design and site audits for works on live road networks. The documentation that gets your site approved — and holds up when the job changes.",
       href: "/work-zone-engineering",
     },
     {
-      ref: "02",
+      ref: "03",
       title: "Transport & network engineering",
       text: "Traffic modelling, SIDRA capacity analysis, TIAs and data collection. The evidence-based case that a development or upgrade will actually perform.",
       href: "/transport-network-engineering",
-    },
-    {
-      ref: "03",
-      title: "Development & parking engineering",
-      text: "AS 2890 compliance, carpark demand, driveway design, sightlines and vehicle access. The technical detail a development application (DA) stands or falls on.",
-      href: "/development-parking-engineering",
     },
     {
       // Fourth pillar written from the Approvals landing copy (05-migration-map)
