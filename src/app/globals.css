@@ -123,20 +123,22 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 .nav-brand img { height: 72px; width: auto; }
 .nav-links { display: flex; align-items: stretch; margin-left: auto; }
-/* nav links in oxide (Saadat) — 5.47:1 on the sheet */
+/* nav links in oxide (Saadat) — larger, single-line, vertically centred */
 .nav-links > a, .nav-drop > button {
   display: flex;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--oxide);
   text-decoration: none;
-  padding: 8px 14px;
+  padding: 0 16px;
   background: none;
   border: none;
   cursor: pointer;
+  white-space: nowrap;
 }
 .nav-links > a:hover, .nav-drop > button:hover { color: var(--aub); text-decoration: underline; text-underline-offset: 4px; }
 .nav-links > a[aria-current="page"] {
@@ -182,17 +184,22 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   white-space: nowrap;
 }
 .nav-phone:hover { text-decoration: underline; text-underline-offset: 3px; }
-@media (max-width: 1120px) { .nav-phone { display: none; } }
-/* CTA refinement (Saadat, 5 Aug 2026): aubergine ground, brass text (5.71:1) */
+@media (max-width: 1280px) { .nav-phone { display: none; } }
+/* CTA refinement (Saadat, 5 Aug 2026): aubergine ground, brass text (5.71:1),
+   centred + larger so it earns attention without leaving the system */
 .nav-cta {
   display: flex;
   align-items: center;
-  padding: 0 26px;
+  justify-content: center;
+  text-align: center;
+  min-width: 172px;
+  padding: 0 28px;
   background: var(--aub);
   color: var(--brass);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
   border-left: 1.5px solid var(--ink);
@@ -237,7 +244,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .nav-m-panel a:last-child { border-bottom: none; }
 .nav-m-panel a:hover { color: var(--oxide); }
 
-@media (max-width: 980px) {
+@media (max-width: 1120px) {
   .nav-links, .nav-phone { display: none; }
   .nav-m { display: block; margin-left: auto; align-self: stretch; }
 }
