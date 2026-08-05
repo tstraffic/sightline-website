@@ -6,7 +6,7 @@
 export type Faq = { q: string; a: string };
 
 export type PageSection =
-  | { kind: "paragraph"; text: string }
+  | { kind: "paragraph"; heading?: string; text: string }
   | { kind: "bullets"; heading?: string; items: { lead?: string; text: string }[] }
   | { kind: "numbered"; heading?: string; steps: string[] }
   | { kind: "table"; heading?: string; columns: [string, string]; rows: [string, string][] };

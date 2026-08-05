@@ -1,32 +1,49 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CIVIL_CONTRACTORS as C } from "@content/pages/civil-contractors";
+import { SECTORS } from "@content/pages/sectors";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
 
-export const metadata: Metadata = {
-  title: "Civil Contractors",
-  description:
-    "Traffic documentation at construction pace — staging sets, barrier design statements, multi-stage CTMPs, site audits and ROL management for civil contractors.",
-};
+/** Sector page template — problem-first opener, needs list, route cards. */
 
-/** Sector page template (26a) — Title Block treatment with route cards. */
-export default function CivilContractorsPage() {
+export function generateStaticParams() {
+  return Object.keys(SECTORS).map((slug) => ({ slug }));
+}
+
+export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const data = SECTORS[slug];
+  if (!data) return {};
+  return { title: data.metaTitle, description: data.metaDescription };
+}
+
+export default async function SectorPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const s = SECTORS[slug];
+  if (!s) notFound();
+
   return (
     <article>
       <div className="pagehead">
-        <div className="dwgno">{C.eyebrow}</div>
-        <h1>{C.h1}</h1>
-        <p className="sub">{C.intro}</p>
+        <div className="dwgno">{s.eyebrow}</div>
+        <h1>{s.h1}</h1>
+        <p className="sub">{s.intro}</p>
       </div>
 
       <section className="section" aria-labelledby="needs">
         <div className="sec-head">
           <span className="sec-num">SHT 01</span>
-          <h2 id="needs">{C.needsHeading}</h2>
+          <h2 id="needs">{s.needsHeading}</h2>
         </div>
         <div className="pad">
           <ul className="dashlist max-w-[72ch]">
-            {C.needs.map((n) => (
+            {s.needs.map((n) => (
               <li key={n.lead}>
                 <p>
                   <strong>{n.lead}</strong> — {n.text}
@@ -34,19 +51,18 @@ export default function CivilContractorsPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-[68ch] text-survey">{C.outro}</p>
+          {s.outro && <p className="mt-6 max-w-[68ch] text-survey">{s.outro}</p>}
         </div>
       </section>
 
-      {/* Route cards — every sector page ends in a route, not a pitch */}
       <section className="section" aria-labelledby="routes">
         <div className="sec-head">
           <span className="sec-num">SHT 02</span>
-          <h2 id="routes">{C.routeHeading}</h2>
+          <h2 id="routes">{s.routeHeading}</h2>
           <span className="sec-rev">Route to the pages you need</span>
         </div>
         <div className="cellgrid cols-3">
-          {C.routes.map((r) => (
+          {s.routes.map((r) => (
             <Link key={r.ref} href={r.href} className="cell">
               <span className="cell-tag">{r.ref}</span>
               <h3>{r.label}</h3>
@@ -57,9 +73,9 @@ export default function CivilContractorsPage() {
       </section>
 
       <TitleBlockCta
-        label="Civil contractors"
+        label={s.metaTitle}
         heading="Send us the drawings. We'll tell you what you need."
-        notes={["1. Site address", "2. Staging or civil drawings", "3. The programme pressure point"]}
+        notes={[...s.notes]}
       />
     </article>
   );

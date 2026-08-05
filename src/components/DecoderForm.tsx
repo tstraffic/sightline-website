@@ -8,13 +8,19 @@ import { useState } from "react";
  * form handler.
  */
 export function DecoderForm({ title }: { title: string }) {
-  const [status, setStatus] = useState<"idle" | "stub">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!e.currentTarget.reportValidity()) return;
-    if ((e.currentTarget.elements.namedItem("website") as HTMLInputElement)?.value) return;
-    setStatus("stub");
+    const form = e.currentTarget;
+    if (!form.reportValidity()) return;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/decoder", { method: "POST", body: new FormData(form) });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -48,13 +54,16 @@ export function DecoderForm({ title }: { title: string }) {
         <input id="dc-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
       <div>
-        <button type="submit" className="btn btn-solid">
+        <button type="submit" className="btn btn-solid" disabled={status === "sending"}>
           {title} →
         </button>
-        {status === "stub" && (
+        {status === "sent" && (
           <p className="form-note mt-3">
-            Design preview — decoder submission wiring lands in Phase 2.
+            Received. Email delivery is not wired yet (staging stub) — a provider key and routing address are needed before launch.
           </p>
+        )}
+        {status === "error" && (
+          <p className="form-note mt-3">Something went wrong — please call or email us directly.</p>
         )}
       </div>
     </form>

@@ -1,5 +1,18 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Phase 2
+
+- All 21 live service pages render through one registry-driven dynamic route (src/app/[slug], URLs exactly per 03-build-list); sector pages 26a–e through /sectors/[slug]; the Phase 1 static routes for 01/07/26a were migrated into the registries and deleted.
+- Service copy grouped by practice in content/pages/{work-zone,transport,parking,approvals}-services.ts — verbatim from Rev 3 with only the specified fixes; every open item carries a TODO(verify:…) comment at each affected location (V1 STA ×3 files, V2 ROL trigger, V3 TMP qualification FAQ, V4 swept-path software, D2 ×2: modelling jurisdictions + ACT permit line).
+- Voice fix 2 rewrite: "Critical thinking, applied on site" and "Reviewing the variables"/"cost-effective solutions" replaced with revision-turnaround and drawing-register/one-sequence bullets, matching the CAD-staging-set register as directed.
+- Page 19's flagged editorial block: first two sentences adapted into copy as a closing paragraph; the linking instruction stripped; page links to 06 via the related-pages block (as do 02 and 03→04).
+- Approvals landing = the section landing via the shared PracticeLanding template; voice fix 4 drops the "hassle" sentence entirely (the parallel-pathway paragraph already carries the message).
+- 26c's route card to page 08 is commented out in data (not hidden with CSS) so it can't leak; restore when 08 goes live (D3).
+- /projects built as an honest empty-state index now (it's in the nav — a 404 was worse); the full case-study template with the 00-INSTRUCTIONS fields remains Phase 3. No invented case studies.
+- Forms now POST to stubbed API routes (/api/enquiry, /api/decoder) with server-side honeypot handling; success message states plainly that email delivery isn't wired. Needed for launch: email provider key (e.g. Resend) + verified domain, routing address, confirmation template, upload handling, server-side validation/rate limiting — listed in the route comments.
+- Team page restyled to Title Block (split panels, spec rows, qualification register table); photo slots render placeholders until files land in /public/team.
+- Sectors landing tiles reuse each sector's own opener line as the tile line — no new copy.
+
 ## Phase 1 — rev B addendum (Saadat's markup, 4 Aug 2026)
 
 - Logo enlarged in the nav (58px, 46px mobile); phone cell hides below 1120px so nothing wraps.

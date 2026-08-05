@@ -12,14 +12,19 @@ import { CONTACT } from "@content/pages/contact";
  */
 export function ContactForm() {
   const [files, setFiles] = useState<File[]>([]);
-  const [status, setStatus] = useState<"idle" | "stub">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     if (!form.reportValidity()) return;
-    if ((form.elements.namedItem("website") as HTMLInputElement)?.value) return; // honeypot
-    setStatus("stub");
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/enquiry", { method: "POST", body: new FormData(form) });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -93,13 +98,16 @@ export function ContactForm() {
       <p className="text-[0.82rem] leading-relaxed text-survey sm:col-span-2">{CONTACT.privacy}</p>
 
       <div className="sm:col-span-2">
-        <button type="submit" className="btn btn-solid">
+        <button type="submit" className="btn btn-solid" disabled={status === "sending"}>
           {CONTACT.submitLabel} →
         </button>
-        {status === "stub" && (
+        {status === "sent" && (
           <p className="form-note mt-3">
-            Design preview — submission wiring, confirmation email and internal routing land in Phase 2.
+            Received. Email delivery is not wired yet (staging stub) — a provider key and routing address are needed before launch.
           </p>
+        )}
+        {status === "error" && (
+          <p className="form-note mt-3">Something went wrong sending the enquiry — please call or email us directly.</p>
         )}
       </div>
     </form>

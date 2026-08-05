@@ -57,6 +57,19 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </div>
       )}
 
+      {data.related && data.related.length > 0 && (
+        <div className="pad section !py-6">
+          <span className="fl">Related pages</span>
+          <div className="mt-1 flex flex-wrap gap-x-8 gap-y-1">
+            {data.related.map((r) => (
+              <Link key={r.href} href={r.href} className="font-mono text-[0.78rem] text-oxide no-underline hover:underline">
+                {r.label} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+
       <TitleBlockCta
         label={data.practice.label}
         heading="Send us the drawings. We'll tell you what you need."
@@ -71,6 +84,7 @@ function Section({ section }: { section: PageSection }) {
     case "paragraph":
       return (
         <div className="pad !pt-0">
+          {section.heading && <h2 className="mb-3 text-xl">{section.heading}</h2>}
           <p className="max-w-[62ch] leading-relaxed">{section.text}</p>
         </div>
       );
