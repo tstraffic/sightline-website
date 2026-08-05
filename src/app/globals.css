@@ -122,16 +122,8 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   text-decoration: none;
 }
 .nav-brand img { height: 72px; width: auto; }
-/* the links strip only (Engineering services → Contact) sits on Mineral Dust —
-   same surface as the decoder box (Saadat); brand cell stays on the sheet */
-.nav-links {
-  display: flex;
-  align-items: stretch;
-  margin-left: auto;
-  background: var(--sheet-deep);
-  border-left: 1px solid var(--rule);
-  padding: 0 6px;
-}
+.nav-links { display: flex; align-items: stretch; margin-left: auto; }
+/* nav links in oxide (Saadat) — 5.47:1 on the sheet */
 .nav-links > a, .nav-drop > button {
   display: flex;
   align-items: center;
@@ -139,14 +131,14 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--oxide);
   text-decoration: none;
   padding: 8px 14px;
   background: none;
   border: none;
   cursor: pointer;
 }
-.nav-links > a:hover, .nav-drop > button:hover { color: var(--oxide); }
+.nav-links > a:hover, .nav-drop > button:hover { color: var(--aub); text-decoration: underline; text-underline-offset: 4px; }
 .nav-links > a[aria-current="page"] {
   color: var(--oxide);
   text-decoration: underline;
@@ -176,18 +168,20 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 .nav-drop-panel a:last-child { border-bottom: none; }
 .nav-drop-panel a:hover { background: var(--sheet); color: var(--oxide); }
+/* the 1800 number stands out: oxide, medium weight (5.47:1 on sheet) */
 .nav-phone {
   display: flex;
   align-items: center;
   padding: 0 18px;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--oxide);
   text-decoration: none;
   border-left: 1px solid var(--rule);
   white-space: nowrap;
-  background: var(--sheet-deep);
 }
+.nav-phone:hover { text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 1120px) { .nav-phone { display: none; } }
 /* CTA refinement (Saadat, 5 Aug 2026): aubergine ground, brass text (5.71:1) */
 .nav-cta {
@@ -613,6 +607,9 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 .titleblock h2 { font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.15; text-wrap: balance; }
 .titleblock .btn-paper { margin-top: 22px; color: var(--aub); } /* out-specifies .tb-cell a */
 .titleblock .btn-paper:hover { color: var(--aub); }
+/* smaller CTA box in the title block, with more air under the heading */
+.titleblock .btn-brass { margin-top: 26px; padding: 11px 18px; font-size: 0.7rem; color: var(--ink); }
+.titleblock .btn-brass:hover { color: var(--ink); }
 .tb-cell a { color: var(--paper-on-dark); }
 .tb-cell .mono { font-family: var(--font-mono); font-size: 0.8rem; line-height: 2; }
 .tb-cell .mono.small { font-size: 0.72rem; line-height: 1.9; }
