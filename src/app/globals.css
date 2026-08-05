@@ -635,6 +635,23 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 .tb-cell .mono { font-family: var(--font-mono); font-size: 0.8rem; line-height: 2; }
 .tb-cell .mono.small { font-size: 0.72rem; line-height: 1.9; }
 
+/* capability-statement request link in the title block (brass, 5.71:1 on aubergine) */
+.tb-caplink {
+  display: inline-block;
+  margin-top: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.tb-caplink:hover { color: var(--paper-on-dark); }
+
 /* ---------- enquiry modal (native <dialog>) ---------- */
 .modal {
   margin: auto; /* centre in the viewport (the global reset zeroes the UA default) */

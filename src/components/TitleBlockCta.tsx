@@ -1,6 +1,7 @@
 import { SITE } from "@content/site";
 import { CTA } from "@/lib/nav";
 import { FeeProposalModal } from "./FeeProposalModal";
+import { CapabilityRequestModal } from "./CapabilityRequestModal";
 
 /** Title-block CTA — the drawing sheet's title block as the closing conversion band. */
 export function TitleBlockCta({
@@ -22,6 +23,8 @@ export function TitleBlockCta({
           <h2>{heading}</h2>
           {/* opens the enquiry form as a popup — no page change (Saadat) */}
           <FeeProposalModal label={CTA.primary.label} />
+          <br />
+          <CapabilityRequestModal />
         </div>
         <div className="tb-cell">
           <b>{notesLabel}</b>
