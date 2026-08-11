@@ -9,7 +9,7 @@ export function FeeProposalModal({ label }: { label: string }) {
   const ref = useRef<HTMLDialogElement>(null);
   return (
     <>
-      <button type="button" className="btn btn-brass" onClick={() => ref.current?.showModal()}>
+      <button type="button" className="btn btn-paper" onClick={() => ref.current?.showModal()}>
         {label} →
       </button>
       <dialog ref={ref} className="modal" aria-label="Request a fee proposal">

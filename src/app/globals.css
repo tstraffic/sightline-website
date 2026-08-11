@@ -15,11 +15,6 @@
   --color-survey: #657278;
   --color-dust: #e5e1de;
   --color-paper: #f8f6f2;
-  /* Brass accents (Logo Pack v3.2), promoted to UI use at Saadat's direction:
-     #C9A15A = 5.71:1 on aubergine (AA), carbon text on it ≈ 6.3:1 (AA).
-     #AB894C = 3.03:1 on paper — large-size elements only on light grounds. */
-  --color-brass: #c9a15a;
-  --color-brass-deep: #ab894c;
 
   --font-sans: var(--font-hanken), "Avenir Next", "Segoe UI", sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "Consolas", monospace;
@@ -36,8 +31,6 @@
   --oxide: var(--color-oxide);
   --oxide-hover: color-mix(in srgb, var(--color-oxide), white 12%);
   --oxide-press: color-mix(in srgb, var(--color-oxide), black 16%);
-  --brass: var(--color-brass);
-  --brass-deep: var(--color-brass-deep);
   --grid: rgba(62, 38, 50, 0.07);
   --rule: rgba(36, 39, 42, 0.22);
   --rule-soft: rgba(36, 39, 42, 0.12);
@@ -342,20 +335,18 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .btn-paper { background: var(--paper-on-dark); border-color: var(--paper-on-dark); color: var(--aub); font-weight: 500; }
 .btn-paper:hover { background: var(--sheet-deep); border-color: var(--sheet-deep); color: var(--aub); }
 /* Accent rule (Saadat, 5 Aug 2026): OXIDE fills on light grounds (sheet/dust),
-   BRASS fills on dark grounds (aubergine). Each accent is used where it reads.
+   DRAWING PAPER fills on dark grounds (aubergine). Brass was removed from the
+   UI entirely — the site runs on the six core brand colours.
 
    .btn-oxide — primary CTA on light grounds. Paper on oxide = 5.47:1 (AA). */
 .btn-oxide { background: var(--oxide); border-color: var(--oxide); color: var(--paper-on-dark); font-weight: 500; }
 .btn-oxide:hover { background: var(--oxide-press); border-color: var(--oxide-press); color: var(--paper-on-dark); }
 
-/* .btn-brass — primary CTA on dark grounds. Carbon on brass ≈ 6.2:1 (AA). */
-.btn-brass { background: var(--brass); border-color: var(--brass); color: var(--ink); font-weight: 500; }
-.btn-brass:hover { background: var(--brass-deep); color: var(--ink); }
-/* dark secondary CTA: aubergine ground, brass text ("View our services" etc.) */
-.btn-dark { background: var(--aub); border-color: var(--aub); color: var(--brass); font-weight: 500; }
-.btn-dark:hover { background: var(--aub-hover); color: var(--brass); }
+/* dark secondary CTA: aubergine ground, Drawing Paper text ("View our services") */
+.btn-dark { background: var(--aub); border-color: var(--aub); color: var(--paper-on-dark); font-weight: 500; }
+.btn-dark:hover { background: var(--aub-hover); color: var(--paper-on-dark); }
 
-/* dark variant of the side panel — the decoder's brass button stands out on it */
+/* dark variant of the side panel */
 .panel-dark { background: var(--aub); border-left-color: var(--ink); }
 .panel-dark .fl { color: var(--muted-on-dark); }
 .panel-dark .form-note { background: var(--aub-hover); color: var(--paper-on-dark); border-color: var(--rule-dark); }
@@ -426,8 +417,9 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   .statsband-grid > div:nth-child(-n + 2) { border-bottom: 1px solid var(--rule-dark); }
 }
 .statsband .rule { width: 28px; height: 2px; background: var(--oxide); margin-bottom: 12px; }
-/* brass key figures on aubergine (5.71:1 AA) — Saadat, 5 Aug 2026 */
-.statsband .n { font-family: var(--font-mono); font-size: 2.1rem; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--brass); }
+/* key figures in Drawing Paper on aubergine (12.7:1), oxide rule above —
+   the treatment on the approved capability-statement cover */
+.statsband .n { font-family: var(--font-mono); font-size: 2.1rem; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--paper-on-dark); }
 .statsband .l { font-size: 0.85rem; color: var(--muted-on-dark); margin-top: 6px; max-width: 24ch; }
 .statsband .preview-tag {
   padding: 0 48px 14px;
@@ -638,16 +630,16 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   margin-bottom: 10px;
 }
 .titleblock h2 { font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.15; text-wrap: balance; }
-.titleblock .btn-paper { margin-top: 22px; color: var(--aub); } /* out-specifies .tb-cell a */
+/* smaller CTA box with air under the heading; colour out-specifies .tb-cell a */
+.titleblock .btn-paper { margin-top: 26px; padding: 11px 18px; font-size: 0.7rem; color: var(--aub); }
 .titleblock .btn-paper:hover { color: var(--aub); }
 /* smaller CTA box in the title block, with more air under the heading */
-.titleblock .btn-brass { margin-top: 26px; padding: 11px 18px; font-size: 0.7rem; color: var(--ink); }
-.titleblock .btn-brass:hover { color: var(--ink); }
+
 .tb-cell a { color: var(--paper-on-dark); }
 .tb-cell .mono { font-family: var(--font-mono); font-size: 0.8rem; line-height: 2; }
 .tb-cell .mono.small { font-size: 0.72rem; line-height: 1.9; }
 
-/* capability-statement request link in the title block (brass, 5.71:1 on aubergine) */
+/* capability-statement request link in the title block (Drawing Paper on aubergine) */
 .tb-caplink {
   display: inline-block;
   margin-top: 16px;
@@ -658,11 +650,11 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--brass);
+  color: var(--paper-on-dark);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-.tb-caplink:hover { color: var(--paper-on-dark); }
+.tb-caplink:hover { color: var(--dust); }
 
 /* ---------- enquiry modal (native <dialog>) ---------- */
 .modal {

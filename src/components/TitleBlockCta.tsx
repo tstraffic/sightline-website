@@ -38,10 +38,10 @@ export function TitleBlockCta({
           </div>
         </div>
         <div className="tb-cell">
-          {/* v3.2 APPROVED reversed lockup: paper wordmark + brass #C9A15A descriptor (5.71:1 on aubergine) */}
+          {/* Reversed lockup — Drawing Paper wordmark + Oxide mark, no brass */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/brand/Sightline_Logo_Horizontal_Reversed_BrassDescriptor.svg"
+            src="/brand/Sightline_Logo_Horizontal_Reversed.svg"
             alt="Sightline Traffic Engineers"
             width={163}
             height={40}
