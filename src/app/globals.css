@@ -294,7 +294,14 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 @media (max-width: 900px) { .sec-head { padding: 16px 26px; } }
 .sec-num { font-family: var(--font-mono); font-size: 0.7rem; color: var(--oxide); letter-spacing: 0.1em; }
-.sec-head h2 { font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.sec-head h2 { font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--oxide); }
+
+/* Section headings in oxide (Saadat, 5 Aug 2026) — 5.47:1 on the sheet,
+   4.51:1 on dust panels, both AA. Page-level h1 stays Carbon so the hierarchy
+   still reads: carbon = the page's own voice, oxide = the section markers. */
+.pad > h2, .pad > h3,
+.panel > h2, .panel > h3,
+.panel-side > h2 { color: var(--oxide); }
 .sec-rev { margin-left: auto; font-family: var(--font-mono); font-size: 0.62rem; color: var(--ink-soft); text-transform: uppercase; }
 @media (max-width: 640px) { .sec-rev { display: none; } }
 
@@ -492,8 +499,14 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 a.cell { text-decoration: none; color: var(--ink); display: block; }
 a.cell:hover { background: rgba(163, 70, 82, 0.06); }
 a.cell .go { display: inline-block; margin-top: 14px; font-size: 0.85rem; font-weight: 500; color: var(--aub); }
-/* approvals support — full-width cell beneath the four practices, on dust */
-a.cell.supporting-cell { background: var(--sheet-deep); border-top: 1.5px solid var(--ink); }
+/* approvals support — full-width cell beneath the four practices, on dust.
+   It sits outside .cellgrid, so it needs the grid's cell padding explicitly
+   or its content won't line up with the cards above. */
+a.cell.supporting-cell {
+  background: var(--sheet-deep);
+  border-top: 1.5px solid var(--ink);
+  padding: 28px 32px;
+}
 a.cell.supporting-cell:hover { background: rgba(163, 70, 82, 0.06); }
 a.cell.supporting-cell p { max-width: 78ch; }
 a.cell:hover .go { color: var(--oxide); }
