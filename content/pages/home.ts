@@ -97,6 +97,11 @@ export const HOME = {
       },
       { lead: "What it costs", text: "Nothing — no fee, no obligation, no hourly surprises later" },
     ],
+    promise: {
+      primary: "Free",
+      secondary: "Same business day",
+    },
+    formSteps: ["Paste condition", "Engineer reviews", "Written reply"],
     formTitle: "Decode my condition — free",
   },
   sectors: {

@@ -1,5 +1,9 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Condition decoder emphasis (11 Aug 2026)
+
+- Raised the decoder without turning it into a second hero: the same approved content and split layout now use an approval-style service promise, an inset technical form with registration corners, a restrained drafting grid, a three-step review rail and a stronger textarea focus state; no shadows, looping motion or new marketing claims were introduced.
+
 ## Authorised hero plan viewer (11 Aug 2026)
 
 - Replaced the illustrative homepage drawing only (all approved copy and downstream sections remain unchanged) with the client-authorised ABG-A224-S2 set: page 01 is the zoomed-out overall corridor, followed by the three detailed A1 sheets as pages 02–04; web previews are 3200 px WebP exports while the supplied PDFs remain the source originals.

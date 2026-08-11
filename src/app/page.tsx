@@ -111,11 +111,17 @@ export default function HomePage() {
       </section>
 
       {/* SHT 03 — the condition decoder */}
-      <section className="section" aria-labelledby="decoder">
+      <section className="section decoder-section" aria-labelledby="decoder">
         <div className="sec-head">
           <span className="sec-num">SHT 03</span>
           <h2 id="decoder">The condition decoder</h2>
-          <span className="sec-rev">Free · same business day</span>
+          <span
+            className="decoder-stamp"
+            aria-label={`${HOME.decoder.promise.primary}, ${HOME.decoder.promise.secondary}`}
+          >
+            <span>{HOME.decoder.promise.primary}</span>
+            <span>{HOME.decoder.promise.secondary}</span>
+          </span>
         </div>
         <div className="split w-7-5">
           <div className="panel">
@@ -134,8 +140,10 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div className="panel-side">
-            <DecoderForm title={HOME.decoder.formTitle} />
+          <div className="panel-side decoder-form-panel">
+            <div className="decoder-form-card">
+              <DecoderForm title={HOME.decoder.formTitle} steps={HOME.decoder.formSteps} />
+            </div>
           </div>
         </div>
       </section>

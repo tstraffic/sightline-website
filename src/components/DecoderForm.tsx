@@ -7,7 +7,7 @@ import { useState } from "react";
  * validation with a stubbed submit; wiring lands in Phase 2 with the contact
  * form handler.
  */
-export function DecoderForm({ title }: { title: string }) {
+export function DecoderForm({ title, steps }: { title: string; steps: readonly string[] }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -25,6 +25,14 @@ export function DecoderForm({ title }: { title: string }) {
 
   return (
     <form onSubmit={onSubmit} className="grid gap-4">
+      <ol className="decoder-steps" aria-label="Condition review process">
+        {steps.map((step, index) => (
+          <li key={step}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <b>{step}</b>
+          </li>
+        ))}
+      </ol>
       <div>
         <label className="fl" htmlFor="condition">Condition wording *</label>
         <textarea
