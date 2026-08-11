@@ -39,6 +39,13 @@
   --muted-on-dark: color-mix(in srgb, var(--color-dust), var(--color-survey) 30%);
 }
 
+/* Dust surfaces: Survey Grey is only 3.82:1 on dust and Oxide 4.54:1, so both
+   deepen inside a dust surface (→ 5.7:1 and 5.5:1). Descendants inherit. */
+.sec-head, .panel-side, .credstrip {
+  --ink-soft: #4d575c;
+  --oxide: color-mix(in srgb, var(--color-oxide), black 12%);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -290,7 +297,8 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   gap: 18px;
   padding: 18px 48px;
   border-bottom: 1px solid var(--rule);
-  background: var(--sheet);
+  /* tinted title band — the one piece kept from the dust experiment (Saadat) */
+  background: var(--sheet-deep);
 }
 @media (max-width: 900px) { .sec-head { padding: 16px 26px; } }
 .sec-num { font-family: var(--font-mono); font-size: 0.7rem; color: var(--oxide); letter-spacing: 0.1em; }
