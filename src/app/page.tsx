@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HOME } from "@content/pages/home";
 import { CREDENTIALS } from "@content/verified";
 import { CTA } from "@/lib/nav";
-import { AccessDiagram } from "@/components/AccessDiagram";
+import { HeroPlanViewer } from "@/components/HeroPlanViewer";
 import { StatsBand } from "@/components/StatsBand";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
 import { DecoderForm } from "@/components/DecoderForm";
@@ -40,14 +40,7 @@ export default function HomePage() {
           <div className="hero-note">{HOME.hero.note}</div>
         </div>
         <div className="hero-draw">
-          <AccessDiagram />
-          {/* honest labels only — no invented drawing numbers (brand §7) */}
-          <div className="draw-caption">
-            <div><b>Drawing</b>Sample vehicle access assessment</div>
-            <div><b>Reference</b>AS 2890 series · Council DCP</div>
-            <div><b>Scale</b>NTS · illustrative</div>
-            <div><b>Status</b>For approval</div>
-          </div>
+          <HeroPlanViewer />
         </div>
       </header>
 

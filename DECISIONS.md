@@ -1,5 +1,11 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Authorised hero plan viewer (11 Aug 2026)
+
+- Replaced the illustrative homepage drawing only (all approved copy and downstream sections remain unchanged) with the client-authorised ABG-A224-S2 set: page 01 is the zoomed-out overall corridor, followed by the three detailed A1 sheets as pages 02–04; web previews are 3200 px WebP exports while the supplied PDFs remain the source originals.
+- The plan remains deliberately larger than its viewport and supports scroll, touch pan and mouse drag; changing page or pressing Replay restarts the left-to-right drawing reveal, titleblock field fill, Sightline logo placement and final sheet marker.
+- The overall page carries an "ISSUED FOR APPROVAL" Drawing Paper / Oxide stamp as Sightline's recurring signature device, added at Saadat's direction from the approved brand-guideline treatment; the detailed pages remain marked Preliminary and do not invent an issue status.
+
 ## Brand simplification + capability statement (5 Aug 2026)
 
 - **Brass removed from the UI entirely** at Saadat's direction. Replacement rule: OXIDE fills on light grounds (nav CTA, hero primary, decoder, contact, capability, team — paper text, 5.47:1); DRAWING PAPER on dark grounds (title-block CTA, stats numerals, capability link, on-aubergine secondary button — 12.73:1). Every replacement is higher contrast than the brass it replaced. Brass tokens deleted; the site now runs on the six core brand colours with one accent.
