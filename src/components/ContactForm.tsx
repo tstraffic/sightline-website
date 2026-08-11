@@ -98,7 +98,7 @@ export function ContactForm() {
       <p className="text-[0.82rem] leading-relaxed text-survey sm:col-span-2">{CONTACT.privacy}</p>
 
       <div className="sm:col-span-2">
-        <button type="submit" className="btn btn-brass" disabled={status === "sending"}>
+        <button type="submit" className="btn btn-oxide" disabled={status === "sending"}>
           {CONTACT.submitLabel} →
         </button>
         {status === "sent" && (

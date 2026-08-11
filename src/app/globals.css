@@ -341,7 +341,14 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 /* on-dark CTA: paper ground + aubergine text (oxide is never a button fill) */
 .btn-paper { background: var(--paper-on-dark); border-color: var(--paper-on-dark); color: var(--aub); font-weight: 500; }
 .btn-paper:hover { background: var(--sheet-deep); border-color: var(--sheet-deep); color: var(--aub); }
-/* brass primary CTA (Saadat, 5 Aug 2026): carbon text on #C9A15A ≈ 6.3:1 */
+/* Accent rule (Saadat, 5 Aug 2026): OXIDE fills on light grounds (sheet/dust),
+   BRASS fills on dark grounds (aubergine). Each accent is used where it reads.
+
+   .btn-oxide — primary CTA on light grounds. Paper on oxide = 5.47:1 (AA). */
+.btn-oxide { background: var(--oxide); border-color: var(--oxide); color: var(--paper-on-dark); font-weight: 500; }
+.btn-oxide:hover { background: var(--oxide-press); border-color: var(--oxide-press); color: var(--paper-on-dark); }
+
+/* .btn-brass — primary CTA on dark grounds. Carbon on brass ≈ 6.2:1 (AA). */
 .btn-brass { background: var(--brass); border-color: var(--brass); color: var(--ink); font-weight: 500; }
 .btn-brass:hover { background: var(--brass-deep); color: var(--ink); }
 /* dark secondary CTA: aubergine ground, brass text ("View our services" etc.) */

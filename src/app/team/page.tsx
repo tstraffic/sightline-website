@@ -100,7 +100,7 @@ export default function TeamPage() {
             <h3 className="max-w-md text-balance text-xl">{HIRING.heading}</h3>
             <p className="mt-3 max-w-md leading-relaxed text-survey">{HIRING.body}</p>
             <a
-              className="btn btn-brass mt-5"
+              className="btn btn-oxide mt-5"
               href={`mailto:${SITE.email}?subject=Joining%20the%20Sightline%20team`}
             >
               Introduce yourself →

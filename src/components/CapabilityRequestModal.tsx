@@ -65,7 +65,7 @@ export function CapabilityRequestModal({ variant = "link" }: { variant?: "link" 
               <input id="cap-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
             </div>
             <div>
-              <button type="submit" className="btn btn-brass" disabled={status === "sending"}>
+              <button type="submit" className="btn btn-oxide" disabled={status === "sending"}>
                 Send me the capability statement →
               </button>
               {status === "sent" && (
