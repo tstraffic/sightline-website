@@ -10,7 +10,7 @@ export const SITE = {
   phone: "1800 008 782",
   phoneHref: "tel:1800008782",
   email: "plans@sightlinetraffic.com.au",
-  address: "9 Epic Pl, Villawood NSW",
+  address: "Suite 413, 388 George St, Sydney NSW 2000",
   hours: "Mon–Fri, 8am–5pm",
   abn: "16 699 960 668",
 } as const;

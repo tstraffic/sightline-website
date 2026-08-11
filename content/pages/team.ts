@@ -104,7 +104,7 @@ export const HIRING = {
   body: "Sightline stays deliberately small, which means every hire matters. If you're a traffic engineer or a TGS designer who reads the road before the manual, send a short note and your CV — and tell us about one drawing you're proud of.",
   details: [
     ["Roles", "Traffic engineer · TGS / staging designer"],
-    ["Where", "Villawood NSW, with real site time"],
+    ["Where", "Sydney CBD, with real site time"],
     ["You'll get", "Your name and face on this page, your signature on your work"],
     ["Send", "Short note + CV + one drawing you're proud of"],
   ],

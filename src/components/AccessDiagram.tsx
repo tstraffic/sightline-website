@@ -11,10 +11,12 @@
  * Animation is staged like a sheet being issued: context → alignment →
  * roundabout → movement paths → annotation → stamp.
  */
-export function AccessDiagram() {
-  const ink = "var(--color-carbon)";
+export function AccessDiagram({ invert = false }: { invert?: boolean } = {}) {
+  // `invert` renders the sheet for dark grounds (capability-statement cover):
+  // Drawing Paper linework, Mineral Dust secondary, oxide accents unchanged.
+  const ink = invert ? "var(--color-paper)" : "var(--color-carbon)";
   const oxide = "var(--color-oxide)";
-  const survey = "var(--color-survey)";
+  const survey = invert ? "var(--color-dust)" : "var(--color-survey)";
   const mono = "var(--font-mono)";
 
   return (
@@ -27,7 +29,7 @@ export function AccessDiagram() {
     >
       <defs>
         <pattern id="apgrid" width="52" height="52" patternUnits="userSpaceOnUse">
-          <path d="M26 21 V31 M21 26 H31" stroke={ink} strokeWidth="1" opacity="0.09" />
+          <path d="M26 21 V31 M21 26 H31" stroke={ink} strokeWidth="1" opacity={invert ? 0.16 : 0.09} />
         </pattern>
         <marker id="mvarrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
           <path d="M0 1 L9 5 L0 9 z" fill={oxide} />

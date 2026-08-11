@@ -1,5 +1,16 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Brand simplification + capability statement (5 Aug 2026)
+
+- **Brass removed from the UI entirely** at Saadat's direction. Replacement rule: OXIDE fills on light grounds (nav CTA, hero primary, decoder, contact, capability, team — paper text, 5.47:1); DRAWING PAPER on dark grounds (title-block CTA, stats numerals, capability link, on-aubergine secondary button — 12.73:1). Every replacement is higher contrast than the brass it replaced. Brass tokens deleted; the site now runs on the six core brand colours with one accent.
+- Title-block lockup switched from the v3.2 brass-descriptor reversed logo to the plain reversed logo (paper + oxide). The brass asset stays in `public/brand/` for print use.
+- **Capability-statement cover rebuilt in-repo** at `/capability-statement` — A4 portrait, print-ready (`@media print` hides the site chrome; print to PDF at A4, no margins, background graphics on). It was previously flat artwork with no editable source, so it drifted from the brand; it now imports the same tokens, `content/site.ts` and `verified.ts` as the website and cannot drift again. noindex, out of nav and sitemap.
+- Cover updated to current brand: new tagline as the headline, consultancy positioning, NSW & ACT, the four current verified statistics (unverified figures cannot render — same guardrail as the site), no brass, reversed lockup, inverted road-plan drawing. "Technical authority, clearly expressed." demoted to the supporting mark box where "Designed to standard." used to sit.
+- `AccessDiagram` gained an `invert` prop so one drawing serves both the light hero and the dark cover.
+- **TODO(verify:rev)** — cover shows "REV C · AUG 2026 · FOR ISSUE"; the superseded artwork was REV B / DRAFT FOR REVIEW. Revision letter and issue status are Saadat's call.
+- Only the cover (sheet 01) exists. Sheets 02–04 of the original capability statement have no source content in the pack — they need copy before the full document can be regenerated.
+- Registered office updated to Suite 413, 388 George St, Sydney NSW 2000 (was Villawood); the team page's hiring location follows as "Sydney CBD".
+
 ## Website Copy Pass 1 (Saadat, 5 Aug 2026) — five areas
 
 **1 · Slogan and positioning.** "Designed to standard." retired everywhere (hero, footer, browser title, meta description, OG/Twitter, mobile menu, capability pop-up) and replaced with the sole tagline "Designed for approval. Built for construction." Hero rebuilt: eyebrow "Independent traffic engineering consultancy", two-line H1, approved supporting paragraph + lifecycle sentence. OG/Twitter metadata added (they were inheriting defaults). NOTE: the browser title is now 76 characters — Google will truncate around 60; flagged for Saadat's call.
