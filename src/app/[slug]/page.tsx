@@ -5,6 +5,7 @@ import { PracticeLanding } from "@/components/PracticeLanding";
 import { SERVICES } from "@content/pages/services-index";
 import { DRAFT_SERVICES } from "@content/pages/drafts";
 import { PRACTICE_LANDINGS } from "@content/pages/landings";
+import { PRACTICES } from "@content/pages/practices";
 
 /**
  * Top-level route for practice landings and service pages.
@@ -29,8 +30,11 @@ export async function generateMetadata({
 
   const landing = PRACTICE_LANDINGS[slug];
   if (landing) {
+    // Title is the practice name — deriving it from the eyebrow produced
+    // useless titles like "Practice 01".
+    const practice = Object.values(PRACTICES).find((p) => p.href === `/${slug}`);
     return {
-      title: landing.eyebrow.split("·").pop()?.trim() ?? landing.h1,
+      title: practice?.label ?? landing.h1,
       description: landing.intro[0],
       alternates: { canonical: `/${slug}` },
     };
