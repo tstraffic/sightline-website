@@ -35,6 +35,7 @@
   --aub-hover: color-mix(in srgb, var(--color-aubergine), white 8%);
   --oxide: var(--color-oxide);
   --oxide-hover: color-mix(in srgb, var(--color-oxide), white 12%);
+  --oxide-press: color-mix(in srgb, var(--color-oxide), black 16%);
   --brass: var(--color-brass);
   --brass-deep: var(--color-brass-deep);
   --grid: rgba(62, 38, 50, 0.07);
@@ -188,8 +189,8 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 .nav-phone:hover { background: var(--oxide); color: var(--paper-on-dark); }
 @media (max-width: 1280px) { .nav-phone { display: none; } }
-/* CTA refinement (Saadat, 5 Aug 2026): aubergine ground, brass text (5.71:1),
-   centred + larger so it earns attention without leaving the system */
+/* Nav CTA (Saadat, 5 Aug 2026): oxide ground, Drawing Paper text — 5.47:1,
+   the brand's own primary-button pairing, and the loudest cell in the bar. */
 .nav-cta {
   display: flex;
   align-items: center;
@@ -197,8 +198,8 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   text-align: center;
   min-width: 172px;
   padding: 0 28px;
-  background: var(--aub);
-  color: var(--brass);
+  background: var(--oxide);
+  color: var(--paper-on-dark);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 500;
@@ -207,7 +208,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   text-decoration: none;
   border-left: 1.5px solid var(--ink);
 }
-.nav-cta:hover { background: var(--aub-hover); color: var(--brass); }
+.nav-cta:hover { background: var(--oxide-press); color: var(--paper-on-dark); }
 
 /* mobile menu */
 .nav-m { display: none; }
