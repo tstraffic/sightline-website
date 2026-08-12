@@ -1,79 +1,73 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
 import { visibleCaseStudies } from "@content/pages/projects";
 
-/** Register body: published (and, in dev only, sample) entries — else the honest empty state. */
-function Register() {
-  const entries = visibleCaseStudies(process.env.NODE_ENV === "production");
-  if (entries.length === 0) {
-    return (
-      <div className="pad">
-        <p className="fine">
-          NO ENTRIES PUBLISHED YET — PERMISSIONS IN PROGRESS. IN THE MEANTIME, THE SERVICE
-          PAGES DESCRIBE EXACTLY WHAT WE DELIVER.
-        </p>
-      </div>
-    );
-  }
-  return (
-    <div className="tablewrap">
-      <table className="register">
-        <thead>
-          <tr>
-            <th>Client type</th>
-            <th>Project</th>
-            <th className="hide-m">Problem</th>
-          </tr>
-        </thead>
-        <tbody>
-          {entries.map((c) => (
-            <tr key={c.slug}>
-              <td className="dwg">{c.clientType}</td>
-              <td className="ttl">
-                <Link href={`/projects/${c.slug}`}>{c.title}</Link>
-              </td>
-              <td className="des hide-m">{c.problem}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+const projects = visibleCaseStudies(true);
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Selected Sightline projects — case studies naming the practice and services used. Content is added as client permissions are confirmed.",
+    "Selected Sightline construction traffic engineering projects, including traffic staging plans, detour plans, traffic guidance schemes and barrier cross sections.",
 };
 
-/**
- * Projects index — honest empty state until client permissions are confirmed
- * (00-INSTRUCTIONS: build the template now, content follows; no invented case
- * studies under any circumstances). The full case-study template ships in
- * Phase 3.
- */
 export default function ProjectsPage() {
   return (
     <article>
-      <div className="pagehead">
-        <div className="dwgno">Projects · Case-study register</div>
+      <div className="pagehead projects-pagehead">
+        <div className="dwgno">Projects · Selected drawing packages</div>
         <h1>The work speaks in drawings, not adjectives.</h1>
         <p className="sub">
-          Case studies are being prepared and will appear here as client permissions are
-          confirmed — each one naming the problem, the constraints, the services delivered and
-          the outcome.
+          A selection of traffic staging, detour, traffic guidance and barrier drawings — each
+          paired with the sector, service division and a concise account of what the package shows.
         </p>
       </div>
 
-      <section className="section" aria-label="Case-study register">
+      <section className="section" aria-labelledby="selected-projects">
         <div className="sec-head">
           <span className="sec-num">SHT 01</span>
-          <h2>Case-study register</h2>
-          <span className="sec-rev">Awaiting client permissions</span>
+          <h2 id="selected-projects">Selected work</h2>
+          <span className="sec-rev">5 authorised drawing sets</span>
         </div>
-        <Register />
+
+        <div className="project-register">
+          {projects.map((project, index) => (
+            <article className="project-register-item" key={project.slug}>
+              <Link className="project-register-preview" href={`/projects/${project.slug}`}>
+                <Image
+                  src={project.images[0].src}
+                  alt={project.images[0].alt}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                  className="project-register-image"
+                />
+                <span className="project-register-sheet">PRJ {String(index + 1).padStart(2, "0")}</span>
+                {project.images.length > 1 && (
+                  <span className="project-register-count">{project.images.length} sheets</span>
+                )}
+              </Link>
+
+              <div className="project-register-copy">
+                <div className="project-tags">
+                  <Link href={project.sector.href}>{project.sector.label}</Link>
+                  <Link href={project.division.href}>{project.division.label}</Link>
+                </div>
+                <h2>
+                  <Link href={`/projects/${project.slug}`}>{project.title}</Link>
+                </h2>
+                <p>{project.summary}</p>
+                <div className="project-register-meta">
+                  <span>{project.location}</span>
+                  <span>{project.drawingStatus}</span>
+                </div>
+                <Link href={`/projects/${project.slug}`} className="project-register-link">
+                  View project drawings →
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <TitleBlockCta

@@ -1,5 +1,11 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Authorised project drawing showcase (12 Aug 2026)
+
+- Replaced the gated Projects placeholder with five authorised drawing showcases supplied by Saadat: Hill Road traffic staging, Westmead Bridge Stage 2 detour, a six-sheet TGS sample, Hill Road traffic cross sections, and Heddon Greta Stage 2 sheets 9-14.
+- Project descriptions are limited to what the supplied drawings visibly show; no outcome, approval-result or performance claims were inferred. Each entry is routed to a Sightline sector, service division and relevant service pages.
+- Web-preview branding changes are confined to the requested legacy-logo areas: T&S is replaced with Sightline on Westmead and the TGS sample; Apex is replaced with Sightline on the selected Heddon Greta sheets. Other client and authority marks remain unchanged.
+
 ## Condition decoder emphasis (11 Aug 2026)
 
 - Raised the decoder without turning it into a second hero: the same approved content and split layout now use an approval-style service promise, an inset technical form with registration corners, a restrained drafting grid, a three-step review rail and a stronger textarea focus state; no shadows, looping motion or new marketing claims were introduced.
