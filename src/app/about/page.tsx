@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ABOUT } from "@content/pages/about";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
+import { ProjectEvidence, TechnicalPageHead } from "@/components/InternalPageModules";
+import { CASE_STUDIES } from "@content/pages/projects";
 
 export const metadata: Metadata = {
   title: "About the practice",
@@ -12,12 +14,21 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <article>
-      <div className="pagehead">
-        <div className="dwgno">{ABOUT.eyebrow}</div>
-        <h1>{ABOUT.h1}</h1>
-        <p className="sub">{ABOUT.sub}</p>
-        <p className="about-tagline">{ABOUT.tagline}</p>
-      </div>
+      <TechnicalPageHead
+        eyebrow={ABOUT.eyebrow}
+        title={ABOUT.h1}
+        sub={ABOUT.sub}
+        tagline={ABOUT.tagline}
+        sidecarLabel="Practice at a glance"
+        rows={[
+          { label: "Practice", value: "Independent traffic and transport engineering" },
+          { label: "Project stages", value: "Development approval through construction delivery" },
+          { label: "Client access", value: "Direct contact with the responsible project team" },
+          { label: "Coverage", value: "NSW & ACT" },
+        ]}
+        note="Technical authority, clearly expressed."
+        action={{ label: "Meet the team", href: "/team" }}
+      />
 
       <section className="section" aria-labelledby="who-we-are">
         <div className="sec-head">
@@ -51,6 +62,12 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      <ProjectEvidence
+        project={CASE_STUDIES[0]}
+        label="Engineering in context"
+        heading="The drawing, approval pathway and delivery constraints have to work together."
+      />
 
       <section className="section split w-7-5" aria-labelledby="client-meaning">
         <div className="panel">

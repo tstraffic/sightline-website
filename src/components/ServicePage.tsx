@@ -1,36 +1,79 @@
 import Link from "next/link";
 import type { ServicePageData, PageSection } from "@content/pages/types";
 import { TitleBlockCta } from "./TitleBlockCta";
+import {
+  ProcessStrip,
+  ProjectEvidence,
+  STANDARD_PROJECT_STEPS,
+  TechnicalPageHead,
+} from "./InternalPageModules";
+import { projectsForService, serviceSidecar } from "@/lib/internalPageContent";
 
 /**
  * Individual service page template — Title Block treatment. Renders content
  * only; all copy comes from /content/pages data. FAQPage JSON-LD included.
  */
 export function ServicePage({ data }: { data: ServicePageData }) {
+  const projectEvidence = projectsForService(data)[0];
+  const scopeItems = serviceScopeItems(data);
+
   return (
     <article>
       <FaqJsonLd data={data} />
 
-      <div className="pagehead">
-        <div className="dwgno">
+      <TechnicalPageHead
+        eyebrow={
           <Link href={data.practice.href} className="no-underline hover:underline">
             {data.practice.label}
-          </Link>{" "}
-          · Page {data.pageNo}
-        </div>
-        <h1>{data.title}</h1>
-        <p className="sub">{data.opener}</p>
-      </div>
+          </Link>
+        }
+        title={data.title}
+        sub={data.opener}
+        sidecarLabel={`Service ${data.pageNo}`}
+        rows={serviceSidecar(data)}
+        note="Scope and applicable requirements are confirmed for the project before work starts."
+        action={{ label: "Request a fee proposal", href: "/contact" }}
+      />
 
-      <section className="section">
-        <div className="pad">
-          <p className="max-w-[62ch] text-[1.05rem] leading-relaxed">{data.intro}</p>
+      <section className="section service-detail-layout" aria-label={`${data.title} scope`}>
+        <div className="service-detail-copy">
+          <div className="pad">
+            <p className="max-w-[62ch] text-[1.05rem] leading-relaxed">{data.intro}</p>
+          </div>
+
+          {data.sections.map((s, i) => (
+            <Section key={i} section={s} />
+          ))}
         </div>
 
-        {data.sections.map((s, i) => (
-          <Section key={i} section={s} />
-        ))}
+        <aside className="service-detail-aside">
+          <span className="cell-tag">Technical scope</span>
+          <h2>What the project review considers</h2>
+          <ul>
+            {scopeItems.map((item, index) => (
+              <li key={`${item}-${index}`}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{item}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="service-detail-note">
+            <span>Issued output</span>
+            <strong>{data.title}</strong>
+            <p>Prepared and reviewed to the requirements applicable to the site, authority and agreed scope.</p>
+          </div>
+        </aside>
       </section>
+
+      {projectEvidence && (
+        <ProjectEvidence
+          project={projectEvidence}
+          label="Related project evidence"
+          heading="See how the service is documented on a real project."
+        />
+      )}
+
+      <ProcessStrip heading="How the engagement moves" steps={[...STANDARD_PROJECT_STEPS]} />
 
       {data.faqs.length > 0 && (
         <section className="section" aria-labelledby="faqs">
@@ -77,6 +120,30 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       />
     </article>
   );
+}
+
+function serviceScopeItems(data: ServicePageData): string[] {
+  const items = data.sections.flatMap((section) => {
+    switch (section.kind) {
+      case "paragraph":
+        return section.heading ? [section.heading] : [];
+      case "bullets":
+        return section.items.map((item) => item.lead ?? item.text);
+      case "numbered":
+        return section.steps;
+      case "table":
+        return section.rows.map((row) => row[0]);
+    }
+  });
+
+  return [...new Set(items)].slice(0, 6).length > 0
+    ? [...new Set(items)].slice(0, 6)
+    : [
+        "Project and authority requirements",
+        "Site geometry and available information",
+        "Technical assumptions and constraints",
+        "Required documentation and issue pathway",
+      ];
 }
 
 function Section({ section }: { section: PageSection }) {

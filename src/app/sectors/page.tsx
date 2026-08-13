@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SECTORS_LANDING } from "@content/pages/landings";
 import { SECTOR_TILES } from "@content/pages/sectors";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
+import { ProcessStrip, STANDARD_PROJECT_STEPS, TechnicalPageHead } from "@/components/InternalPageModules";
 
 export const metadata: Metadata = {
   title: "Sectors",
@@ -13,11 +14,20 @@ export const metadata: Metadata = {
 export default function SectorsPage() {
   return (
     <article>
-      <div className="pagehead">
-        <div className="dwgno">{SECTORS_LANDING.eyebrow}</div>
-        <h1>{SECTORS_LANDING.h1}</h1>
-        <p className="sub">{SECTORS_LANDING.intro}</p>
-      </div>
+      <TechnicalPageHead
+        eyebrow={SECTORS_LANDING.eyebrow}
+        title={SECTORS_LANDING.h1}
+        sub={SECTORS_LANDING.intro}
+        sidecarLabel="Client groups"
+        rows={[
+          { label: "01", value: "Civil contractors" },
+          { label: "02", value: "Developers and architects" },
+          { label: "03", value: "Government, council and infrastructure" },
+          { label: "04—05", value: "Utilities and events" },
+        ]}
+        note="The engineering principles stay consistent; the project question and delivery pressure change."
+        action={{ label: "Discuss the project", href: "/contact" }}
+      />
 
       <section className="section" aria-label="Sector pages">
         <div className="cellgrid cols-5">
@@ -31,6 +41,8 @@ export default function SectorsPage() {
           ))}
         </div>
       </section>
+
+      <ProcessStrip heading="A consistent way to define the right input" steps={[...STANDARD_PROJECT_STEPS]} />
 
       <TitleBlockCta
         label="Sectors"

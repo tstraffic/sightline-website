@@ -7,6 +7,7 @@ import {
   TEAM_INTRO,
 } from "@content/pages/team";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
+import { TechnicalPageHead } from "@/components/InternalPageModules";
 import { SITE } from "@content/site";
 
 export const metadata: Metadata = {
@@ -19,12 +20,22 @@ export const metadata: Metadata = {
 export default function TeamPage() {
   return (
     <article>
-      <div className="pagehead team-pagehead">
-        <div className="dwgno">{TEAM_INTRO.eyebrow}</div>
-        <h1>{TEAM_INTRO.heading}</h1>
-        <p className="sub">{TEAM_INTRO.sub}</p>
-        <p className="about-tagline">{TEAM_INTRO.tagline}</p>
-      </div>
+      <TechnicalPageHead
+        eyebrow={TEAM_INTRO.eyebrow}
+        title={TEAM_INTRO.heading}
+        sub={TEAM_INTRO.sub}
+        tagline={TEAM_INTRO.tagline}
+        sidecarLabel="Team register"
+        rows={[
+          { label: "Named team", value: "Saadat Ahmed · Taj Rahman · Rumman Khan" },
+          { label: "Coverage", value: "Engineering, planning, staging and project delivery" },
+          { label: "Working model", value: "Direct client access and clear project responsibility" },
+          { label: "Geographic scope", value: "NSW & ACT" },
+        ]}
+        note="Roles, project contribution and professional information are set out below."
+        action={{ label: "About the practice", href: "/about" }}
+        className="team-pagehead"
+      />
 
       <section className="section" aria-labelledby="team-approach">
         <div className="sec-head">

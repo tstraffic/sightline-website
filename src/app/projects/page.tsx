@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
+import { TechnicalPageHead } from "@/components/InternalPageModules";
 import { visibleCaseStudies } from "@content/pages/projects";
 
 const projects = visibleCaseStudies(true);
@@ -15,14 +16,21 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <article>
-      <div className="pagehead projects-pagehead">
-        <div className="dwgno">Projects · Selected drawing packages</div>
-        <h1>The work speaks in drawings, not adjectives.</h1>
-        <p className="sub">
-          A selection of traffic staging, detour, traffic guidance and barrier drawings — each
-          paired with the sector, service division and a concise account of what the package shows.
-        </p>
-      </div>
+      <TechnicalPageHead
+        eyebrow="Projects · Selected drawing packages"
+        title="The work speaks in drawings, not adjectives."
+        sub="A selection of traffic staging, detour, traffic guidance and barrier drawings — each paired with the sector, service division and a concise account of what the package shows."
+        sidecarLabel="Project evidence register"
+        rows={[
+          { label: "Drawing sets", value: `${projects.length} authorised project packages` },
+          { label: "Material", value: "Traffic staging, detours, TGS and barrier sections" },
+          { label: "Project information", value: "Limited to what is visible in the authorised drawings" },
+          { label: "Coverage", value: "NSW" },
+        ]}
+        note="No client outcome or approval result is inferred from the drawing material."
+        action={{ label: "Discuss a similar project", href: "/contact" }}
+        className="projects-pagehead"
+      />
 
       <section className="section" aria-labelledby="selected-projects">
         <div className="sec-head">

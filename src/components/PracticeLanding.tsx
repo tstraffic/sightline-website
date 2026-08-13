@@ -1,20 +1,29 @@
 import Link from "next/link";
 import type { LandingData } from "@content/pages/landings";
 import { TitleBlockCta } from "./TitleBlockCta";
+import {
+  ProcessStrip,
+  ProjectEvidence,
+  STANDARD_PROJECT_STEPS,
+  TechnicalPageHead,
+} from "./InternalPageModules";
+import { landingSidecar, projectsForPractice } from "@/lib/internalPageContent";
 
 /** Practice/section landing template — intro + drawing-register of services. */
-export function PracticeLanding({ data }: { data: LandingData }) {
+export function PracticeLanding({ data, href }: { data: LandingData; href: string }) {
+  const projectEvidence = projectsForPractice(href)[0];
+
   return (
     <article>
-      <div className="pagehead">
-        <div className="dwgno">{data.eyebrow}</div>
-        <h1>{data.h1}</h1>
-        {data.intro.map((p) => (
-          <p key={p.slice(0, 24)} className="sub">
-            {p}
-          </p>
-        ))}
-      </div>
+      <TechnicalPageHead
+        eyebrow={data.eyebrow}
+        title={data.h1}
+        sub={data.intro}
+        sidecarLabel="Practice at a glance"
+        rows={landingSidecar(data)}
+        note="The required deliverables are confirmed against the project, consent authority and delivery stage."
+        action={{ label: "Request a fee proposal", href: "/contact" }}
+      />
 
       {data.scope && data.scope.length > 0 && (
         <section className="section" aria-labelledby="scope">
@@ -66,6 +75,15 @@ export function PracticeLanding({ data }: { data: LandingData }) {
           </table>
         </div>
       </section>
+
+      {projectEvidence && (
+        <ProjectEvidence
+          project={projectEvidence}
+          heading="Technical documentation shown in its project context."
+        />
+      )}
+
+      <ProcessStrip heading="From project question to controlled issue" steps={[...STANDARD_PROJECT_STEPS]} />
 
       <TitleBlockCta
         label={data.h1.length > 40 ? "Start here" : data.h1}

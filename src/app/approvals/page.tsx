@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PracticeLanding data={APPROVALS_LANDING} />;
+  return <PracticeLanding data={APPROVALS_LANDING} href="/approvals" />;
 }

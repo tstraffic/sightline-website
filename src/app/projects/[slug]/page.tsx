@@ -4,6 +4,8 @@ import Link from "next/link";
 import { visibleCaseStudies } from "@content/pages/projects";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
+import { RelatedProjectGrid, TechnicalPageHead } from "@/components/InternalPageModules";
+import { relatedProjects } from "@/lib/internalPageContent";
 
 const projects = visibleCaseStudies(true);
 
@@ -31,14 +33,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
+  const related = relatedProjects(slug);
 
   return (
     <article>
-      <div className="pagehead project-detail-head">
-        <div className="dwgno">Projects · {project.sector.label}</div>
-        <h1>{project.title}</h1>
-        <p className="sub">{project.location}</p>
-      </div>
+      <TechnicalPageHead
+        eyebrow={`Projects · ${project.sector.label}`}
+        title={project.title}
+        sub={project.location}
+        sidecarLabel="Project register"
+        rows={[
+          { label: "Drawing status", value: project.drawingStatus },
+          { label: "Deliverables shown", value: project.deliverables.join(" · ") },
+          { label: "Service division", value: project.division.label },
+          { label: "Location", value: project.location },
+        ]}
+        note="Project descriptions are limited to what is visible in the authorised drawing package."
+        action={{ label: "View the service division", href: project.division.href }}
+        className="project-detail-head"
+      />
 
       <section className="section" aria-labelledby="drawing-package">
         <div className="sec-head">
@@ -101,6 +114,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </section>
+
+      <RelatedProjectGrid projects={related} />
 
       <TitleBlockCta
         label="Your project"

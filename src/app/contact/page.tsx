@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CONTACT } from "@content/pages/contact";
 import { ContactForm } from "@/components/ContactForm";
+import { ProcessStrip, TechnicalPageHead } from "@/components/InternalPageModules";
 import { SITE } from "@content/site";
 
 export const metadata: Metadata = {
@@ -13,11 +14,19 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <article>
-      <div className="pagehead">
-        <div className="dwgno">{CONTACT.eyebrow}</div>
-        <h1>{CONTACT.h1}</h1>
-        <p className="sub">{CONTACT.sub}</p>
-      </div>
+      <TechnicalPageHead
+        eyebrow={CONTACT.eyebrow}
+        title={CONTACT.h1}
+        sub={CONTACT.sub}
+        sidecarLabel="What happens next"
+        rows={[
+          { label: "01 · Review", value: "We review the site, drawings and project requirements." },
+          { label: "02 · Scope", value: "The required deliverables, programme and fee are confirmed in writing." },
+          { label: "03 · Start", value: "Work begins once the scope and required project information are confirmed." },
+          { label: "Coverage", value: "NSW & ACT" },
+        ]}
+        note="If the required service is unclear, describe the project and we will identify the likely starting point."
+      />
 
       <section className="section split w-7-5" aria-label="Enquiry">
         <div className="panel">
@@ -45,6 +54,16 @@ export default function ContactPage() {
           </div>
         </aside>
       </section>
+
+      <ProcessStrip
+        label="ENQ 01—03"
+        heading="A clear path from enquiry to project start"
+        steps={[
+          { title: "Send the essentials", text: "A site address, available plans and a short project description are enough to begin." },
+          { title: "Receive a defined scope", text: "We confirm what is required, what will be delivered and the written fee." },
+          { title: "Proceed with clarity", text: "The project starts with agreed inputs, responsibilities and issue requirements." },
+        ]}
+      />
     </article>
   );
 }

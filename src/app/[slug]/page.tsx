@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const { slug } = await params;
 
   const landing = PRACTICE_LANDINGS[slug];
-  if (landing) return <PracticeLanding data={landing} />;
+  if (landing) return <PracticeLanding data={landing} href={`/${slug}`} />;
 
   const data = ALL_SERVICES[slug];
   if (!data) notFound();
