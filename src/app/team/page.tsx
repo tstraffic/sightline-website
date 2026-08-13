@@ -1,87 +1,108 @@
 import type { Metadata } from "next";
-import { PEOPLE, QUALIFICATION_REGISTER, TEAM_INTRO, HIRING } from "@content/pages/team";
+import {
+  HIRING,
+  PEOPLE,
+  QUALIFICATION_REGISTER,
+  TEAM_APPROACH,
+  TEAM_INTRO,
+} from "@content/pages/team";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
 import { SITE } from "@content/site";
 
 export const metadata: Metadata = {
-  title: "Team — Drawn & Checked By",
+  title: "Our team",
   description:
-    "Every Sightline report is prepared and signed by a named engineer, and every scheme by a named designer. Meet the register of people.",
+    "Meet the Sightline team working across traffic engineering, transport planning, construction delivery and project coordination.",
 };
 
-/** /team — the people in detail (About is the story). Title Block treatment. */
+/** /team — detailed people profiles; /about carries the wider practice story. */
 export default function TeamPage() {
   return (
     <article>
-      <div className="pagehead">
+      <div className="pagehead team-pagehead">
         <div className="dwgno">{TEAM_INTRO.eyebrow}</div>
         <h1>{TEAM_INTRO.heading}</h1>
         <p className="sub">{TEAM_INTRO.sub}</p>
+        <p className="about-tagline">{TEAM_INTRO.tagline}</p>
       </div>
+
+      <section className="section" aria-labelledby="team-approach">
+        <div className="sec-head">
+          <span className="sec-num">SHT 02</span>
+          <h2 id="team-approach">How the team works</h2>
+          <span className="sec-rev">Clear roles · direct access</span>
+        </div>
+        <div className="cellgrid cols-3 team-approach">
+          {TEAM_APPROACH.map((item) => (
+            <div className="cell" key={item.ref}>
+              <span className="cell-tag">{item.ref}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="section" aria-labelledby="people">
         <div className="sec-head">
-          <span className="sec-num">SHT 02</span>
+          <span className="sec-num">SHT 03</span>
           <h2 id="people">The people</h2>
-          <span className="sec-rev">One profile per hire</span>
+          <span className="sec-rev">Named responsibility</span>
         </div>
-        {PEOPLE.map((p) => (
-          <div key={p.name} className="split w-7-5" style={{ borderBottom: "1px solid var(--rule-soft)" }}>
-            <div className="panel">
-              <span className="cell-tag">{p.role}</span>
-              <h3 className="mt-2 text-2xl">{p.name}</h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {p.creds.map((c) => (
-                  <span key={c} className="file-chip !m-0">{c}</span>
+        <div className="team-profiles">
+          {PEOPLE.map((person, index) => (
+            <article key={person.name} className="team-profile split w-7-5">
+              <div className="panel team-profile-main">
+                <div className="team-profile-ref">PERSON {String(index + 1).padStart(2, "0")}</div>
+                <span className="cell-tag">{person.role}</span>
+                <h3>{person.name}</h3>
+                <div className="team-credentials" aria-label={`${person.name} credentials and experience`}>
+                  {person.creds.map((credential) => (
+                    <span key={credential} className="file-chip">{credential}</span>
+                  ))}
+                </div>
+                <p>{person.bio}</p>
+              </div>
+              <div className="panel-side team-profile-side">
+                <span className="cell-tag">Project contribution</span>
+                <div className="team-profile-mark" aria-hidden="true">
+                  {person.name.split(" ").map((part) => part[0]).join("")}
+                </div>
+                {person.signs.map((item) => (
+                  <div key={item.label} className="spec-row">
+                    <b>{item.label}</b>
+                    <span>{item.value}</span>
+                  </div>
                 ))}
               </div>
-              <p className="mt-4 max-w-[62ch] leading-relaxed text-survey">{p.bio}</p>
-            </div>
-            <div className="panel-side">
-              {/* Photo slot — renders from /public/team/ once supplied */}
-              <div
-                className="mb-5 flex min-h-40 items-end justify-center border border-(--rule) bg-(--sheet-deep) p-3 font-mono text-[0.56rem] uppercase tracking-[0.2em] text-survey"
-                role="img"
-                aria-label={`${p.name} — photo to come`}
-              >
-                Photo — on site or at the board
-              </div>
-              {p.signs.map((s) => (
-                <div key={s.label} className="spec-row">
-                  <b>{s.label}</b>
-                  <span>
-                    <strong>{s.value}</strong>
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section" aria-labelledby="quals">
         <div className="sec-head">
-          <span className="sec-num">SHT 03</span>
-          <h2 id="quals">Qualification register</h2>
-          <span className="sec-rev">Certificates of currency on request</span>
+          <span className="sec-num">SHT 04</span>
+          <h2 id="quals">Professional register</h2>
+          <span className="sec-rev">Supporting information on request</span>
         </div>
         <div className="tablewrap">
           <table className="register">
             <thead>
               <tr>
                 <th>Ref</th>
-                <th>Held by</th>
-                <th className="hide-m">Qualification / registration</th>
-                <th>Covers</th>
+                <th>Person / entity</th>
+                <th className="hide-m">Qualification / information</th>
+                <th>Project contribution</th>
               </tr>
             </thead>
             <tbody>
-              {QUALIFICATION_REGISTER.map((q) => (
-                <tr key={q.ref}>
-                  <td className="dwg">{q.ref}</td>
-                  <td className="ttl">{q.who}</td>
-                  <td className="des hide-m">{q.qual}</td>
-                  <td className="des">{q.covers}</td>
+              {QUALIFICATION_REGISTER.map((item) => (
+                <tr key={item.ref}>
+                  <td className="dwg">{item.ref}</td>
+                  <td className="ttl">{item.who}</td>
+                  <td className="des hide-m">{item.qual}</td>
+                  <td className="des">{item.covers}</td>
                 </tr>
               ))}
             </tbody>
@@ -91,14 +112,14 @@ export default function TeamPage() {
 
       <section className="section" aria-labelledby="hiring">
         <div className="sec-head">
-          <span className="sec-num">SHT 04</span>
-          <h2 id="hiring">Open positions</h2>
-          <span className="sec-rev">We hire for care</span>
+          <span className="sec-num">SHT 05</span>
+          <h2 id="hiring">Work with Sightline</h2>
+          <span className="sec-rev">Expressions of interest</span>
         </div>
         <div className="split">
           <div className="panel">
-            <h3 className="max-w-md text-balance text-xl">{HIRING.heading}</h3>
-            <p className="mt-3 max-w-md leading-relaxed text-survey">{HIRING.body}</p>
+            <h3 className="max-w-lg text-balance text-xl">{HIRING.heading}</h3>
+            <p className="mt-3 max-w-xl leading-relaxed text-survey">{HIRING.body}</p>
             <a
               className="btn btn-oxide mt-5"
               href={`mailto:${SITE.email}?subject=Joining%20the%20Sightline%20team`}
@@ -118,10 +139,10 @@ export default function TeamPage() {
       </section>
 
       <TitleBlockCta
-        label="Work with us"
-        heading="Meet us the useful way — on your project."
-        notesLabel="Principle"
-        notes={["The engineer who briefs you", "is the engineer who signs", "the report."]}
+        label="Start a project"
+        heading="Put the right people around the project."
+        notesLabel="Working principle"
+        notes={["Clear scope", "Named responsibility", "Controlled issue"]}
       />
     </article>
   );

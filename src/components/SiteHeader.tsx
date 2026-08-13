@@ -12,7 +12,7 @@ import { SITE } from "@content/site";
  */
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [drop, setDrop] = useState(false);
+  const [openDrop, setOpenDrop] = useState<string | null>(null);
   const items = NAV.filter((i) => !i.draft && !i.footerOnly);
   const flat = items.flatMap((i) => (i.children ? i.children : [i]));
 
@@ -37,16 +37,25 @@ export function SiteHeader() {
               <div
                 key={item.label}
                 className="nav-drop"
-                onMouseEnter={() => setDrop(true)}
-                onMouseLeave={() => setDrop(false)}
+                onMouseEnter={() => setOpenDrop(item.label)}
+                onMouseLeave={() => setOpenDrop(null)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                    setOpenDrop(null);
+                  }
+                }}
               >
-                <button type="button" aria-expanded={drop} onClick={() => setDrop((v) => !v)}>
+                <button
+                  type="button"
+                  aria-expanded={openDrop === item.label}
+                  onClick={() => setOpenDrop(item.label)}
+                >
                   {item.label} ▾
                 </button>
-                {drop && (
+                {openDrop === item.label && (
                   <div className="nav-drop-panel">
                     {item.children.map((c) => (
-                      <Link key={c.href} href={c.href} onClick={() => setDrop(false)}>
+                      <Link key={c.href} href={c.href} onClick={() => setOpenDrop(null)}>
                         {c.label}
                       </Link>
                     ))}

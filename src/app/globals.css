@@ -1466,6 +1466,202 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 .dashlist strong { color: var(--ink); }
 .dashlist li p { color: var(--ink-soft); }
 
+/* ---------- About · the practice ---------- */
+.about-tagline {
+  margin-top: 24px;
+  padding-left: 16px;
+  border-left: 2px solid var(--oxide);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oxide);
+}
+
+.about-copy { max-width: 76ch; }
+.about-copy p + p { margin-top: 16px; }
+
+.about-result {
+  margin: 26px 0;
+  padding: 20px 24px;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--oxide);
+  background: var(--sheet-deep);
+}
+.about-result p { color: var(--ink-soft); }
+.about-result strong {
+  display: block;
+  margin-top: 7px;
+  max-width: 58ch;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--aub);
+}
+
+.about-experience .cell,
+.about-people .cell { min-height: 100%; }
+.about-experience h3,
+.about-people h3 { color: var(--aub); }
+.about-experience p,
+.about-people p { line-height: 1.65; }
+
+.about-questions { list-style: none; border-top: 1px solid var(--rule); }
+.about-questions li {
+  padding: 13px 0 13px 24px;
+  border-bottom: 1px solid var(--rule-soft);
+  position: relative;
+  font-weight: 500;
+}
+.about-questions li::before {
+  content: "?";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-family: var(--font-mono);
+  color: var(--oxide);
+}
+
+.about-outcome { display: flex; flex-direction: column; justify-content: center; }
+.about-outcome p {
+  margin-top: 14px;
+  max-width: 30ch;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--aub);
+}
+
+.about-note {
+  padding-left: 15px;
+  border-left: 2px solid var(--oxide);
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+.about-review { border-top: 1px solid var(--rule); }
+.about-method strong { font-weight: 500; color: var(--aub); }
+
+.about-focus {
+  font-family: var(--font-mono);
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oxide) !important;
+}
+.about-team-link { border-top: 1px solid var(--rule-soft); }
+.about-team-link a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oxide);
+  text-underline-offset: 4px;
+}
+.about-team-link a:hover { color: var(--aub); }
+
+.about-principle { display: flex; flex-direction: column; justify-content: center; }
+.about-principle strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.35rem;
+  line-height: 1.28;
+  font-weight: 500;
+  color: var(--aub);
+}
+.about-principle p {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oxide);
+}
+
+.about-pre-cta {
+  padding: 24px 48px;
+  border-bottom: 1px solid var(--rule-dark);
+  background: var(--aub);
+  color: var(--paper-on-dark);
+}
+.about-pre-cta p { max-width: 70ch; line-height: 1.65; }
+
+@media (max-width: 900px) {
+  .about-tagline { margin-top: 20px; }
+  .about-outcome p,
+  .about-principle strong { font-size: 1.18rem; }
+  .about-pre-cta { padding: 22px 26px; }
+}
+
+/* ---------- Team · named responsibility ---------- */
+.team-pagehead .sub { max-width: 70ch; }
+
+.team-approach h3 { color: var(--aub); }
+.team-approach p { line-height: 1.65; }
+
+.team-profile {
+  border-bottom: 1px solid var(--rule);
+}
+.team-profile:last-child { border-bottom: none; }
+
+.team-profile-main { position: relative; }
+.team-profile-ref {
+  position: absolute;
+  top: 44px;
+  right: 48px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+.team-profile-main h3 {
+  margin-top: 10px;
+  max-width: 18ch;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  line-height: 1.05;
+  color: var(--aub);
+}
+.team-profile-main > p {
+  margin-top: 22px;
+  max-width: 66ch;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.team-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+.team-credentials .file-chip { margin: 0; }
+
+.team-profile-side { position: relative; }
+.team-profile-mark {
+  display: flex;
+  width: 82px;
+  height: 82px;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 0 26px;
+  border: 1.5px solid var(--aub);
+  color: var(--aub);
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+}
+.team-profile-side .spec-row { grid-template-columns: 112px 1fr; }
+
+@media (max-width: 900px) {
+  .team-profile-ref { top: 32px; right: 26px; }
+  .team-profile-side { border-top-color: var(--rule); }
+}
+
+@media (max-width: 520px) {
+  .team-profile-ref { position: static; margin-bottom: 18px; }
+  .team-profile-side .spec-row { grid-template-columns: 94px 1fr; }
+}
+
 /* ---------- capability-statement cover (A4 portrait, print-ready) ----------
    Screen: renders inside the site chrome for preview.
    Print:  chrome is hidden and the cover fills a full-bleed A4 page.
