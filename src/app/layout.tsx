@@ -3,6 +3,7 @@ import { Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Ruler } from "@/components/Ruler";
+import { PageTrail } from "@/components/PageTrail";
 import "./globals.css";
 
 const hanken = Hanken_Grotesk({
@@ -53,6 +54,7 @@ export default function RootLayout({
         <div className="sheet">
           <Ruler />
           <SiteHeader />
+          <PageTrail />
           <main>{children}</main>
           <SiteFooter />
         </div>
