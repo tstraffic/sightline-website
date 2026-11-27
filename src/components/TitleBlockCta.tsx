@@ -3,7 +3,7 @@ import { CTA } from "@/lib/nav";
 import { FeeProposalModal } from "./FeeProposalModal";
 import { CapabilityRequestModal } from "./CapabilityRequestModal";
 
-/** Title-block CTA — the drawing sheet's title block as the closing conversion band. */
+/** Title-block CTA - the drawing sheet's title block as the closing conversion band. */
 export function TitleBlockCta({
   label,
   heading,
@@ -21,7 +21,7 @@ export function TitleBlockCta({
         <div className="tb-cell">
           <b>{label}</b>
           <h2>{heading}</h2>
-          {/* opens the enquiry form as a popup — no page change (Saadat) */}
+          {/* opens the enquiry form as a popup - no page change (Saadat) */}
           <FeeProposalModal label={CTA.primary.label} />
           <br />
           <CapabilityRequestModal />
@@ -38,7 +38,7 @@ export function TitleBlockCta({
           </div>
         </div>
         <div className="tb-cell">
-          {/* Reversed lockup — Drawing Paper wordmark + Oxide mark, no brass */}
+          {/* Reversed lockup - Drawing Paper wordmark + Oxide mark, no brass */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/Sightline_Logo_Horizontal_Reversed.svg"

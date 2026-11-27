@@ -19,6 +19,9 @@ type DragState = {
   top: number;
 };
 
+/** The sheet is 920px wide on phones, 1060px up to 900px wide, then up to 1320px. */
+const PLAN_SIZES = "(max-width: 520px) 920px, (max-width: 900px) 1060px, 1320px";
+
 const initialDrag: DragState = {
   active: false,
   pointerId: -1,
@@ -35,13 +38,6 @@ export function HeroPlanViewer() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<DragState>({ ...initialDrag });
   const page = HERO_PLAN.pages[activePage];
-
-  useEffect(() => {
-    HERO_PLAN.pages.slice(1).forEach(({ asset }) => {
-      const preload = new window.Image();
-      preload.src = asset;
-    });
-  }, []);
 
   useEffect(() => {
     requestAnimationFrame(() => {
@@ -144,20 +140,31 @@ export function HeroPlanViewer() {
           className="plan-sheet is-animating"
         >
           <div className="plan-image">
+            {/* Both layers go through next/image so phones get a resized
+                variant and the second layer reuses the first's download (D10).
+                Sheets 02-04 load only when picked. */}
             <Image
               className="plan-layer plan-ghost"
               src={page.asset}
               alt={page.alt}
               fill
-              sizes="(max-width: 900px) 1040px, 1320px"
+              sizes={PLAN_SIZES}
+              quality={70}
               priority={activePage === 0}
-              unoptimized
+              placeholder="blur"
+              blurDataURL={page.blur}
               draggable={false}
             />
-            <div
+            <Image
               className="plan-layer plan-drawing"
+              src={page.asset}
+              alt=""
               aria-hidden="true"
-              style={{ backgroundImage: `url(${page.asset})` }}
+              fill
+              sizes={PLAN_SIZES}
+              quality={70}
+              priority={activePage === 0}
+              draggable={false}
             />
             <div className="plan-sketch-edge" aria-hidden="true" />
             {page.stamp && (

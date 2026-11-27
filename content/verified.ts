@@ -37,7 +37,7 @@ export const STATS: Record<string, VerifiedValue<string>> = {
     verified: true,
     note: "To a fixed written fee for standard enquiries. Confirmed for publication by Saadat, 5 Aug 2026.",
   },
-  // Retired from the stats band (new-firm positioning) — kept for the
+  // Retired from the stats band (new-firm positioning) - kept for the
   // capability statement should they verify later:
   yearsExperience: {
     value: "14",
@@ -51,7 +51,7 @@ export const STATS: Record<string, VerifiedValue<string>> = {
   },
 };
 
-/** Credential strip — only verified items render (05-migration-map, Homepage §2). */
+/** Credential strip - only verified items render (05-migration-map, Homepage §2). */
 export const CREDENTIALS: VerifiedValue<string>[] = [
   { value: "Qualified traffic engineers", verified: true },
   { value: "TfNSW-aligned documentation", verified: true },
@@ -61,19 +61,19 @@ export const CREDENTIALS: VerifiedValue<string>[] = [
   { value: "NSW Government prequalified", verified: false, openItem: "D6" },
 ];
 
-/** Open technical claims — keep source wording until confirmed. */
+/** Open technical claims - keep source wording until confirmed. */
 export const CLAIMS = {
   sweptPathSoftware: {
     value: "vehicle tracking software", // unadorned until tool name confirmed
     verified: false,
     openItem: "V4",
-    note: "Likely AutoTURN — do not name until confirmed.",
+    note: "Likely AutoTURN - do not name until confirmed.",
   } satisfies VerifiedValue<string>,
   rsaAccreditation: {
     value: "",
     verified: false,
     openItem: "D3",
-    note: "In-house Austroads-accredited auditor vs subcontracted — gates page 08 claims and the 26c route card.",
+    note: "In-house Austroads-accredited auditor vs subcontracted - gates page 08 claims and the 26c route card.",
   } satisfies VerifiedValue<string>,
   geographicScope: {
     value: "NSW & ACT",
@@ -85,7 +85,7 @@ export const CLAIMS = {
     value: "State Transit Authority (STA)",
     verified: false,
     openItem: "V1",
-    note: "Possibly legacy naming — verify with TMC contacts. Do not rename without confirmation.",
+    note: "Possibly legacy naming - verify with TMC contacts. Do not rename without confirmation.",
   } satisfies VerifiedValue<string>,
   rolTrigger: {
     value: "near a traffic light",
@@ -101,7 +101,7 @@ export const CLAIMS = {
   } satisfies VerifiedValue<string>,
 };
 
-/** About-page inputs (D6) — nothing renders until supplied and verified. */
+/** About-page inputs (D6) - nothing renders until supplied and verified. */
 export const ABOUT_INPUTS = {
   engineers: [] as { name: string; role: string; qualifications: string[]; verified: boolean }[],
   piInsurance: { value: "", verified: false, openItem: "D6" } satisfies VerifiedValue<string>,

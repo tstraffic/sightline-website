@@ -10,7 +10,7 @@ import {
 import { projectsForService, serviceSidecar } from "@/lib/internalPageContent";
 
 /**
- * Individual service page template — Title Block treatment. Renders content
+ * Individual service page template - Title Block treatment. Renders content
  * only; all copy comes from /content/pages data. FAQPage JSON-LD included.
  */
 export function ServicePage({ data }: { data: ServicePageData }) {
@@ -163,7 +163,7 @@ function Section({ section }: { section: PageSection }) {
             {section.items.map((it, i) => (
               <li key={i}>
                 <p>
-                  {it.lead && <strong>{it.lead} — </strong>}
+                  {it.lead && <strong>{it.lead} - </strong>}
                   {it.text}
                 </p>
               </li>

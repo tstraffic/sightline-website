@@ -6,6 +6,7 @@ import { ProjectGallery } from "@/components/ProjectGallery";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
 import { RelatedProjectGrid, TechnicalPageHead } from "@/components/InternalPageModules";
 import { relatedProjects } from "@/lib/internalPageContent";
+import { metaDescription } from "@/lib/metaDescription";
 
 const projects = visibleCaseStudies(true);
 
@@ -25,7 +26,7 @@ export async function generateMetadata({
   if (!project) return {};
   return {
     title: project.title,
-    description: project.summary.slice(0, 155),
+    description: project.metaDescription ?? metaDescription(project.summary),
   };
 }
 

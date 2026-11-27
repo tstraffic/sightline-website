@@ -11,7 +11,7 @@ import {
 } from "@/components/InternalPageModules";
 import { projectsForSector, sectorSidecar } from "@/lib/internalPageContent";
 
-/** Sector page template — problem-first opener, needs list, route cards. */
+/** Sector page template - problem-first opener, needs list, route cards. */
 
 export function generateStaticParams() {
   return Object.keys(SECTORS).map((slug) => ({ slug }));
@@ -59,7 +59,7 @@ export default async function SectorPage({ params }: { params: Promise<{ slug: s
               {s.needs.map((n) => (
                 <li key={n.lead}>
                   <p>
-                    <strong>{n.lead}</strong> — {n.text}
+                    <strong>{n.lead}</strong> - {n.text}
                   </p>
                 </li>
               ))}

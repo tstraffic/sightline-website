@@ -1,8 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { track } from "@vercel/analytics";
 
-/** "Request our capability statement" — popup form. Trigger renders as the
+/** "Request our capability statement" - popup form. Trigger renders as the
  *  title-block text link (default) or a hero button. Posts to the stubbed
  *  /api/capability handler until email delivery is wired. */
 export function CapabilityRequestModal({ variant = "link" }: { variant?: "link" | "button" }) {
@@ -17,6 +18,7 @@ export function CapabilityRequestModal({ variant = "link" }: { variant?: "link" 
     try {
       const res = await fetch("/api/capability", { method: "POST", body: new FormData(form) });
       setStatus(res.ok ? "sent" : "error");
+      if (res.ok) track("capability_statement_requested");
     } catch {
       setStatus("error");
     }
@@ -42,10 +44,10 @@ export function CapabilityRequestModal({ variant = "link" }: { variant?: "link" 
         </div>
         <div className="modal-body">
           <p className="modal-sub">
-            Tell us where to send it and the capability statement comes to your inbox — services,
+            Tell us where to send it and the capability statement comes to your inbox - services,
             standards, the register of people, and how an engagement runs.
           </p>
-          <form onSubmit={onSubmit} className="grid gap-4">
+          <form onSubmit={onSubmit} method="post" action="/api/capability" className="grid gap-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label className="fl" htmlFor="cap-name">Name *</label>
@@ -70,11 +72,11 @@ export function CapabilityRequestModal({ variant = "link" }: { variant?: "link" 
               </button>
               {status === "sent" && (
                 <p className="form-note mt-3">
-                  Received. Email delivery is not wired yet (staging stub) — a provider key is needed before launch.
+                  Received. Email delivery is not wired yet (staging stub) - a provider key is needed before launch.
                 </p>
               )}
               {status === "error" && (
-                <p className="form-note mt-3">Something went wrong — please email us directly.</p>
+                <p className="form-note mt-3">Something went wrong - please email us directly.</p>
               )}
             </div>
           </form>

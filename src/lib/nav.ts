@@ -23,7 +23,7 @@ export const NAV: NavItem[] = [
     href: PRACTICES.development.href,
     children: [
       { label: PRACTICES.development.label, href: PRACTICES.development.href },
-      { label: "Parking and vehicle access", href: PRACTICES.parking.href },
+      { label: PRACTICES.parking.label, href: PRACTICES.parking.href },
       { label: PRACTICES.modelling.label, href: PRACTICES.modelling.href },
       { label: PRACTICES.construction.label, href: PRACTICES.construction.href },
       { label: PRACTICES.approvals.label, href: PRACTICES.approvals.href },

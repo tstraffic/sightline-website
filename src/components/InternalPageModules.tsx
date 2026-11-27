@@ -78,7 +78,7 @@ type ProcessStripProps = {
   steps: { title: string; text: string }[];
 };
 
-export function ProcessStrip({ label = "PROC 01—04", heading, steps }: ProcessStripProps) {
+export function ProcessStrip({ label = "PROC 01-04", heading, steps }: ProcessStripProps) {
   return (
     <section className="section internal-process" aria-label={heading}>
       <div className="sec-head">

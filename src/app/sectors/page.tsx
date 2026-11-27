@@ -6,7 +6,7 @@ import { TitleBlockCta } from "@/components/TitleBlockCta";
 import { ProcessStrip, STANDARD_PROJECT_STEPS, TechnicalPageHead } from "@/components/InternalPageModules";
 
 export const metadata: Metadata = {
-  title: "Sectors",
+  title: "Traffic Engineering by Sector NSW",
   description:
     "Same engineering. Different problem to solve. Civil contractors, developers and architects, government and council, utilities, and events.",
 };
@@ -23,7 +23,7 @@ export default function SectorsPage() {
           { label: "01", value: "Civil contractors" },
           { label: "02", value: "Developers and architects" },
           { label: "03", value: "Government, council and infrastructure" },
-          { label: "04—05", value: "Utilities and events" },
+          { label: "04-05", value: "Utilities and events" },
         ]}
         note="The engineering principles stay consistent; the project question and delivery pressure change."
         action={{ label: "Discuss the project", href: "/contact" }}

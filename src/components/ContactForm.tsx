@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 import { CONTACT } from "@content/pages/contact";
 
 /**
- * Contact form — full field list per 00-INSTRUCTIONS: name, company, email,
+ * Contact form - full field list per 00-INSTRUCTIONS: name, company, email,
  * phone, project address, works description, required service (with Unsure),
  * target date, multi-file upload with accepted types/limits, privacy wording,
  * honeypot spam protection. Phase 1 = layout + front-end validation; the
@@ -22,13 +23,22 @@ export function ContactForm() {
     try {
       const res = await fetch("/api/enquiry", { method: "POST", body: new FormData(form) });
       setStatus(res.ok ? "sent" : "error");
+      if (res.ok) track("fee_proposal_sent");
     } catch {
       setStatus("error");
     }
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
+    // method/action are the no-JavaScript fallback (D19): the handler answers a
+    // plain navigation with a redirect to /thank-you instead of JSON.
+    <form
+      onSubmit={onSubmit}
+      method="post"
+      action="/api/enquiry"
+      encType="multipart/form-data"
+      className="grid gap-5 sm:grid-cols-2"
+    >
       <div>
         <label className="fl" htmlFor="name">Name *</label>
         <input id="name" name="name" type="text" required autoComplete="name" />
@@ -103,11 +113,11 @@ export function ContactForm() {
         </button>
         {status === "sent" && (
           <p className="form-note mt-3">
-            Received. Email delivery is not wired yet (staging stub) — a provider key and routing address are needed before launch.
+            Received. Email delivery is not wired yet (staging stub) - a provider key and routing address are needed before launch.
           </p>
         )}
         {status === "error" && (
-          <p className="form-note mt-3">Something went wrong sending the enquiry — please call or email us directly.</p>
+          <p className="form-note mt-3">Something went wrong sending the enquiry - please call or email us directly.</p>
         )}
       </div>
     </form>

@@ -1,5 +1,5 @@
 /**
- * About page — practice story, operating approach and leadership overview.
+ * About page - practice story, operating approach and leadership overview.
  * Detailed profiles remain on /team so About does not become a second Team page.
  */
 

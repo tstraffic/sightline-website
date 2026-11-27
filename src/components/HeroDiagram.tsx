@@ -1,6 +1,6 @@
 /**
  * The approved curved-road diagram treatment from the capability cover
- * (assets/capability-cover.png — locked reference), detailed to read like a
+ * (assets/capability-cover.png - locked reference), detailed to read like a
  * genuine TGS extract at Saadat's request: cone taper with a real AS 1742.3
  * annotation, hatched work zone, lane dimension, chainage ticks, traffic-flow
  * arrow, north point, scale bar, REV arrow, and the Drawing Paper
@@ -48,7 +48,7 @@ export function HeroDiagram() {
         <path className="anim-line" d="M122 500 C286 437 415 293 520 55" strokeWidth="1" opacity="0.45" />
       </g>
 
-      {/* centreline — oxide dashed, with chainage tick marks */}
+      {/* centreline - oxide dashed, with chainage tick marks */}
       <path className="anim-line" d="M48 488 C215 422 350 278 455 38" fill="none" stroke={oxide} strokeWidth="1.6" strokeDasharray="14 10" />
       <g stroke={ink} strokeWidth="1.2" opacity="0.7">
         <path d="M147 431 L156 444" />
@@ -99,7 +99,7 @@ export function HeroDiagram() {
         3.5 LANE
       </text>
 
-      {/* ---- chainage markers — open survey rings, so they can't be read as cones ---- */}
+      {/* ---- chainage markers - open survey rings, so they can't be read as cones ---- */}
       <g fontFamily="var(--font-mono)" fontSize="13" fill={ink}>
         <circle cx="284" cy="326" r="5" fill="none" stroke={oxide} strokeWidth="2" />
         <line x1="292" y1="326" x2="348" y2="342" stroke={ink} strokeWidth="1" opacity="0.6" />
@@ -133,7 +133,7 @@ export function HeroDiagram() {
         <text x="106" y="17">20 m</text>
       </g>
 
-      {/* ---- issued-status stamp — full oxide stamp-ink treatment so it reads
+      {/* ---- issued-status stamp - full oxide stamp-ink treatment so it reads
            like a real approval stamp (Saadat: make it stand out) ---- */}
       <g className="fade-late" transform="rotate(-6 462 434)">
         <rect x="352" y="402" width="220" height="64" rx="4" fill={oxide} opacity="0.08" />

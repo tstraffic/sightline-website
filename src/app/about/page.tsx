@@ -6,7 +6,7 @@ import { ProjectEvidence, TechnicalPageHead } from "@/components/InternalPageMod
 import { CASE_STUDIES } from "@content/pages/projects";
 
 export const metadata: Metadata = {
-  title: "About the practice",
+  title: "About Sightline Traffic Engineers Sydney",
   description:
     "Sightline is a specialist traffic and transport engineering practice shaped by experience across approvals, project delivery, construction and implementation.",
 };
@@ -49,7 +49,7 @@ export default function AboutPage() {
 
       <section className="section" aria-labelledby="experience">
         <div className="sec-head">
-          <span className="sec-num">EXP 01—03</span>
+          <span className="sec-num">EXP 01-03</span>
           <h2 id="experience">{ABOUT.experienceHeading}</h2>
         </div>
         <div className="cellgrid cols-3 about-experience">
@@ -115,7 +115,7 @@ export default function AboutPage() {
 
       <section className="section" aria-labelledby="engagement">
         <div className="sec-head">
-          <span className="sec-num">PROC 01—05</span>
+          <span className="sec-num">PROC 01-05</span>
           <h2 id="engagement">{ABOUT.engagementHeading}</h2>
         </div>
         <div className="pad">

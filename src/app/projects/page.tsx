@@ -8,9 +8,9 @@ import { visibleCaseStudies } from "@content/pages/projects";
 const projects = visibleCaseStudies(true);
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "Traffic Engineering Projects NSW",
   description:
-    "Selected Sightline construction traffic engineering projects, including traffic staging plans, detour plans, traffic guidance schemes and barrier cross sections.",
+    "Selected Sightline construction traffic engineering projects: traffic staging plans, detour plans, traffic guidance schemes and barrier cross sections.",
 };
 
 export default function ProjectsPage() {
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
       <TechnicalPageHead
         eyebrow="Projects · Selected drawing packages"
         title="The work speaks in drawings, not adjectives."
-        sub="A selection of traffic staging, detour, traffic guidance and barrier drawings — each paired with the sector, service division and a concise account of what the package shows."
+        sub="A selection of traffic staging, detour, traffic guidance and barrier drawings - each paired with the sector, service division and a concise account of what the package shows."
         sidecarLabel="Project evidence register"
         rows={[
           { label: "Drawing sets", value: `${projects.length} authorised project packages` },

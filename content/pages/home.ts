@@ -18,7 +18,7 @@ export const HOME = {
     sub: "Sightline provides traffic engineering for development approvals, parking and access, network performance and construction delivery across NSW and the ACT. We prepare the reports, assessments and drawings that help projects move from concept and consent through to construction.",
     lifecycle:
       "From traffic impact assessments and parking design to swept-path analysis, network modelling and construction traffic planning, Sightline provides practical engineering that supports the full project lifecycle.",
-    note: "Send the drawings — a written scope comes back with a fixed fee.",
+    note: "Send the drawings - a written scope comes back with a fixed fee.",
   },
   why: {
     heading: "Anyone can draw a plan. Fewer can defend it.",
@@ -27,7 +27,7 @@ export const HOME = {
     points: [
       {
         lead: "Engineered, not templated.",
-        text: "Every scheme is designed to the site — geometry, sightlines, volumes, staging — not adapted from the last job that looked similar.",
+        text: "Every scheme is designed to the site - geometry, sightlines, volumes, staging - not adapted from the last job that looked similar.",
       },
       {
         lead: "Checked before it is issued.",
@@ -37,7 +37,7 @@ export const HOME = {
       },
       {
         lead: "Held together across stages.",
-        text: "Multi-stage projects get one coherent framework — staging, barriers, swept paths and network impact designed together, with revision history tracked sheet by sheet.",
+        text: "Multi-stage projects get one coherent framework - staging, barriers, swept paths and network impact designed together, with revision history tracked sheet by sheet.",
       },
     ],
     closing:
@@ -74,7 +74,7 @@ export const HOME = {
       href: PRACTICES.construction.href,
     },
   ],
-  /** Supporting section — engineering first, approvals second. */
+  /** Supporting section - engineering first, approvals second. */
   supporting: {
     label: "Supporting",
     title: PRACTICES.approvals.label,
@@ -86,7 +86,7 @@ export const HOME = {
     // expanded at Saadat's request. Claims kept requirement-dependent.
     heading: "Not sure what your condition is asking for? Paste it. We'll tell you.",
     body: [
-      "Many enquiries start with a condition of consent nobody can parse. Send the wording and a traffic engineer will reply the same business day with what it appears to require — and, just as usefully, what it does not.",
+      "Many enquiries start with a condition of consent nobody can parse. Send the wording and a traffic engineer will reply the same business day with what it appears to require - and, just as usefully, what it does not.",
       "Conditions rarely name a single document. The same clause can point to a construction traffic management plan, a traffic guidance scheme, or both, and ordering the wrong one costs weeks. We read the wording against the consent authority's requirements and set out the shortest compliant path.",
     ],
     points: [
@@ -95,14 +95,14 @@ export const HOME = {
         lead: "What you get back",
         text: "The document or documents the condition appears to call for, what each covers, and a fixed fee if you want us to prepare them",
       },
-      { lead: "What it costs", text: "Nothing — no fee, no obligation, no hourly surprises later" },
+      { lead: "What it costs", text: "Nothing - no fee, no obligation, no hourly surprises later" },
     ],
     promise: {
       primary: "Free",
       secondary: "Same business day",
     },
     formSteps: ["Paste condition", "Engineer reviews", "Written reply"],
-    formTitle: "Decode my condition — free",
+    formTitle: "Decode my condition - free",
   },
   sectors: {
     heading: "Same engineering. Different problem to solve.",

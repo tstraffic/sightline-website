@@ -1,11 +1,11 @@
 import { STATS } from "@content/verified";
 
 /**
- * Statistics band — compact dark band per the capability cover (04-brand DO
+ * Statistics band - compact dark band per the capability cover (04-brand DO
  * NOTs: never on a light block). Paper numerals, short oxide rule, dust labels.
  *
  * Truthfulness guardrail: only `verified: true` figures render in production.
- * `designPreview` is for the Phase 1 approval set only — candidate figures
+ * `designPreview` is for the Phase 1 approval set only - candidate figures
  * with an explicit AWAITING VERIFICATION tag. TODO(verify:stats)
  */
 export function StatsBand({ designPreview = false }: { designPreview?: boolean }) {
@@ -28,7 +28,7 @@ export function StatsBand({ designPreview = false }: { designPreview?: boolean }
         ))}
       </div>
       {designPreview && entries.some((s) => !s.verified) && (
-        <p className="preview-tag">Figures awaiting verification — design preview only, not for publication</p>
+        <p className="preview-tag">Figures awaiting verification - design preview only, not for publication</p>
       )}
     </div>
   );

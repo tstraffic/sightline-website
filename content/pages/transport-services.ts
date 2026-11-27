@@ -11,8 +11,8 @@ import { PRACTICES } from "./practices";
 
 const PRACTICE = PRACTICES.modelling;
 
-/** Page 09 — D2 resolved: scope is NSW & ACT.
- *  TODO(verify:aimsun) — Copy Pass 1 note: only advertise Aimsun as an active
+/** Page 09 - D2 resolved: scope is NSW & ACT.
+ *  TODO(verify:aimsun) - Copy Pass 1 note: only advertise Aimsun as an active
  *  service where delivery capability and technical review arrangements are
  *  confirmed. Removed from the page title/meta pending that confirmation;
  *  still described below as a simulation option. */
@@ -22,11 +22,11 @@ export const MODELLING: ServicePageData = {
   title: "Traffic modelling",
   metaTitle: "Traffic Modelling",
   metaDescription:
-    "Computer-based traffic models replicating how a road network operates today and how it will perform under future conditions — calibrated against real-world observations.",
+    "Traffic models replicating how a road network operates today and how it will perform under future conditions, calibrated against real-world observations.",
   practice: PRACTICE,
   opener: "Test the pressure on your road network before it becomes a real-world problem.",
   intro:
-    "As cities, suburbs, and towns grow, the surrounding road network comes under pressure — from new development, population growth, or changes to intersection control. Sightline uses mathematical, computer-based models to replicate how a road network operates today and how it will perform under future conditions.",
+    "As cities, suburbs, and towns grow, the surrounding road network comes under pressure - from new development, population growth, or changes to intersection control. Sightline uses mathematical, computer-based models to replicate how a road network operates today and how it will perform under future conditions.",
   sections: [
     {
       kind: "bullets",
@@ -59,17 +59,17 @@ export const MODELLING: ServicePageData = {
           text: "individual intersections or smaller networks requiring a fast, detailed result",
         },
         {
-          // TODO(verify:aimsun) — confirm delivery capability and technical
+          // TODO(verify:aimsun) - confirm delivery capability and technical
           // review arrangements before naming Aimsun as an active service.
           lead: "Simulation models",
-          text: "larger, more complex networks, or where an animated, network-wide output is required — scoped where the project genuinely calls for simulation rather than analytical modelling",
+          text: "larger, more complex networks, or where an animated, network-wide output is required - scoped where the project genuinely calls for simulation rather than analytical modelling",
         },
       ],
     },
     {
       kind: "paragraph",
-      // D2 resolved (Saadat, 5 Aug 2026): NSW & ACT — VicRoads/elsewhere dropped
-      text: "Modelling is carried out to the relevant road authority's guidelines for the project's jurisdiction — TfNSW in New South Wales, Transport Canberra in the ACT.",
+      // D2 resolved (Saadat, 5 Aug 2026): NSW & ACT - VicRoads/elsewhere dropped
+      text: "Modelling is carried out to the relevant road authority's guidelines for the project's jurisdiction - TfNSW in New South Wales, Transport Canberra in the ACT.",
     },
   ],
   faqs: [
@@ -79,7 +79,7 @@ export const MODELLING: ServicePageData = {
     },
     {
       q: "Does every development require traffic modelling?",
-      a: "No — generally required where significant traffic demand is expected, particularly in areas already experiencing congestion, or where a road authority specifically requests it.",
+      a: "No - generally required where significant traffic demand is expected, particularly in areas already experiencing congestion, or where a road authority specifically requests it.",
     },
     {
       q: "What information is required to begin?",
@@ -87,23 +87,23 @@ export const MODELLING: ServicePageData = {
     },
     {
       q: "Can multiple design options be tested?",
-      a: "Yes — once calibrated, the model tests multiple scenarios to compare options before a final design is committed.",
+      a: "Yes - once calibrated, the model tests multiple scenarios to compare options before a final design is committed.",
     },
   ],
 };
 
-/** Page 10 — KEEP. Metrics table verbatim, styled table component. */
+/** Page 10 - KEEP. Metrics table verbatim, styled table component. */
 export const SIDRA: ServicePageData = {
   pageNo: "10",
   slug: "sidra-intersection-analysis",
   title: "SIDRA intersection capacity analysis",
   metaTitle: "SIDRA Intersection Capacity Analysis",
   metaDescription:
-    "Lane-by-lane SIDRA modelling of intersections, roundabouts and signalised networks — the data-driven case that convinces council your intersection will actually perform.",
+    "Lane-by-lane SIDRA modelling of intersections, roundabouts and signalised networks: the data-driven case that shows council your intersection will perform.",
   practice: PRACTICE,
   opener: "The data-driven case that convinces council your intersection will actually perform.",
   intro:
-    "SIDRA Intersection is the industry-standard analytical software for detailed, lane-by-lane modelling of traffic flow at intersections, roundabouts, and signalised networks — mandated by most Australian road authorities, including TfNSW, for development applications affecting intersection performance.",
+    "SIDRA Intersection is the industry-standard analytical software for detailed, lane-by-lane modelling of traffic flow at intersections, roundabouts, and signalised networks - mandated by most Australian road authorities, including TfNSW, for development applications affecting intersection performance.",
   sections: [
     {
       kind: "table",
@@ -112,7 +112,7 @@ export const SIDRA: ServicePageData = {
       rows: [
         [
           "Level of Service (LoS)",
-          "An A–F grade for how well an intersection is operating — A is free-flowing, F is gridlock. Benchmark: LoS D or better in peak periods.",
+          "An A–F grade for how well an intersection is operating - A is free-flowing, F is gridlock. Benchmark: LoS D or better in peak periods.",
         ],
         ["Degree of Saturation (v/c ratio)", "How close the intersection is to its capacity limit. Benchmark: below 0.90."],
         ["Average Delay", "Average time a vehicle is stopped or slowed at the intersection. Assessed against LoS."],
@@ -126,44 +126,44 @@ export const SIDRA: ServicePageData = {
       kind: "numbered",
       heading: "Process",
       steps: [
-        "Data collection — traffic counts across weekday AM and PM peaks, site geometry, and signal phasing from the relevant authority",
-        "Model build & calibration — calibrated against observed on-site conditions",
-        "Scenario testing — a “do nothing” case compared against a “do something” case across opening year and future design horizon",
+        "Data collection - traffic counts across weekday AM and PM peaks, site geometry, and signal phasing from the relevant authority",
+        "Model build & calibration - calibrated against observed on-site conditions",
+        "Scenario testing - a “do nothing” case compared against a “do something” case across opening year and future design horizon",
       ],
     },
   ],
   faqs: [
     {
       q: "Is SIDRA analysis required for every development application?",
-      a: "No — it depends on project scale and anticipated traffic generation, as determined by the relevant council or road authority.",
+      a: "No - it depends on project scale and anticipated traffic generation, as determined by the relevant council or road authority.",
     },
     {
       q: "How does SIDRA differ from simulation software?",
-      a: "SIDRA suits detailed, lane-by-lane analysis of individual intersections. Simulation platforms model vehicle-by-vehicle behaviour across larger networks — better suited to queue spillback or multi-intersection interactions.",
+      a: "SIDRA suits detailed, lane-by-lane analysis of individual intersections. Simulation platforms model vehicle-by-vehicle behaviour across larger networks - better suited to queue spillback or multi-intersection interactions.",
     },
     {
       q: "Does SIDRA account for pedestrians and cyclists?",
-      a: "Yes — delay, Level of Service, and crossing time outputs are produced for pedestrians and cyclists as well as vehicles.",
+      a: "Yes - delay, Level of Service, and crossing time outputs are produced for pedestrians and cyclists as well as vehicles.",
     },
     {
       q: "What happens if the analysis shows LoS E or F?",
-      a: "It indicates mitigation is required — signal phasing changes, lane reconfiguration, or a physical upgrade — which are modelled to demonstrate a credible path to an acceptable Level of Service.",
+      a: "It indicates mitigation is required - signal phasing changes, lane reconfiguration, or a physical upgrade - which are modelled to demonstrate a credible path to an acceptable Level of Service.",
     },
   ],
 };
 
-/** Page 11 — KEEP; copy unchanged, the page just sits in this practice now. */
+/** Page 11 - KEEP; copy unchanged, the page just sits in this practice now. */
 export const TIA: ServicePageData = {
   pageNo: "11",
   slug: "traffic-impact-assessment",
   title: "Traffic impact assessment (TIA)",
-  metaTitle: "Traffic Impact Assessment (TIA)",
+  metaTitle: "Traffic Impact Assessment (TIA) Sydney & NSW",
   metaDescription:
-    "The detailed evaluation council or a road authority requires for larger developments — a full technical case that your project's network impact has been properly tested, not assumed.",
+    "The detailed evaluation council or a road authority requires for larger developments: a technical case that the network impact has been tested, not assumed.",
   practice: PRACTICES.development,
   opener: "Bigger project, bigger scrutiny.",
   intro:
-    "A Traffic Impact Assessment is the detailed evaluation council or a road authority requires for larger, more complex developments — a full technical case that your project's impact on the existing and future transport network has been properly tested, not assumed. Depending on the jurisdiction, you might see this called a TIA, TIAR, or TER. The terminology varies, and the required scope should be confirmed against the consent authority's requirements.",
+    "A Traffic Impact Assessment is the detailed evaluation council or a road authority requires for larger, more complex developments - a full technical case that your project's impact on the existing and future transport network has been properly tested, not assumed. Depending on the jurisdiction, you might see this called a TIA, TIAR, or TER. The terminology varies, and the required scope should be confirmed against the consent authority's requirements.",
   sections: [
     {
       kind: "bullets",
@@ -186,7 +186,7 @@ export const TIA: ServicePageData = {
   faqs: [
     {
       q: "How is this different from a TIS?",
-      a: "Depth and scale — full network analysis, intersection modelling such as SIDRA, traffic surveys, and future growth scenarios, versus a shorter statement of effect.",
+      a: "Depth and scale - full network analysis, intersection modelling such as SIDRA, traffic surveys, and future growth scenarios, versus a shorter statement of effect.",
     },
     {
       q: "Does council always call it a “TIA”?",

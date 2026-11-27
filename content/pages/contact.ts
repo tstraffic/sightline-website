@@ -1,5 +1,5 @@
 /**
- * Page 29 — Contact. KEEP+pass: heading + supporting line from Rev 3;
+ * Page 29 - Contact. KEEP+pass: heading + supporting line from Rev 3;
  * expanded form fields per 00-INSTRUCTIONS. The fee-turnaround line is
  * omitted until the 1-day stat verifies.
  */
@@ -13,8 +13,8 @@ export const CONTACT = {
     columns: ["Item", "Why it matters"] as [string, string],
     rows: [
       ["Site address", "Locates the road network, the council area, and the constraints around your site"],
-      ["Architectural or civil plans", "PDF or DWG — the basis for scoping the drawings and reports your project needs"],
-      ["Description of the works", "What is being built or occupied, and roughly when — enough to identify the approvals pathway"],
+      ["Architectural or civil plans", "PDF or DWG - the basis for scoping the drawings and reports your project needs"],
+      ["Description of the works", "What is being built or occupied, and roughly when - enough to identify the approvals pathway"],
     ] as [string, string][],
   },
   services: [
@@ -28,7 +28,7 @@ export const CONTACT = {
     "Traffic impact assessment or statement",
     "Parking / AS 2890 compliance",
     "Road occupancy licence (ROL) or permits",
-    "Unsure — tell us the problem",
+    "Unsure - tell us the problem",
   ],
   files: {
     label: "Attach plans",

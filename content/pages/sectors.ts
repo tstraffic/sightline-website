@@ -4,8 +4,8 @@ import { CIVIL_CONTRACTORS } from "./civil-contractors";
  * Sector pages 26b–26e, verbatim from Rev 3 (26a lives in
  * civil-contractors.ts). Route-to lists render as link cards.
  * 26c: the route card to page 08 (Road Safety Audits) is HIDDEN while 08 is a
- * draft — TODO(verify:D3): restore when the RSA page goes live.
- * 26e: the STA bullet carries TODO(verify:STA) — source wording kept.
+ * draft - TODO(verify:D3): restore when the RSA page goes live.
+ * 26e: the STA bullet carries TODO(verify:STA) - source wording kept.
  */
 
 export type SectorData = {
@@ -27,9 +27,9 @@ export const DEVELOPERS: SectorData = {
   slug: "developers-architects",
   eyebrow: "Sectors · Developers & architects",
   h1: "Council asked for a traffic report. We'll tell you which one.",
-  metaTitle: "Developers & Architects",
+  metaTitle: "Traffic Engineering for Developers & Architects",
   metaDescription:
-    "The technical evidence that closes traffic and parking questions before they become a Request for Information — TIS, TIA, AS 2890 assessment, driveways, sight lines and access.",
+    "Technical evidence that closes traffic and parking questions before they become a request for information: TIS, TIA, AS 2890 assessment, driveways and access.",
   intro:
     "Most DAs that stall on traffic and parking don't stall on anything dramatic. They stall on a bay width, a ramp transition, a sight triangle, or a report prepared by someone council doesn't accept as qualified. Sightline provides the technical evidence that closes those questions before they become a Request for Information.",
   needsHeading: "What developers and architects come to us for",
@@ -70,11 +70,11 @@ export const GOVERNMENT: SectorData = {
   slug: "government-council",
   eyebrow: "Sectors · Government & council",
   h1: "An independent check, from engineers with no stake in the outcome.",
-  metaTitle: "Government & Council",
+  metaTitle: "Traffic Engineering for Government & Council",
   metaDescription:
-    "Independent site audits, calibrated modelling and technical review of submitted reports — evidence that stands up if a decision is questioned later.",
+    "Independent site audits, calibrated modelling and technical review of submitted reports - evidence that stands up if a decision is questioned later.",
   intro:
-    "Councils and road authorities are usually reviewing someone else's work rather than producing it — assessing a developer's traffic report, auditing a contractor's set-up, or needing modelling that will hold up if a decision is questioned later. Sightline provides that assessment as an independent third party.",
+    "Councils and road authorities are usually reviewing someone else's work rather than producing it - assessing a developer's traffic report, auditing a contractor's set-up, or needing modelling that will hold up if a decision is questioned later. Sightline provides that assessment as an independent third party.",
   needsHeading: "What government clients come to us for",
   needs: [
     {
@@ -98,7 +98,7 @@ export const GOVERNMENT: SectorData = {
   routeHeading: "Where government clients usually start",
   routes: [
     { ref: "07", label: "Site audits", href: "/site-audits" },
-    // { ref: "08", label: "Road safety audits", href: "/road-safety-audits" } — hidden while 08 is a draft (D3)
+    // { ref: "08", label: "Road safety audits", href: "/road-safety-audits" } - hidden while 08 is a draft (D3)
     { ref: "09", label: "Traffic modelling", href: "/traffic-modelling" },
     { ref: "10", label: "SIDRA analysis", href: "/sidra-intersection-analysis" },
     { ref: "02", label: "Traffic staging plans", href: "/traffic-staging-plans" },
@@ -110,11 +110,11 @@ export const UTILITIES: SectorData = {
   slug: "utilities",
   eyebrow: "Sectors · Utilities",
   h1: "Fifty small jobs is not one big job.",
-  metaTitle: "Utilities",
+  metaTitle: "Traffic Engineering for Utilities NSW",
   metaDescription:
-    "Volume TGS turnaround, ROLs, permits across multiple council jurisdictions and TMPs for programmed works — turnaround and consistency across all of them.",
+    "Volume TGS turnaround, ROLs, permits across multiple council jurisdictions and TMPs for programmed works - turnaround and consistency across all of them.",
   intro:
-    "Utility works are a different problem to a single construction site. High volume, short notice, spread across multiple council areas, often near signals or on regional roads, and sometimes emergency. What matters isn't the complexity of any one TGS — it's turnaround and consistency across all of them.",
+    "Utility works are a different problem to a single construction site. High volume, short notice, spread across multiple council areas, often near signals or on regional roads, and sometimes emergency. What matters isn't the complexity of any one TGS - it's turnaround and consistency across all of them.",
   needsHeading: "What utility clients come to us for",
   needs: [
     {
@@ -148,11 +148,11 @@ export const EVENTS: SectorData = {
   slug: "events",
   eyebrow: "Sectors · Events",
   h1: "Road closed, crowd moving, police satisfied.",
-  metaTitle: "Events",
+  metaTitle: "Event Traffic Management Plans NSW",
   metaDescription:
-    "Event TMPs, special event and road closure permits, police and transport approvals, and community notification with a named contact — the plan and the approvals together.",
+    "Event traffic management plans, road closure permits, police and transport approvals, and community notification with a named contact, delivered together.",
   intro:
-    "An event closure carries an approvals pathway most organisers only discover halfway through it — a special event permit, police sign-off, transport operators to notify, and a community that needs telling before the barriers go up. Sightline manages the plan and the approvals together.",
+    "An event closure carries an approvals pathway most organisers only discover halfway through it - a special event permit, police sign-off, transport operators to notify, and a community that needs telling before the barriers go up. Sightline manages the plan and the approvals together.",
   needsHeading: "What event clients come to us for",
   needs: [
     {
@@ -164,7 +164,7 @@ export const EVENTS: SectorData = {
       text: "temporary, long-term or full closures, identified and lodged with the relevant council",
     },
     {
-      // TODO(verify:STA) — source wording kept pending V1
+      // TODO(verify:STA) - source wording kept pending V1
       lead: "Police and transport approvals",
       text: "Police Area Command permits and State Transit Authority sign-off where public transport routes are affected",
     },
@@ -188,9 +188,9 @@ export const CIVIL: SectorData = {
   slug: "civil-contractors",
   eyebrow: CIVIL_CONTRACTORS.eyebrow,
   h1: CIVIL_CONTRACTORS.h1,
-  metaTitle: "Civil Contractors",
+  metaTitle: "Traffic Engineering for Civil Contractors NSW",
   metaDescription:
-    "Traffic documentation at construction pace — staging sets, barrier design statements, multi-stage CTMPs, site audits and ROL management for civil contractors.",
+    "Traffic documentation at construction pace - staging sets, barrier design statements, multi-stage CTMPs, site audits and ROL management for civil contractors.",
   intro: CIVIL_CONTRACTORS.intro,
   needsHeading: CIVIL_CONTRACTORS.needsHeading,
   needs: [...CIVIL_CONTRACTORS.needs],

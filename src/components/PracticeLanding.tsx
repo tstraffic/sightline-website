@@ -9,7 +9,7 @@ import {
 } from "./InternalPageModules";
 import { landingSidecar, projectsForPractice } from "@/lib/internalPageContent";
 
-/** Practice/section landing template — intro + drawing-register of services. */
+/** Practice/section landing template - intro + drawing-register of services. */
 export function PracticeLanding({ data, href }: { data: LandingData; href: string }) {
   const projectEvidence = projectsForPractice(href)[0];
 
@@ -40,7 +40,7 @@ export function PracticeLanding({ data, href }: { data: LandingData; href: strin
               ))}
             </ul>
             <p className="fine mt-5">
-              Scoped on request — tell us what the condition or authority is asking for.
+              Scoped on request - tell us what the condition or authority is asking for.
             </p>
           </div>
         </section>

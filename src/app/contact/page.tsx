@@ -5,12 +5,12 @@ import { ProcessStrip, TechnicalPageHead } from "@/components/InternalPageModule
 import { SITE } from "@content/site";
 
 export const metadata: Metadata = {
-  title: "Contact — Request a fee proposal",
+  title: "Contact Traffic Engineers Sydney - Fee Proposal",
   description:
-    "Send us the drawings. We'll tell you what you need. Site address, architectural or civil plans, and a description of the works is usually enough for us to scope it.",
+    "Send us the drawings. We'll tell you what you need. A site address, plans and a description of the works is usually enough for us to scope it.",
 };
 
-/** Contact page (29) — Title Block treatment; expanded form per 00-INSTRUCTIONS. */
+/** Contact page (29) - Title Block treatment; expanded form per 00-INSTRUCTIONS. */
 export default function ContactPage() {
   return (
     <article>
@@ -56,7 +56,7 @@ export default function ContactPage() {
       </section>
 
       <ProcessStrip
-        label="ENQ 01—03"
+        label="ENQ 01-03"
         heading="A clear path from enquiry to project start"
         steps={[
           { title: "Send the essentials", text: "A site address, available plans and a short project description are enough to begin." },
