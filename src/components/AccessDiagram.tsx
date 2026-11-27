@@ -1,5 +1,5 @@
 /**
- * Homepage hero drawing — an overall road plan, recreating the reference sheet
+ * Homepage hero drawing - an overall road plan, recreating the reference sheet
  * Saadat supplied (5 Aug 2026) in the Sightline palette.
  *
  * Faithful to the reference's structure: a corridor running the full width, a
@@ -52,7 +52,7 @@ export function AccessDiagram({ invert = false }: { invert?: boolean } = {}) {
       </defs>
       <rect y="-60" width="660" height="580" fill="url(#apgrid)" />
 
-      {/* ============ existing / context — faintest layer ============ */}
+      {/* ============ existing / context - faintest layer ============ */}
       <g className="fade-in" style={{ animationDelay: "0.1s" }} stroke={survey} fill="none" strokeWidth="0.8" opacity="0.4">
         {/* lot boundaries */}
         <path d="M18 26 H150 V196 H18 Z M150 26 H244 V196 H150 Z" />
@@ -76,7 +76,7 @@ export function AccessDiagram({ invert = false }: { invert?: boolean } = {}) {
         </g>
       </g>
 
-      {/* ============ main corridor — multi-line alignment ============ */}
+      {/* ============ main corridor - multi-line alignment ============ */}
       <g fill="none" stroke={ink}>
         {corridor.map((l, i) => (
           <path
@@ -227,7 +227,7 @@ export function AccessDiagram({ invert = false }: { invert?: boolean } = {}) {
         </g>
       </g>
 
-      {/* ============ stamp — issued last ============ */}
+      {/* ============ stamp - issued last ============ */}
       <g className="fade-late" transform="rotate(-6 566 452)">
         <rect x="478" y="430" width="176" height="44" rx="3" fill={oxide} opacity="0.08" />
         <rect x="478" y="430" width="176" height="44" rx="3" fill="none" stroke={oxide} strokeWidth="1.9" />

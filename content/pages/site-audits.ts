@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 import { PRACTICES } from "./practices";
 
 /**
- * Page 07 — Site Audits. Disposition: KEEP (05-migration-map) — copy verbatim
+ * Page 07 - Site Audits. Disposition: KEEP (05-migration-map) - copy verbatim
  * from 01-website-copy-rev3.md. Phase 0's end-to-end wiring example.
  */
 export const SITE_AUDITS: ServicePageData = {
@@ -11,17 +11,17 @@ export const SITE_AUDITS: ServicePageData = {
   title: "Site audits",
   metaTitle: "Site Audits",
   metaDescription:
-    "Independent site audits of temporary traffic management set-ups — checking physical implementation against the approved TGS or TMP, with reference to TfNSW TS 05492 and the relevant Australian Standards.",
+    "Independent site audits of temporary traffic management, checking the set-up on site against the approved TGS or TMP, TfNSW TS 05492 and Australian Standards.",
   practice: PRACTICES.construction,
   opener: "A traffic management plan is only as effective as its on-site implementation.",
   intro:
-    "Sightline conducts site audits of temporary traffic management set-ups — checking physical implementation against the approved TGS or TMP — across Sightline-delivered projects, live jobs in progress, and as an independent external auditor for other companies' plans.",
+    "Sightline conducts site audits of temporary traffic management set-ups - checking physical implementation against the approved TGS or TMP - across Sightline-delivered projects, live jobs in progress, and as an independent external auditor for other companies' plans.",
   sections: [
     {
       kind: "bullets",
       heading: "Scope of audit",
       items: [
-        { text: "Compliance against the approved plan — signage, devices, barriers, cones, markings" },
+        { text: "Compliance against the approved plan - signage, devices, barriers, cones, markings" },
         { text: "Signage placement and condition against AS 1742.2 and AS 1742.3" },
         { text: "Barrier and deflection zone compliance" },
         { text: "Pedestrian and cyclist provisions" },
@@ -32,7 +32,7 @@ export const SITE_AUDITS: ServicePageData = {
     },
     {
       kind: "paragraph",
-      text: "Plans are audited regardless of who designed or installed them, providing an independent compliance check for principal contractors, developers, and councils. Because site conditions change during works, Sightline also audits active, in-progress jobs — including spot audits, re-audits following staging transitions, and periodic audits across longer-duration projects.",
+      text: "Plans are audited regardless of who designed or installed them, providing an independent compliance check for principal contractors, developers, and councils. Because site conditions change during works, Sightline also audits active, in-progress jobs - including spot audits, re-audits following staging transitions, and periodic audits across longer-duration projects.",
     },
     {
       kind: "paragraph",
@@ -53,11 +53,11 @@ export const SITE_AUDITS: ServicePageData = {
   faqs: [
     {
       q: "Can a plan designed and installed by another company be audited?",
-      a: "Yes — reviewed regardless of who prepared it, with findings reported objectively as an independent third party.",
+      a: "Yes - reviewed regardless of who prepared it, with findings reported objectively as an independent third party.",
     },
     {
       q: "Can a job already underway be audited?",
-      a: "Yes — live job audits are core to this service, as compliance can drift during works due to staging changes, damaged devices, or altered conditions.",
+      a: "Yes - live job audits are core to this service, as compliance can drift during works due to staging changes, damaged devices, or altered conditions.",
     },
     {
       q: "What is the difference between a site audit and a Road Safety Audit (RSA)?",

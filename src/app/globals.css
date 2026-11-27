@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 /*
-  Sightline design tokens — Oxide Mark palette (04-brand.md), rendered through
+  Sightline design tokens - Oxide Mark palette (04-brand.md), rendered through
   the "Title Block" design system carried over from the current live site at
   Saadat's direction (Phase 1 approval decision, 4 Aug 2026): the whole site
-  reads as an engineering drawing sheet — sheet border, grid paper, chainage
+  reads as an engineering drawing sheet - sheet border, grid paper, chainage
   ruler, drawing registers, section heads, title-block CTAs.
   The six brand colours + two typefaces are defined ONCE here.
 */
@@ -46,7 +46,9 @@
   --oxide: color-mix(in srgb, var(--color-oxide), black 12%);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* No unlayered universal reset here: Tailwind's preflight already zeroes
+   margin/padding in @layer base, and an unlayered `* { margin: 0 }` outranks
+   every layered utility, which is why `mt-4` and friends did nothing (D14). */
 
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
@@ -68,7 +70,7 @@ img, svg { max-width: 100%; display: block; }
 a { color: inherit; }
 button { font: inherit; }
 
-/* Brand type discipline: 400/500 only — no 700, no italics (04-brand.md). */
+/* Brand type discipline: 400/500 only - no 700, no italics (04-brand.md). */
 h1, h2, h3, h4, strong, b { font-weight: 500; }
 
 :focus-visible { outline: 2px solid var(--oxide); outline-offset: 2px; }
@@ -94,7 +96,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   overflow: hidden;
   border-bottom: 1.5px solid var(--ink);
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   color: var(--ink-soft);
   user-select: none;
 }
@@ -124,7 +126,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 .nav-brand img { height: 72px; width: auto; }
 .nav-links { display: flex; align-items: stretch; margin-left: auto; }
-/* nav links in oxide (Saadat) — larger, single-line, vertically centred */
+/* nav links in oxide (Saadat) - larger, single-line, vertically centred */
 .nav-links > a, .nav-drop > button {
   display: flex;
   align-items: center;
@@ -162,7 +164,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   display: block;
   padding: 13px 18px;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
@@ -171,7 +173,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 .nav-drop-panel a:last-child { border-bottom: none; }
 .nav-drop-panel a:hover { background: var(--sheet); color: var(--oxide); }
-/* the 1800 number as an oxide call chip — reads as a secondary CTA */
+/* the 1800 number as an oxide call chip - reads as a secondary CTA */
 .nav-phone {
   display: flex;
   align-items: center;
@@ -189,7 +191,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 .nav-phone:hover { background: var(--oxide); color: var(--paper-on-dark); }
 @media (max-width: 1280px) { .nav-phone { display: none; } }
-/* Nav CTA (Saadat, 5 Aug 2026): oxide ground, Drawing Paper text — 5.47:1,
+/* Nav CTA (Saadat, 5 Aug 2026): oxide ground, Drawing Paper text - 5.47:1,
    the brand's own primary-button pairing, and the loudest cell in the bar. */
 .nav-cta {
   display: flex;
@@ -212,6 +214,16 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 
 /* mobile menu */
 .nav-m { display: none; }
+/* tap-to-call beside MENU at phone width (D11) */
+.nav-m-call {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  border-left: 1px solid var(--rule);
+  color: var(--oxide);
+}
+.nav-m-call svg { width: 20px; height: 20px; flex: none; }
+.nav-m-call:hover { background: var(--oxide); color: var(--paper-on-dark); }
 .nav-m > button {
   height: 100%;
   padding: 0 16px;
@@ -220,7 +232,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border-left: 1px solid var(--rule);
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   color: var(--ink);
 }
@@ -238,7 +250,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   display: block;
   padding: 14px 22px;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
@@ -261,12 +273,12 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 
 @media (max-width: 1120px) {
   .nav-links, .nav-phone { display: none; }
-  .nav-m { display: block; margin-left: auto; align-self: stretch; }
+  .nav-m { display: flex; align-items: stretch; margin-left: auto; align-self: stretch; }
 }
 @media (max-width: 640px) {
   .nav-brand { padding: 6px 12px; }
   .nav-brand img { height: 58px; }
-  .nav-cta { padding: 0 14px; font-size: 0.62rem; letter-spacing: 0.06em; }
+  .nav-cta { padding: 0 14px; font-size: 0.75rem; letter-spacing: 0.06em; }
 }
 
 /* ---------- page trail ---------- */
@@ -280,7 +292,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border-bottom: 1px solid var(--rule);
   background: var(--sheet-deep);
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -339,7 +351,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 @media (max-width: 900px) { .pagehead { padding: 40px 26px; } }
 .dwgno {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--oxide);
   letter-spacing: 0.14em;
   margin-bottom: 12px;
@@ -378,7 +390,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   padding: 14px 28px;
   border-bottom: 1px solid var(--rule);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--oxide);
@@ -395,7 +407,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .technical-sidecar dt {
   padding-left: 28px;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--oxide);
@@ -417,7 +429,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   display: inline-block;
   margin-top: 12px;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--oxide);
@@ -458,7 +470,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .service-detail-aside > ul li > span,
 .sector-needs-aside li span {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   color: var(--oxide);
 }
 .service-detail-aside > ul p,
@@ -471,7 +483,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 }
 .service-detail-note span {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--oxide);
@@ -525,7 +537,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .project-evidence-image span {
   margin-top: 11px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--oxide);
@@ -550,7 +562,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .project-evidence-copy dd { padding: 12px 0; }
 .project-evidence-copy dt {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--oxide);
@@ -638,20 +650,20 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   gap: 18px;
   padding: 18px 48px;
   border-bottom: 1px solid var(--rule);
-  /* tinted title band — the one piece kept from the dust experiment (Saadat) */
+  /* tinted title band - the one piece kept from the dust experiment (Saadat) */
   background: var(--sheet-deep);
 }
 @media (max-width: 900px) { .sec-head { padding: 16px 26px; } }
-.sec-num { font-family: var(--font-mono); font-size: 0.7rem; color: var(--oxide); letter-spacing: 0.1em; }
+.sec-num { font-family: var(--font-mono); font-size: 0.75rem; color: var(--oxide); letter-spacing: 0.1em; }
 .sec-head h2 { font-size: 1.05rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--oxide); }
 
-/* Section headings in oxide (Saadat, 5 Aug 2026) — 5.47:1 on the sheet,
+/* Section headings in oxide (Saadat, 5 Aug 2026) - 5.47:1 on the sheet,
    4.51:1 on dust panels, both AA. Page-level h1 stays Carbon so the hierarchy
    still reads: carbon = the page's own voice, oxide = the section markers. */
 .pad > h2, .pad > h3,
 .panel > h2, .panel > h3,
 .panel-side > h2 { color: var(--oxide); }
-.sec-rev { margin-left: auto; font-family: var(--font-mono); font-size: 0.62rem; color: var(--ink-soft); text-transform: uppercase; }
+.sec-rev { margin-left: auto; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); text-transform: uppercase; }
 @media (max-width: 640px) { .sec-rev { display: none; } }
 
 .pad { padding: 44px 48px; }
@@ -661,7 +673,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .stamp {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--oxide);
@@ -674,7 +686,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .btn {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
@@ -692,9 +704,9 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .btn-paper:hover { background: var(--sheet-deep); border-color: var(--sheet-deep); color: var(--aub); }
 /* Accent rule (Saadat, 5 Aug 2026): OXIDE fills on light grounds (sheet/dust),
    DRAWING PAPER fills on dark grounds (aubergine). Brass was removed from the
-   UI entirely — the site runs on the six core brand colours.
+   UI entirely - the site runs on the six core brand colours.
 
-   .btn-oxide — primary CTA on light grounds. Paper on oxide = 5.47:1 (AA). */
+   .btn-oxide - primary CTA on light grounds. Paper on oxide = 5.47:1 (AA). */
 .btn-oxide { background: var(--oxide); border-color: var(--oxide); color: var(--paper-on-dark); font-weight: 500; }
 .btn-oxide:hover { background: var(--oxide-press); border-color: var(--oxide-press); color: var(--paper-on-dark); }
 
@@ -708,7 +720,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .panel-dark .form-note { background: var(--aub-hover); color: var(--paper-on-dark); border-color: var(--rule-dark); }
 .btn:disabled { opacity: 0.6; cursor: wait; }
 
-.fine { font-family: var(--font-mono); font-size: 0.64rem; color: var(--ink-soft); }
+.fine { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); }
 
 /* ---------- home hero ---------- */
 .hero {
@@ -731,7 +743,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .hero-note {
   margin-top: 26px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--ink-soft);
   display: flex;
   align-items: center;
@@ -781,7 +793,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   color: var(--ink-soft);
   background: color-mix(in srgb, var(--sheet), transparent 5%);
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.055em;
   text-transform: uppercase;
 }
@@ -855,9 +867,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .plan-ghost { object-fit: fill; opacity: 0.065; filter: grayscale(0.35) contrast(0.86); }
 .plan-drawing {
   z-index: 1;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  object-fit: fill;
   clip-path: inset(0 100% 0 0);
 }
 .plan-sketch-edge {
@@ -963,14 +973,14 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   margin-bottom: 7px;
   color: var(--ink-soft);
   font-family: var(--font-mono);
-  font-size: 0.54rem;
+  font-size: 0.75rem;
   letter-spacing: 0.075em;
   text-transform: uppercase;
 }
 .plan-title-value {
   color: var(--aub);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.02em;
@@ -1039,7 +1049,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 @media (max-width: 520px) {
   .hero-draw { height: 500px; min-height: 500px; }
   .plan-viewer { gap: 8px; padding: 9px; }
-  .plan-toolbar { min-height: 34px; padding-inline: 7px; font-size: 0.54rem; }
+  .plan-toolbar { min-height: 34px; padding-inline: 7px; font-size: 0.75rem; }
   .plan-toolbar strong { max-width: 100px; }
   .plan-tab { min-width: 25px; padding-inline: 5px; }
   .plan-replay { padding-inline: 6px; }
@@ -1069,14 +1079,14 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   .statsband-grid > div:nth-child(-n + 2) { border-bottom: 1px solid var(--rule-dark); }
 }
 .statsband .rule { width: 28px; height: 2px; background: var(--oxide); margin-bottom: 12px; }
-/* key figures in Drawing Paper on aubergine (12.7:1), oxide rule above —
+/* key figures in Drawing Paper on aubergine (12.7:1), oxide rule above -
    the treatment on the approved capability-statement cover */
 .statsband .n { font-family: var(--font-mono); font-size: 2.1rem; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--paper-on-dark); }
 .statsband .l { font-size: 0.85rem; color: var(--muted-on-dark); margin-top: 6px; max-width: 24ch; }
 .statsband .preview-tag {
   padding: 0 48px 14px;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--muted-on-dark);
@@ -1092,7 +1102,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border-bottom: 1.5px solid var(--ink);
   background: var(--sheet);
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -1104,7 +1114,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .register { width: 100%; border-collapse: collapse; }
 .register th {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -1117,7 +1127,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .register td { padding: 16px 20px; border-bottom: 1px solid var(--rule-soft); vertical-align: baseline; }
 .register tbody tr:hover { background: rgba(163, 70, 82, 0.06); }
 .register tr:last-child td { border-bottom: none; }
-.register .dwg { font-family: var(--font-mono); font-size: 0.72rem; color: var(--oxide); white-space: nowrap; }
+.register .dwg { font-family: var(--font-mono); font-size: 0.75rem; color: var(--oxide); white-space: nowrap; }
 .register .ttl { font-weight: 500; font-size: 1rem; }
 .register .ttl a { color: var(--ink); text-decoration: none; }
 .register .ttl a:hover { color: var(--aub); text-decoration: underline; text-underline-offset: 3px; }
@@ -1169,7 +1179,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   background: var(--aub);
   color: var(--paper-on-dark);
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   line-height: 1;
   text-transform: uppercase;
@@ -1190,7 +1200,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   padding: 5px 8px 4px;
   color: var(--oxide);
   font-family: var(--font-mono);
-  font-size: 0.56rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   line-height: 1.3;
   text-decoration: none;
@@ -1221,7 +1231,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border-bottom: 1px solid var(--rule-soft);
   color: var(--ink-soft);
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -1230,7 +1240,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   padding-top: 28px;
   color: var(--oxide);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
@@ -1239,7 +1249,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 
 .project-detail-head .sub {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -1267,7 +1277,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .project-gallery-ref {
   color: var(--oxide);
   font-family: var(--font-mono);
-  font-size: 0.52rem;
+  font-size: 0.75rem;
   letter-spacing: 0.17em;
   text-transform: uppercase;
 }
@@ -1283,7 +1293,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   margin-right: 10px;
   color: var(--ink-soft);
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
 }
 .project-gallery-controls button {
   width: 38px;
@@ -1319,7 +1329,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   background: var(--aub);
   color: var(--paper-on-dark);
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.75rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
@@ -1339,7 +1349,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   color: var(--ink-soft);
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.52rem;
+  font-size: 0.75rem;
   text-align: left;
 }
 .project-thumbnails button.is-active { border-color: var(--oxide); color: var(--oxide); box-shadow: inset 0 -3px 0 var(--oxide); }
@@ -1354,7 +1364,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 .project-brief-label {
   color: var(--oxide);
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -1366,7 +1376,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   border-top: 1px solid var(--rule-soft);
   color: var(--oxide);
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.75rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -1382,7 +1392,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   margin-top: 10px;
   color: var(--ink-soft);
   font-family: var(--font-mono);
-  font-size: 0.52rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -1396,7 +1406,7 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
   display: block;
   color: var(--oxide);
   font-family: var(--font-mono);
-  font-size: 0.54rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1441,13 +1451,13 @@ h1, h2, h3, h4, strong, b { font-weight: 500; }
 @media (max-width: 1000px) { .cellgrid.cols-4, .cellgrid.cols-5 { grid-template-columns: repeat(2, 1fr); } .cellgrid.cols-3 { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .cellgrid.cols-4, .cellgrid.cols-5, .cellgrid.cols-2 { grid-template-columns: 1fr; } }
 .cellgrid > * { padding: 28px 32px; border-right: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
-.cell-tag { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.16em; color: var(--oxide); text-transform: uppercase; }
+.cell-tag { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.16em; color: var(--oxide); text-transform: uppercase; }
 .cellgrid h3 { font-size: 1.05rem; margin-top: 8px; }
 .cellgrid p { font-size: 0.9rem; color: var(--ink-soft); margin-top: 8px; }
 a.cell { text-decoration: none; color: var(--ink); display: block; }
 a.cell:hover { background: rgba(163, 70, 82, 0.06); }
 a.cell .go { display: inline-block; margin-top: 14px; font-size: 0.85rem; font-weight: 500; color: var(--aub); }
-/* approvals support — full-width cell beneath the four practices, on dust.
+/* approvals support - full-width cell beneath the four practices, on dust.
    It sits outside .cellgrid, so it needs the grid's cell padding explicitly
    or its content won't line up with the cards above. */
 a.cell.supporting-cell {
@@ -1501,15 +1511,15 @@ a.cell:hover .go { color: var(--oxide); }
 @media (max-width: 900px) { .split, .split.w-7-5 { grid-template-columns: 1fr; } }
 .panel { padding: 44px 48px; }
 @media (max-width: 900px) { .panel { padding: 32px 26px; } }
-/* Mineral Dust supporting surface — brings the full palette onto the sheet.
+/* Mineral Dust supporting surface - brings the full palette onto the sheet.
    Survey Grey is 3.82:1 on dust (AA fail), so secondary text darkens here:
-   #4d575c on #e5e1de ≈ 5.5:1. Scoped variable override — all descendants inherit. */
+   #4d575c on #e5e1de ≈ 5.5:1. Scoped variable override - all descendants inherit. */
 .panel-side { border-left: 1.5px solid var(--ink); background: var(--sheet-deep); padding: 44px 48px; --ink-soft: #4d575c; }
 @media (max-width: 900px) { .panel-side { border-left: none; border-top: 1.5px solid var(--ink); padding: 32px 26px; } }
 
 .fl {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -1540,20 +1550,20 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 }
 .dropzone:hover { background: rgba(163, 70, 82, 0.1); }
 .dropzone b { display: block; font-size: 0.95rem; }
-.dropzone span { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; color: var(--ink-soft); display: block; margin-top: 6px; }
+.dropzone span { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--ink-soft); display: block; margin-top: 6px; }
 .file-chip {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   border: 1px solid var(--rule);
   border-radius: 2px;
   padding: 5px 10px;
   margin: 8px 4px 0;
   background: var(--sheet);
 }
-.form-note { font-family: var(--font-mono); font-size: 0.72rem; padding: 12px 14px; border-radius: 2px; border: 1.5px solid var(--rule); background: var(--sheet-deep); }
+.form-note { font-family: var(--font-mono); font-size: 0.75rem; padding: 12px 14px; border-radius: 2px; border: 1.5px solid var(--rule); background: var(--sheet-deep); }
 
 /* ---------- condition decoder ---------- */
 .decoder-section .sec-head { align-items: center; }
@@ -1583,8 +1593,8 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 }
 .decoder-stamp::before { top: -6px; left: -6px; border-top: 1px solid; border-left: 1px solid; }
 .decoder-stamp::after { right: -6px; bottom: -6px; border-right: 1px solid; border-bottom: 1px solid; }
-.decoder-stamp span:first-child { font-size: 0.68rem; letter-spacing: 0.18em; }
-.decoder-stamp span:last-child { margin-top: 3px; font-size: 0.5rem; letter-spacing: 0.11em; }
+.decoder-stamp span:first-child { font-size: 0.75rem; letter-spacing: 0.18em; }
+.decoder-stamp span:last-child { margin-top: 3px; font-size: 0.75rem; letter-spacing: 0.11em; }
 
 .decoder-form-panel {
   background-color: var(--sheet-deep);
@@ -1646,19 +1656,19 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   background: color-mix(in srgb, var(--sheet), var(--sheet-deep) 8%);
   color: var(--oxide);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   transform: translateY(-50%);
 }
 .decoder-steps span {
   color: var(--oxide);
   font-family: var(--font-mono);
-  font-size: 0.56rem;
+  font-size: 0.75rem;
   letter-spacing: 0.16em;
 }
 .decoder-steps b {
   color: var(--ink);
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.06em;
   line-height: 1.35;
@@ -1677,7 +1687,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   .decoder-form-card { padding: 24px 20px; }
   .decoder-steps li { padding-right: 8px; }
   .decoder-steps li:not(:first-child) { padding-left: 8px; }
-  .decoder-steps b { font-size: 0.54rem; }
+  .decoder-steps b { font-size: 0.75rem; }
 }
 
 /* ---------- spec rows ---------- */
@@ -1686,10 +1696,10 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 .spec-row b {
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--oxide); /* 5.47:1 on sheet, 4.51:1 on dust — AA */
+  color: var(--oxide); /* 5.47:1 on sheet, 4.51:1 on dust - AA */
   padding: 14px 18px 14px 0;
 }
 .spec-row span { padding: 12px 0; font-size: 0.88rem; color: var(--ink-soft); }
@@ -1709,7 +1719,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   display: block;
   font-family: var(--font-mono);
   font-weight: 400;
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted-on-dark);
@@ -1717,13 +1727,13 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 }
 .titleblock h2 { font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.15; text-wrap: balance; }
 /* smaller CTA box with air under the heading; colour out-specifies .tb-cell a */
-.titleblock .btn-paper { margin-top: 26px; padding: 11px 18px; font-size: 0.7rem; color: var(--aub); }
+.titleblock .btn-paper { margin-top: 26px; padding: 11px 18px; font-size: 0.75rem; color: var(--aub); }
 .titleblock .btn-paper:hover { color: var(--aub); }
 /* smaller CTA box in the title block, with more air under the heading */
 
 .tb-cell a { color: var(--paper-on-dark); }
 .tb-cell .mono { font-family: var(--font-mono); font-size: 0.8rem; line-height: 2; }
-.tb-cell .mono.small { font-size: 0.72rem; line-height: 1.9; }
+.tb-cell .mono.small { font-size: 0.75rem; line-height: 1.9; }
 
 /* capability-statement request link in the title block (Drawing Paper on aubergine) */
 .tb-caplink {
@@ -1733,7 +1743,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   border: none;
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--paper-on-dark);
@@ -1764,7 +1774,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   border-bottom: 1.5px solid var(--ink);
   background: var(--sheet-deep);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1777,7 +1787,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   padding: 6px 10px;
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink);
@@ -1793,7 +1803,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   flex-wrap: wrap;
   gap: 8px 28px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   color: var(--ink-soft);
   border-top: 1.5px solid var(--ink);
 }
@@ -1884,7 +1894,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
 
 .about-focus {
   font-family: var(--font-mono);
-  font-size: 0.72rem !important;
+  font-size: 0.75rem !important;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--oxide) !important;
@@ -1914,7 +1924,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   padding-top: 16px;
   border-top: 1px solid var(--rule);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--oxide);
@@ -1952,7 +1962,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   top: 44px;
   right: 48px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   color: var(--ink-soft);
 }
@@ -2056,7 +2066,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--oxide); out
   text-transform: uppercase;
   color: var(--oxide);
 }
-/* sized so each sentence holds one line — the break is authored, not wrapped */
+/* sized so each sentence holds one line - the break is authored, not wrapped */
 .cap-h1 {
   margin-top: 7mm;
   font-size: 25pt;

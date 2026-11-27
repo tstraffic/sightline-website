@@ -1,5 +1,27 @@
 # DECISIONS.md — judgment calls, one line each
 
+## Website punch list, developer fixes (27 Nov 2026)
+
+Source: "Sightline website punch list" (crawl of 26 Nov 2026). Sections 3 to 5 built; everything that needs Saadat's input (section 1 take-downs R1 to R6, section 2 decisions S1 to S10, D8 Search Console, D18, D20 form testing, D21 privacy page, D22 listing links) is left open.
+
+- **D1** The canonical origin is one constant, `SITE.url` = `https://www.sightlinetraffic.com.au`; `metadataBase`, the sitemap and robots.txt all read it. The bare domain keeps redirecting to www on Vercel.
+- **D2** The root layout sets `alternates.canonical: "./"`, so every page carries a canonical of its own path unless it sets one itself. `/approvals` sets its own because its route is static.
+- **D3** The five project pages join the sitemap (42 URLs).
+- **D4** Title template is now `%s | Sightline`; the default title is "Traffic Engineers Sydney & NSW". The seven proposed titles from the punch list are applied verbatim. The other practice landings, sectors, About, Team and Contact were a bare label and now also carry the service and the place; those extra titles are the developer's wording, not Saadat's, and are the one D4 item still open for approval. Every title stays under 60 characters with the suffix. Twenty-four meta descriptions over 160 characters were trimmed (sentence recast or shortened, no em dashes); project pages now cut at a word boundary through `lib/metaDescription.ts`.
+- **D5** `src/app/opengraph-image.tsx` renders a 1200 x 630 PNG at build from the brand tokens and the primary lockup (Hanken Grotesk fetched from Google Fonts at build, default sans if the build machine is offline). `og:url` is per page, the Twitter card is `summary_large_image`. The root layout no longer carries an og/twitter title or description, so each page's own title and description flow through.
+- **D6** `BusinessJsonLd` adds `ProfessionalService` to the homepage (name, URL, logo, phone, email, George St address, NSW and ACT, Mon to Fri 8am to 5pm). `sameAs` waits for D22.
+- **D7** Vercel Web Analytics (`@vercel/analytics`, cookieless). Events: `fee_proposal_sent`, `condition_decoder_sent`, `capability_statement_requested` on a successful submit; `phone_link_clicked` and `email_link_clicked` from one delegated listener (`LinkTracking`). The Analytics toggle on the Vercel project has to be switched on for anything to record.
+- **D9** The dropdown and mobile panels are always rendered and toggled with the `hidden` attribute, so every nav link is in the HTML at load.
+- **D10** The hero viewer no longer preloads sheets 02 to 04 and no longer bypasses the optimiser: both image layers are `next/image` with `sizes` matching the sheet width (920 / 1060 / 1320 px) and quality 70, so phones get a resized variant and the drawing-reveal layer reuses the same file. Each sheet carries a 24 px blur placeholder generated with sharp and stored in `hero-plan.ts`. The source files are unchanged pending R2.
+- **D11** A tap-to-call icon sits beside MENU below 1120 px.
+- **D12** The hero buttons moved above the second paragraph; S10 may drop that paragraph later.
+- **D13** Every `font-size` under 0.75rem in globals.css and the two arbitrary Tailwind sizes were raised to 12 px (65 rules). Letter-spacing and padding were not changed; the mobile CTA cell and the plan toolbar were checked at 375 px.
+- **D14** Root cause: an unlayered `* { margin: 0; padding: 0 }` in globals.css outranked every Tailwind utility, so `mt-4` on the decoder paragraphs (and about 37 other spacing utilities across the site) never applied. The line is removed; Tailwind's preflight already does the same reset inside `@layer base`. Pages were checked after the change.
+- **D15** `src/app/not-found.tsx` is a branded 404 linking the four practices, approvals and contact.
+- **D16** 409 em dashes replaced across content, components and CSS comments: between digits with a plain hyphen (`01-03`), elsewhere with a spaced hyphen. En dashes in ranges ("Mon–Fri, 8am–5pm") are untouched; the list only named U+2014.
+- **D17** The menu now reads the parking practice's own label, "Parking, access and swept paths".
+- **D19** The three forms carry `method="post"` and an `action`, and the API routes answer a plain navigation (no JavaScript) with a 303 to `/thank-you` (noindex) instead of JSON. Email delivery itself is still the stub (D20).
+
 ## Authorised project drawing showcase (12 Aug 2026)
 
 - Replaced the gated Projects placeholder with five authorised drawing showcases supplied by Saadat: Hill Road traffic staging, Westmead Bridge Stage 2 detour, a six-sheet TGS sample, Hill Road traffic cross sections, and Heddon Greta Stage 2 sheets 9-14.

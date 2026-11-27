@@ -1,5 +1,5 @@
 /**
- * Team page — detailed people profiles supporting the practice story on /about.
+ * Team page - detailed people profiles supporting the practice story on /about.
  * Qualifications and experience below are retained from the approved live-site
  * content, with claims expressed in the current Sightline voice.
  */
@@ -41,7 +41,7 @@ export const PEOPLE: TeamMember[] = [
   {
     role: "Commercial Director",
     name: "Saadat Ahmed",
-    creds: ["BE (Civil) — Traffic & Transport", "WHS credentials", "SIDRA · AutoTURN · Vehicle Tracking"],
+    creds: ["BE (Civil) - Traffic & Transport", "WHS credentials", "SIDRA · AutoTURN · Vehicle Tracking"],
     bio: "Saadat works across project strategy, client partnerships and traffic engineering delivery. His background in structural drafting, civil project management and traffic management supports a whole-of-project view of design coordination, approvals and construction requirements.",
     signs: [
       { label: "Focus", value: "Project strategy, client partnerships and growth" },
@@ -74,10 +74,10 @@ export const PEOPLE: TeamMember[] = [
 ];
 
 export const QUALIFICATION_REGISTER = [
-  { ref: "Q—01", who: "Saadat Ahmed", qual: "BE (Civil), traffic and transport specialisation · WHS credentials", covers: "Project strategy, assessments, design coordination and technical delivery" },
-  { ref: "Q—02", who: "Taj Rahman", qual: "B. Construction Management", covers: "Construction-phase traffic delivery, staging and constructability input" },
-  { ref: "Q—03", who: "Rumman Khan", qual: "Traffic and transport planning · 8+ years’ experience", covers: "Assessment, modelling, parking, access and construction traffic documentation" },
-  { ref: "Q—04", who: "Sightline Traffic Engineers Pty Ltd", qual: "Professional indemnity insurance", covers: "Certificate of currency available on request" },
+  { ref: "Q - 01", who: "Saadat Ahmed", qual: "BE (Civil), traffic and transport specialisation · WHS credentials", covers: "Project strategy, assessments, design coordination and technical delivery" },
+  { ref: "Q - 02", who: "Taj Rahman", qual: "B. Construction Management", covers: "Construction-phase traffic delivery, staging and constructability input" },
+  { ref: "Q - 03", who: "Rumman Khan", qual: "Traffic and transport planning · 8+ years’ experience", covers: "Assessment, modelling, parking, access and construction traffic documentation" },
+  { ref: "Q - 04", who: "Sightline Traffic Engineers Pty Ltd", qual: "Professional indemnity insurance", covers: "Certificate of currency available on request" },
 ] as const;
 
 export const HIRING = {

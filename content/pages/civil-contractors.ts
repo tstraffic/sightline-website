@@ -1,5 +1,5 @@
 /**
- * Page 26a — Sectors · Civil Contractors. Disposition: KEEP with the one
+ * Page 26a - Sectors · Civil Contractors. Disposition: KEEP with the one
  * softening fix from 05-migration-map: the "approved first time" bullet lead
  * (a guarantee-shaped claim) is dropped; the deflection-zone check leads
  * instead. Everything else verbatim. Route-to list renders as link cards.
@@ -17,7 +17,7 @@ export const CIVIL_CONTRACTORS = {
       text: "multiple, evolving TGS coordinated as one sequence, revised and reissued as conditions move",
     },
     {
-      // Softened per 05-migration-map (26a note) — guarantee phrase removed
+      // Softened per 05-migration-map (26a note) - guarantee phrase removed
       lead: "Barrier design statements",
       text: "deflection zones assessed against the manufacturer's specification and the road authority's requirements, with approved-product status confirmed for the project",
     },
@@ -35,7 +35,7 @@ export const CIVIL_CONTRACTORS = {
     },
   ],
   outro:
-    "Our engineers and project managers are qualified across a wide range of traffic and roadwork scenarios, and advise with practicality in mind — so the plan holds up when it actually meets the job.",
+    "Our engineers and project managers are qualified across a wide range of traffic and roadwork scenarios, and advise with practicality in mind - so the plan holds up when it actually meets the job.",
   routeHeading: "Where contractors usually start",
   routes: [
     { ref: "02", label: "Traffic staging plans", href: "/traffic-staging-plans" },

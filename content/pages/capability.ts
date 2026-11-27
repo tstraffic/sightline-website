@@ -3,12 +3,12 @@ import { STATS } from "../verified";
 /**
  * Capability-statement cover content. Rebuilt in-repo (5 Aug 2026) so it
  * shares the site's design tokens and copy source and cannot drift from the
- * brand again — the previously approved cover existed only as flat artwork.
+ * brand again - the previously approved cover existed only as flat artwork.
  *
  * Brought in line with Copy Pass 1: new tagline, consultancy positioning,
  * NSW & ACT scope, the current verified statistics, and no brass.
  *
- * TODO(verify:rev) — revision letter and issue status are Saadat's call.
+ * TODO(verify:rev) - revision letter and issue status are Saadat's call.
  * The superseded artwork was "REV B · DRAFT FOR REVIEW".
  */
 export const CAPABILITY_COVER = {
@@ -24,7 +24,7 @@ export const CAPABILITY_COVER = {
   intro:
     "Sightline provides traffic engineering for development approvals, parking and access, network performance and construction delivery across NSW and the ACT. We prepare the reports, assessments and drawings that help projects move from concept and consent through to construction.",
 
-  /** Three-line rule block — carried from the approved cover. */
+  /** Three-line rule block - carried from the approved cover. */
   principles: [
     "Independent professional judgment.",
     "Practical delivery awareness.",
@@ -41,7 +41,7 @@ export const CAPABILITY_COVER = {
     ["Status", "For approval"],
   ] as [string, string][],
 
-  footerLeft: "Sightline Traffic Engineers — capability statement",
+  footerLeft: "Sightline Traffic Engineers - capability statement",
 } as const;
 
 /** Only verified figures appear on the cover, same rule as the website. */

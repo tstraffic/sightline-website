@@ -19,6 +19,8 @@ export type CaseStudy = {
   sector: { label: string; href: string };
   division: { label: string; href: string };
   summary: string;
+  /** Search-result description when the summary runs past 160 characters (D4). */
+  metaDescription?: string;
   workIncluded: string[];
   drawingStatus: string;
   deliverables: string[];
@@ -40,6 +42,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     division: CONSTRUCTION,
     summary:
       "An overall corridor plan coordinating staged traffic arrangements, temporary alignments, work zones and tie-ins across Hill Road and its connecting intersections.",
+    metaDescription:
+      "Overall corridor plan coordinating staged traffic arrangements, temporary alignments, work zones and tie-ins across Hill Road and its intersections.",
     workIncluded: [
       "Overall road plan across the full project corridor",
       "Temporary traffic alignments and construction-zone overlays",
@@ -149,6 +153,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     division: CONSTRUCTION,
     summary:
       "Typical Hill Road sections setting out live traffic lanes, shoulder widths, temporary barriers, deflection zones, pedestrian paths and construction areas at three chainages.",
+    metaDescription:
+      "Typical Hill Road cross sections: live lanes, shoulders, temporary barriers, deflection zones, pedestrian paths and construction areas at three chainages.",
     workIncluded: [
       "Three typical road cross sections at nominated chainages",
       "Barrier locations and required deflection zones",
@@ -177,6 +183,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     division: CONSTRUCTION,
     summary:
       "Stage 2 construction traffic staging for the proposed service station at 83 Main Road, shown through the selected cover, index, notes, legend, cross-section and general-plan sheets.",
+    metaDescription:
+      "Stage 2 construction traffic staging for the proposed service station at 83 Main Road, Heddon Greta: cover, index, notes, legend and general plan sheets.",
     workIncluded: [
       "Stage 2 package cover and drawing index",
       "General notes, legends and typical staging details",

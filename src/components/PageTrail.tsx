@@ -14,6 +14,9 @@ const LABELS: Record<string, string> = {
   "/sectors": "Sectors",
   "/approvals": "Approvals and delivery support",
   "/capability-statement": "Capability statement",
+  "/thank-you": "Enquiry received",
+  // Next prerenders the 404 page at this path; the browser then sees the real URL.
+  "/_not-found": "Page not found",
   "/development-traffic-engineering": PRACTICES.development.label,
   "/parking-access-swept-paths": PRACTICES.parking.label,
   "/traffic-modelling-network-assessment": PRACTICES.modelling.label,
@@ -118,7 +121,11 @@ export function PageTrail() {
             <Link href={parent.href}>{parent.label}</Link>
           </li>
         )}
-        <li className="page-crumb-current" aria-current="page">{current}</li>
+        {/* On the 404 page the server rendered "/_not-found" while the client sees the
+            typed URL, so this one label is allowed to differ (D15). */}
+        <li className="page-crumb-current" aria-current="page" suppressHydrationWarning>
+          {current}
+        </li>
       </ol>
     </nav>
   );

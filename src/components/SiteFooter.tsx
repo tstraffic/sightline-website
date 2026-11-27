@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SITE } from "@content/site";
 
-/** Thin mono strip at the sheet's foot — Title Block system. */
+/** Thin mono strip at the sheet's foot - Title Block system. */
 export function SiteFooter() {
   return (
     <footer className="footer">

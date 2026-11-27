@@ -7,9 +7,10 @@ import { StatsBand } from "@/components/StatsBand";
 import { TitleBlockCta } from "@/components/TitleBlockCta";
 import { DecoderForm } from "@/components/DecoderForm";
 import { CapabilityRequestModal } from "@/components/CapabilityRequestModal";
+import { BusinessJsonLd } from "@/components/BusinessJsonLd";
 
 /**
- * Homepage — Title Block treatment. Structure per Copy Pass 1: hero, stats,
+ * Homepage - Title Block treatment. Structure per Copy Pass 1: hero, stats,
  * credentials, Why Sightline, four engineering practices, approvals as a
  * supporting section, condition decoder, sectors, title-block CTA.
  */
@@ -17,7 +18,8 @@ export default function HomePage() {
   const confirmed = CREDENTIALS.filter((c) => c.verified);
   return (
     <>
-      {/* Hero — copy + drawing panel */}
+      <BusinessJsonLd />
+      {/* Hero - copy + drawing panel */}
       <header className="hero">
         <div className="hero-copy">
           <div className="dwgno">{HOME.hero.eyebrow}</div>
@@ -27,7 +29,8 @@ export default function HomePage() {
             <em>{HOME.hero.h1Line2}</em>
           </h1>
           <p className="sub">{HOME.hero.sub}</p>
-          <p className="sub">{HOME.hero.lifecycle}</p>
+          {/* Buttons sit above the second paragraph so the first one lands on the
+              first phone screen (D12). S10 may drop the paragraph altogether. */}
           <div className="hero-actions">
             <Link className="btn btn-oxide" href={CTA.primary.href}>
               {CTA.primary.label} →
@@ -37,6 +40,7 @@ export default function HomePage() {
             </Link>
             <CapabilityRequestModal variant="button" />
           </div>
+          <p className="sub hero-lifecycle">{HOME.hero.lifecycle}</p>
           <div className="hero-note">{HOME.hero.note}</div>
         </div>
         <div className="hero-draw">
@@ -46,14 +50,14 @@ export default function HomePage() {
 
       <StatsBand />
 
-      {/* Credential strip — confirmed items only */}
+      {/* Credential strip - confirmed items only */}
       <div className="credstrip" aria-label="Credentials">
         {confirmed.map((c) => (
           <span key={c.value}>{c.value}</span>
         ))}
       </div>
 
-      {/* SHT 01 — Why Sightline */}
+      {/* SHT 01 - Why Sightline */}
       <section className="section" aria-labelledby="why">
         <div className="sec-head">
           <span className="sec-num">SHT 01</span>
@@ -79,12 +83,12 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-        <p className="pad !py-6 font-mono text-[0.72rem] uppercase tracking-[0.08em] text-survey">
+        <p className="pad !py-6 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-survey">
           {HOME.why.closing}
         </p>
       </section>
 
-      {/* SHT 02 — the four engineering practices */}
+      {/* SHT 02 - the four engineering practices */}
       <section className="section" aria-labelledby="pillars">
         <div className="sec-head">
           <span className="sec-num">SHT 02</span>
@@ -94,7 +98,7 @@ export default function HomePage() {
         <div className="cellgrid cols-2">
           {HOME.pillars.map((p) => (
             <Link key={p.ref} href={p.href} className="cell">
-              <span className="cell-tag">P—{p.ref}</span>
+              <span className="cell-tag">P - {p.ref}</span>
               <h3>{p.title}</h3>
               <p>{p.text}</p>
               <span className="go">View the practice →</span>
@@ -110,7 +114,7 @@ export default function HomePage() {
         </Link>
       </section>
 
-      {/* SHT 03 — the condition decoder */}
+      {/* SHT 03 - the condition decoder */}
       <section className="section decoder-section" aria-labelledby="decoder">
         <div className="sec-head">
           <span className="sec-num">SHT 03</span>
@@ -148,7 +152,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SHT 04 — sectors */}
+      {/* SHT 04 - sectors */}
       <section className="section" aria-labelledby="sectors">
         <div className="sec-head">
           <span className="sec-num">SHT 04</span>

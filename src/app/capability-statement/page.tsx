@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 /**
  * Print-ready capability-statement cover, A4 portrait.
  *
- * Lives in the repo so it uses the same tokens and copy source as the site —
+ * Lives in the repo so it uses the same tokens and copy source as the site - 
  * update the brand once, both follow. Not in the nav or sitemap; noindex.
  * To produce the PDF: open /capability-statement and print to PDF (A4,
  * background graphics on, margins none).

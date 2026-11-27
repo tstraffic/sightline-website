@@ -2,7 +2,7 @@ import type { ServicePageData } from "./types";
 import { PRACTICES } from "./practices";
 
 /**
- * Page 01 — TGS/TCP. Voice fix 1 (avoid-list phrases removed) plus Copy Pass 1:
+ * Page 01 - TGS/TCP. Voice fix 1 (avoid-list phrases removed) plus Copy Pass 1:
  * "certified diagram that decides whether…" and "certified Traffic Guidance
  * Schemes" replaced with site-specific / requirement-dependent wording; the
  * TGS-vs-TCP and preparer FAQs rewritten; TCAWS Manual → TfNSW TS 05492.
@@ -11,9 +11,9 @@ export const TGS_TCP: ServicePageData = {
   pageNo: "01",
   slug: "tgs-traffic-control-plans",
   title: "Traffic guidance schemes (TGS) & traffic control plans (TCP)",
-  metaTitle: "Traffic Guidance Schemes (TGS) & Traffic Control Plans (TCP)",
+  metaTitle: "Traffic Guidance Schemes (TGS) NSW",
   metaDescription:
-    "Site-specific Traffic Guidance Schemes for civil, construction and infrastructure projects across NSW and the ACT, prepared with reference to TfNSW TS 05492 and AS 1742.3.",
+    "Site-specific traffic guidance schemes for civil, construction and infrastructure projects across NSW and the ACT, prepared to TfNSW TS 05492 and AS 1742.3.",
   practice: PRACTICES.construction,
   opener:
     "The site-specific drawing that communicates how traffic, pedestrians and workers are managed around the work area.",
@@ -28,14 +28,14 @@ export const TGS_TCP: ServicePageData = {
       kind: "numbered",
       heading: "Our process",
       steps: [
-        "Consultation — an in-depth discussion to understand your project's scope, site conditions, and any specific safety concerns",
-        "Creation of clear, detailed plans — a certified scheme detailing every required sign, device, marking, cone and speed limit variation",
-        "Implementation support — staying engaged through execution, addressing site learnings as they arise and keeping you up to speed throughout",
+        "Consultation - an in-depth discussion to understand your project's scope, site conditions, and any specific safety concerns",
+        "Creation of clear, detailed plans - a certified scheme detailing every required sign, device, marking, cone and speed limit variation",
+        "Implementation support - staying engaged through execution, addressing site learnings as they arise and keeping you up to speed throughout",
       ],
     },
     {
       kind: "paragraph",
-      text: "The result: a work area where every road user — workers and pedestrians included — is directed and managed safely through, past, or around the site.",
+      text: "The result: a work area where every road user - workers and pedestrians included - is directed and managed safely through, past, or around the site.",
     },
   ],
   faqs: [
@@ -49,11 +49,11 @@ export const TGS_TCP: ServicePageData = {
     },
     {
       q: "How long does a TGS/TCP take to prepare?",
-      a: "Depends on site complexity — a straightforward single-lane closure turns around quickly; multi-stage or high-traffic sites need more detailed consultation and design time.",
+      a: "Depends on site complexity - a straightforward single-lane closure turns around quickly; multi-stage or high-traffic sites need more detailed consultation and design time.",
     },
     {
       q: "Do I need a new TGS/TCP if site conditions change?",
-      a: "Yes — any material change to the work site, traffic conditions, or staging generally requires the scheme to be reviewed and, if needed, formally updated.",
+      a: "Yes - any material change to the work site, traffic conditions, or staging generally requires the scheme to be reviewed and, if needed, formally updated.",
     },
   ],
   closingLine:

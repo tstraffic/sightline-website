@@ -4,7 +4,7 @@ import { PRACTICES } from "./practices";
  * Practice landing pages. Copy Pass 1 (Saadat, 5 Aug 2026) restructured these
  * into four engineering practices with approvals demoted to a supporting
  * section. Register one-liners are each service page's own opening line.
- * `scope` lists services offered that do not yet have their own page — text
+ * `scope` lists services offered that do not yet have their own page - text
  * only, never links, so nothing dead-ends.
  * Hidden drafts (08, 12, 13, 21) are excluded from every register.
  */
@@ -20,7 +20,7 @@ export type LandingData = {
   services: { ref: string; title: string; line: string; href: string }[];
 };
 
-/** P—01 — Development traffic engineering. */
+/** P - 01 - Development traffic engineering. */
 export const DEVELOPMENT_LANDING: LandingData = {
   eyebrow: "Engineering services · Practice 01",
   h1: "An otherwise strong DA can still stall on one unresolved dimension.",
@@ -35,7 +35,7 @@ export const DEVELOPMENT_LANDING: LandingData = {
     "Sustainable transport assessments",
     "Council and road authority response letters",
   ],
-  registerTitle: "Practice register — what we issue",
+  registerTitle: "Practice register - what we issue",
   registerRev: "Pages 11 & 14",
   services: [
     {
@@ -50,11 +50,11 @@ export const DEVELOPMENT_LANDING: LandingData = {
       line: "Bigger project, bigger scrutiny.",
       href: "/traffic-impact-assessment",
     },
-    // Page 21 (operational traffic & parking management plans) — hidden draft.
+    // Page 21 (operational traffic & parking management plans) - hidden draft.
   ],
 };
 
-/** P—02 — Parking, access and swept paths. */
+/** P - 02 - Parking, access and swept paths. */
 export const PARKING_LANDING: LandingData = {
   eyebrow: "Engineering services · Practice 02",
   h1: "Parking, access and swept paths, resolved before construction locks them in.",
@@ -64,7 +64,7 @@ export const PARKING_LANDING: LandingData = {
   ],
   scopeHeading: "Also within this practice",
   scope: ["Loading and servicing reviews"],
-  registerTitle: "Practice register — what we issue",
+  registerTitle: "Practice register - what we issue",
   registerRev: "Pages 06, 15–20",
   services: [
     {
@@ -76,7 +76,7 @@ export const PARKING_LANDING: LandingData = {
     {
       ref: "15",
       title: "Carpark demand assessment",
-      line: "Statutory parking rates don't know your site — a demand assessment does.",
+      line: "Statutory parking rates don't know your site - a demand assessment does.",
       href: "/carpark-demand-assessment",
     },
     {
@@ -112,13 +112,13 @@ export const PARKING_LANDING: LandingData = {
   ],
 };
 
-/** P—03 — Traffic modelling and network assessment. */
+/** P - 03 - Traffic modelling and network assessment. */
 export const MODELLING_LANDING: LandingData = {
   eyebrow: "Engineering services · Practice 03",
   h1: "Test the pressure on the network before it becomes a real-world problem.",
   intro: [
     "Traffic surveys, intersection modelling and network analysis that test how a development, road change or construction stage will perform.",
-    "Whether a development generates traffic the network can absorb, whether an intersection will hold its level of service through the design horizon, whether a staged closure will queue back into the intersection upstream — these are answered with calibrated models and observed data, not judgement calls.",
+    "Whether a development generates traffic the network can absorb, whether an intersection will hold its level of service through the design horizon, whether a staged closure will queue back into the intersection upstream - these are answered with calibrated models and observed data, not judgement calls.",
   ],
   scopeHeading: "Also within this practice",
   scope: [
@@ -127,7 +127,7 @@ export const MODELLING_LANDING: LandingData = {
     "Traffic distribution and assignment",
     "Traffic signal and road-upgrade advice",
   ],
-  registerTitle: "Practice register — what we issue",
+  registerTitle: "Practice register - what we issue",
   registerRev: "Pages 09–10",
   services: [
     {
@@ -142,11 +142,11 @@ export const MODELLING_LANDING: LandingData = {
       line: "The data-driven case that convinces council your intersection will actually perform.",
       href: "/sidra-intersection-analysis",
     },
-    // Page 12 (traffic data collection & analysis) — hidden draft.
+    // Page 12 (traffic data collection & analysis) - hidden draft.
   ],
 };
 
-/** P—04 — Construction traffic engineering. */
+/** P - 04 - Construction traffic engineering. */
 export const CONSTRUCTION_LANDING: LandingData = {
   eyebrow: "Engineering services · Practice 04",
   h1: "A work zone is an engineering problem before it is a paperwork problem.",
@@ -156,13 +156,13 @@ export const CONSTRUCTION_LANDING: LandingData = {
   ],
   scopeHeading: "Also within this practice",
   scope: ["Construction vehicle route plans"],
-  registerTitle: "Practice register — what we issue",
+  registerTitle: "Practice register - what we issue",
   registerRev: "Pages 01–05, 07",
   services: [
     {
       ref: "03",
       title: "Traffic management plans (TMP & CTMP)",
-      line: "Working without one carries real risk — fines, stop-work orders, and liability if something goes wrong.",
+      line: "Working without one carries real risk - fines, stop-work orders, and liability if something goes wrong.",
       href: "/traffic-management-plans",
     },
     {
@@ -186,7 +186,7 @@ export const CONSTRUCTION_LANDING: LandingData = {
     {
       ref: "05",
       title: "Temporary barrier design & cross sections",
-      line: "An incorrect deflection zone is a common cause of rejection — or barrier failure in the field.",
+      line: "An incorrect deflection zone is a common cause of rejection - or barrier failure in the field.",
       href: "/temporary-barrier-design",
     },
     {
@@ -195,11 +195,11 @@ export const CONSTRUCTION_LANDING: LandingData = {
       line: "A traffic management plan is only as effective as its on-site implementation.",
       href: "/site-audits",
     },
-    // Page 08 (road safety audits) — hidden draft.
+    // Page 08 (road safety audits) - hidden draft.
   ],
 };
 
-/** Approvals — supporting section beneath the four engineering practices. */
+/** Approvals - supporting section beneath the four engineering practices. */
 export const APPROVALS_LANDING: LandingData = {
   eyebrow: "Supporting · Approvals and delivery support",
   h1: "The approvals that come with the works.",
@@ -208,19 +208,19 @@ export const APPROVALS_LANDING: LandingData = {
     "Where required, Sightline can coordinate the approvals that accompany the engineering work, including road occupancy licences, council permits, stakeholder submissions and community notifications.",
     "That coordination runs alongside the design work, so the approvals pathway progresses in parallel with your programme rather than holding it up.",
   ],
-  registerTitle: "Section register — what we manage",
+  registerTitle: "Section register - what we manage",
   registerRev: "Pages 22–25",
   services: [
     {
       ref: "22",
       title: "TMC road occupancy licence (ROL)",
-      line: "No ROL, no works — it's that simple.",
+      line: "No ROL, no works - it's that simple.",
       href: "/road-occupancy-licence",
     },
     {
       ref: "23",
       title: "Council permits & applications",
-      line: "Many types of permits can leave you guessing which one is right for your site — we navigate that for you.",
+      line: "Many types of permits can leave you guessing which one is right for your site - we navigate that for you.",
       href: "/council-permits",
     },
     {
@@ -238,12 +238,12 @@ export const APPROVALS_LANDING: LandingData = {
   ],
 };
 
-/** Sectors landing — intro verbatim from Rev 3 §F. */
+/** Sectors landing - intro verbatim from Rev 3 §F. */
 export const SECTORS_LANDING = {
   eyebrow: "Sectors",
   h1: "Same engineering. Different problem to solve.",
   intro:
-    "A civil contractor needs a staging set that survives a programme change. An architect needs a parking layout that survives council. A council needs an audit it can defend. Sightline works across all of them — five tiles linking through to the pages below.",
+    "A civil contractor needs a staging set that survives a programme change. An architect needs a parking layout that survives council. A council needs an audit it can defend. Sightline works across all of them - five tiles linking through to the pages below.",
 } as const;
 
 export const PRACTICE_LANDINGS: Record<string, LandingData> = {

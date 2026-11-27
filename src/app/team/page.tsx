@@ -11,12 +11,12 @@ import { TechnicalPageHead } from "@/components/InternalPageModules";
 import { SITE } from "@content/site";
 
 export const metadata: Metadata = {
-  title: "Our team",
+  title: "Our Traffic Engineering Team Sydney",
   description:
     "Meet the Sightline team working across traffic engineering, transport planning, construction delivery and project coordination.",
 };
 
-/** /team — detailed people profiles; /about carries the wider practice story. */
+/** /team - detailed people profiles; /about carries the wider practice story. */
 export default function TeamPage() {
   return (
     <article>

@@ -8,7 +8,7 @@ import { ROL, COUNCIL_PERMITS, STA_POLICE, COMMUNITY } from "./approvals-service
 
 /**
  * Registry of every LIVE service page, keyed by URL slug (URLs exactly as
- * listed in 03-build-list.md). Hidden drafts (08, 12, 13, 21) are NOT here —
+ * listed in 03-build-list.md). Hidden drafts (08, 12, 13, 21) are NOT here - 
  * they join in Phase 3 with draft handling (noindex, watermark, out of nav).
  */
 export const SERVICES: Record<string, ServicePageData> = Object.fromEntries(

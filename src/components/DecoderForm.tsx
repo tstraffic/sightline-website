@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 /**
- * Condition decoder form — free, no obligation. Phase 1 = layout + front-end
+ * Condition decoder form - free, no obligation. Phase 1 = layout + front-end
  * validation with a stubbed submit; wiring lands in Phase 2 with the contact
  * form handler.
  */
@@ -18,13 +19,14 @@ export function DecoderForm({ title, steps }: { title: string; steps: readonly s
     try {
       const res = await fetch("/api/decoder", { method: "POST", body: new FormData(form) });
       setStatus(res.ok ? "sent" : "error");
+      if (res.ok) track("condition_decoder_sent");
     } catch {
       setStatus("error");
     }
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4">
+    <form onSubmit={onSubmit} method="post" action="/api/decoder" className="grid gap-4">
       <ol className="decoder-steps" aria-label="Condition review process">
         {steps.map((step, index) => (
           <li key={step}>
@@ -67,11 +69,11 @@ export function DecoderForm({ title, steps }: { title: string; steps: readonly s
         </button>
         {status === "sent" && (
           <p className="form-note mt-3">
-            Received. Email delivery is not wired yet (staging stub) — a provider key and routing address are needed before launch.
+            Received. Email delivery is not wired yet (staging stub) - a provider key and routing address are needed before launch.
           </p>
         )}
         {status === "error" && (
-          <p className="form-note mt-3">Something went wrong — please call or email us directly.</p>
+          <p className="form-note mt-3">Something went wrong - please call or email us directly.</p>
         )}
       </div>
     </form>
